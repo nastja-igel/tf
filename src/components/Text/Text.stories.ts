@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Text } from './Text'
 
-const meta = {
+const meta: Meta<typeof Text> = {
   title: 'Components/Text',
   component: Text,
   tags: ['autodocs'],
   args: { children: 'The quick brown fox jumps over the lazy dog' },
-} satisfies Meta<typeof Text>
+}
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -19,6 +19,5 @@ export const BodySm: Story = { args: { variant: 'body-sm' } }
 export const Caption: Story = { args: { variant: 'caption' } }
 export const Label: Story = { args: { variant: 'label' } }
 export const Mono: Story = { args: { variant: 'mono' } }
-
 export const ColorSecondary: Story = { args: { color: 'secondary' } }
 export const ColorAccent: Story = { args: { color: 'accent' } }

@@ -1,15 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { SocialButton } from './SocialButton'
 
-const meta = {
+const meta: Meta<typeof SocialButton> = {
   title: 'Components/SocialButton',
   component: SocialButton,
   tags: ['autodocs'],
-  parameters: { backgrounds: { default: 'sky' }, },
-} satisfies Meta<typeof SocialButton>
+}
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Google: Story    = { args: { provider: 'google' } }
+export const Google: Story = { args: { provider: 'google' } }
 export const Microsoft: Story = { args: { provider: 'microsoft' } }
