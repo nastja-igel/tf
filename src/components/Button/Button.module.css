@@ -1,108 +1,68 @@
+/* Button — Figma node 100:21 */
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: var(--space-2);
+  height: 54px;
+  padding: 0 var(--space-6);
   border: none;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-pill);
   font-family: var(--font-sans);
-  font-size: 15px;
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: 0.005em;
+  font-size: var(--font-size-base);   /* 16px */
+  font-weight: var(--font-weight-semibold); /* 600 */
+  line-height: var(--line-height-md);       /* 24px */
+  letter-spacing: var(--letter-spacing-none);
+  color: var(--text-inverse);
+  background: var(--ink);
+  filter: drop-shadow(var(--shadow-button));
   cursor: pointer;
-  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+  transition: background 0.12s ease, opacity 0.12s ease, transform 0.1s ease;
   white-space: nowrap;
   text-decoration: none;
-  box-shadow: 0 12px 24px -10px rgba(0,0,0,0.35), 0 1px 0 rgba(255,255,255,0.15) inset;
 }
 
 .button:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--border-focus);
   outline-offset: 2px;
 }
 
-.button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-  pointer-events: none;
+.button:hover:not(:disabled) {
+  background: var(--ink-2);
 }
 
 .button:active:not(:disabled) {
+  background: var(--ink-3);
   transform: translateY(1px);
 }
 
-/* ── Variants ─────────────────────────────── */
-.primary {
+.button:disabled {
   background: var(--ink);
-  color: var(--text-inverse);
-}
-.primary:hover:not(:disabled) {
-  background: var(--ink-2);
-}
-.primary:active:not(:disabled) {
-  background: var(--ink-3);
+  opacity: 0.40;
+  cursor: not-allowed;
+  filter: none;
 }
 
-.secondary {
-  background: var(--surface-field);
-  color: var(--text-primary);
-  border: 1px solid var(--border-glass);
-  box-shadow: none;
-}
-.secondary:hover:not(:disabled) {
-  background: var(--surface-field-hover);
-}
+/* sizes */
+.sm { height: 36px; padding: 0 var(--space-4); font-size: var(--font-size-md); }
+.md { height: 46px; padding: 0 var(--space-5); }
+.lg { height: 54px; padding: 0 var(--space-6); }
 
-.ghost {
-  background: transparent;
-  color: var(--text-primary);
-  box-shadow: none;
-}
-.ghost:hover:not(:disabled) {
-  background: rgba(0,0,0,0.05);
-}
+.fullWidth { width: 100%; }
 
-/* ── Sizes ────────────────────────────────── */
-.sm {
-  height: 36px;
-  padding: 0 16px;
-  font-size: 13px;
-}
-.md {
-  height: 46px;
-  padding: 0 24px;
-}
-.lg {
-  height: 54px;
-  padding: 0 32px;
-  font-size: 15px;
-}
-
-.fullWidth {
-  width: 100%;
-}
-
-/* ── Loading ──────────────────────────────── */
-.loading {
-  pointer-events: none;
-  opacity: 0.85;
-}
-
-.loading .label {
-  opacity: 0.6;
-}
+/* loading */
+.loading { pointer-events: none; }
+.loading .label { opacity: 0.70; }
 
 .spinner {
   display: block;
   width: 16px;
   height: 16px;
-  border: 2px solid rgba(255,255,255,0.35);
+  border: 2px solid rgba(255, 255, 255, 0.30);
   border-top-color: white;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-pill);
   animation: spin 0.7s linear infinite;
   flex-shrink: 0;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
+@keyframes spin { to { transform: rotate(360deg); } }

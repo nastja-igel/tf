@@ -1,72 +1,93 @@
+/* Input — Figma node 98:78 */
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-2); /* 8px */
+  width: 100%;
 }
 
+/* Label — label/md: 13.5px SemiBold */
 .label {
   font-family: var(--font-sans);
-  font-size: 13.5px;
-  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-label); /* 13.5px */
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-xs); /* 100% */
+  letter-spacing: var(--letter-spacing-none);
   color: var(--text-primary);
-  letter-spacing: -0.005em;
-  line-height: 1;
 }
 
+.label.labelDisabled {
+  color: var(--text-disabled);
+}
+
+/* Field wrap */
 .fieldWrap {
   position: relative;
+  width: 100%;
 }
 
+/* Input field */
 .input {
   width: 100%;
   height: 52px;
-  padding: 0 16px;
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-md);
+  padding: 0 var(--space-4); /* 16px */
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md); /* 12px */
   font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: var(--font-weight-regular);
-  color: var(--text-primary);
+  font-size: var(--font-size-md);   /* 14px */
+  font-weight: var(--font-weight-medium); /* 500 */
+  line-height: var(--line-height-sm);     /* 20px */
+  letter-spacing: var(--letter-spacing-none);
+  color: var(--text-tertiary);
   background: var(--surface-field);
-  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
   outline: none;
+  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
   -webkit-font-smoothing: antialiased;
 }
 
-.input::placeholder {
-  color: var(--text-tertiary);
-}
+/* Placeholder = tertiary */
+.input::placeholder { color: var(--text-tertiary); }
 
-.input:hover {
+/* Hover */
+.input:hover:not(:disabled):not(:focus) {
   background: var(--surface-field-hover);
 }
 
+/* Focus */
 .input:focus {
   background: var(--surface-field-focus);
-  border-color: var(--accent);
-  box-shadow: 0 0 0 4px color-mix(in oklch, var(--accent) 18%, transparent);
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-focus);
+  color: var(--text-primary);
 }
 
+/* Filled (has value, not focused) */
+.input:not(:placeholder-shown):not(:focus) {
+  color: var(--text-primary);
+}
+
+/* Disabled */
 .input:disabled {
-  opacity: 0.45;
+  background: var(--surface-faint);
+  border-color: var(--border-subtle);
+  color: var(--text-disabled);
   cursor: not-allowed;
 }
+.input:disabled::placeholder { color: var(--text-disabled); }
 
-.hasEye .input {
-  padding-right: 48px;
+/* Error */
+.hasError {
+  border-color: var(--border-error) !important;
+  background: var(--surface-field);
+}
+.hasError:focus {
+  box-shadow: var(--shadow-error);
 }
 
-.hasError .input,
-.input.hasError {
-  border-color: #ef4444;
-}
-.hasError .input:focus,
-.input.hasError:focus {
-  border-color: #ef4444;
-  box-shadow: 0 0 0 4px rgba(239,68,68,0.15);
-}
+/* Password padding */
+.hasEye .input { padding-right: 48px; }
 
-/* Eye toggle */
+/* Eye button — 32×32 */
 .eye {
   position: absolute;
   right: 10px;
@@ -74,29 +95,30 @@
   transform: translateY(-50%);
   width: 32px;
   height: 32px;
-  border-radius: var(--radius-sm);
   border: none;
+  border-radius: var(--radius-sm);
   background: transparent;
   display: grid;
   place-items: center;
   color: var(--text-tertiary);
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition: background 0.12s ease, color 0.12s ease;
   padding: 0;
+  flex-shrink: 0;
 }
-
 .eye:hover {
-  background: rgba(255,255,255,0.5);
+  background: rgba(255, 255, 255, 0.50);
   color: var(--text-primary);
 }
 
-/* Hint text */
+/* Hint / error text */
 .helper {
-  font-size: 12px;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
   color: var(--text-tertiary);
 }
-
 .error {
-  font-size: 12px;
-  color: #ef4444;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: var(--border-error);
 }
