@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+storybook-static/
+
+# Vite
+*.local
+.vite/
+
+# TypeScript
+*.tsbuildinfo
+
+# Editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.local
+.env.*.local
+
+*storybook.log
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Design asset archives and Figma export bundles
+*.tar
+*.tar.gz
+login2_bundle/
+login3_bundle/
+design_login/
+design_worktime/
