@@ -1,0 +1,52 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-default);
+  padding: var(--space-4);
+}
+
+.card {
+  width: 100%;
+  max-width: 24rem;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.logo {
+  height: 2rem;
+  width: auto;
+  align-self: flex-start;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.footer {
+  text-align: center;
+}
+
+.link {
+  color: var(--color-accent-600);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+}
+.link:hover {
+  text-decoration: underline;
+}

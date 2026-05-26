@@ -1,9 +1,7 @@
+import { LoginPage } from './pages/LoginPage/LoginPage'
+
 function App() {
-  return (
-    <div>
-      <h1>mt_ds</h1>
-    </div>
-  )
+  return <LoginPage />
 }
 
 export default App
