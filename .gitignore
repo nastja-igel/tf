@@ -30,3 +30,16 @@ Thumbs.db
 .env
 .env.local
 .env.*.local
+
+*storybook.log
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Design asset archives and Figma export bundles
+*.tar
+*.tar.gz
+login2_bundle/
+login3_bundle/
+design_login/
+design_worktime/
