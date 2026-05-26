@@ -1,0 +1,22 @@
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-tertiary);
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background: var(--border-glass-subtle);
+}
+
+.text {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}

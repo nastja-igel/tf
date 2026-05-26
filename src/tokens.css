@@ -90,12 +90,34 @@
   --space-12: 3rem;
   --space-16: 4rem;
 
-  /* Radius */
-  --radius-sm:   0.25rem;
-  --radius-md:   0.5rem;
-  --radius-lg:   0.75rem;
-  --radius-xl:   1rem;
-  --radius-full: 9999px;
+  /* Radius — aligned to Figma jS_mt_ds */
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-2xl:  32px;
+  --radius-full: 999px;
+
+  /* Glass / surface tokens (Figma jS_mt_ds) */
+  --surface-field:        rgba(255,255,255,0.35);
+  --surface-field-hover:  rgba(255,255,255,0.70);
+  --surface-field-focus:  rgba(255,255,255,0.85);
+  --surface-faint:        rgba(255,255,255,0.28);
+  --border-glass:         rgba(255,255,255,0.70);
+  --border-glass-strong:  rgba(255,255,255,0.95);
+  --border-glass-subtle:  rgba(20,40,70,0.08);
+
+  /* Figma semantic text aliases */
+  --text-primary:   #161616;
+  --text-secondary: #373b40;
+  --text-tertiary:  #575e66;
+  --text-disabled:  #80878f;
+  --text-inverse:   #ffffff;
+  --ink:            #161616;
+  --ink-2:          #373b40;
+  --ink-3:          #575e66;
+  --ink-4:          #80878f;
+  --accent:         #4a3fcb;
 
   /* Shadow */
   --shadow-sm:  0 1px 2px 0 rgb(0 0 0 / 0.05);
