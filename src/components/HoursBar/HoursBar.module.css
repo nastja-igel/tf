@@ -38,7 +38,8 @@
   letter-spacing: var(--letter-spacing-none);
   white-space: nowrap;
 }
+/* Numbers always neutral — only the bar itself carries the status colour */
 .label.normal { color: var(--ink-2); }
-.label.warn   { color: var(--warn); }
-.label.good   { color: var(--good); }
+.label.warn   { color: var(--ink-2); }
+.label.good   { color: var(--ink-2); }
 .label.empty  { color: var(--ink-3); }
