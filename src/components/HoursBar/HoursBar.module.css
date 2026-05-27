@@ -37,9 +37,11 @@
   line-height: var(--line-height-sm);
   letter-spacing: var(--letter-spacing-none);
   white-space: nowrap;
+  /* Prevent the shared state classes (.warn/.good etc.) from
+     bleeding their background colour onto this text element */
+  background: transparent;
 }
-/* Numbers always neutral — only the bar itself carries the status colour */
 .label.normal { color: var(--ink-2); }
-.label.warn   { color: var(--ink-2); }
-.label.good   { color: var(--ink-2); }
+.label.warn   { color: var(--warn); }
+.label.good   { color: var(--good); }
 .label.empty  { color: var(--ink-3); }
