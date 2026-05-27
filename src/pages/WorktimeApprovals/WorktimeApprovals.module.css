@@ -686,7 +686,7 @@
 .pg:hover { background: rgba(255,255,255,.7); color: var(--ink); }
 .pgActive { background: var(--ink); color: white; }
 
-/* Responsive: hide columns as viewport narrows */
+/* Responsive: table columns narrow progressively */
 @media (max-width: 1180px) {
   .tblHead, .tblRow {
     grid-template-columns:
@@ -705,7 +705,7 @@
   .tblHead, .tblRow {
     grid-template-columns: 48px minmax(140px,2fr) minmax(120px,1.4fr) 90px;
   }
-  .colVac, .colHol, .colSick { display: none; }
+  .colVac, .colHol { display: none; }
 }
 
 /* Empty state */
@@ -959,23 +959,87 @@
   from { opacity: 0; transform: translateY(8px); }
 }
 
-/* ── Responsive ─────────────────────────────────────────────── */
+/* ── Mobile sidebar scrim ───────────────────────────────────── */
+.mobileSidebarScrim {
+  display: none;
+}
+
+/* ── Responsive breakpoints ─────────────────────────────────── */
+
+/* ≤ 1280px — tighten page padding */
+@media (max-width: 1280px) {
+  .page { padding: 24px 20px 64px; }
+}
+
+/* ≤ 900px — sidebar becomes a fixed overlay */
 @media (max-width: 900px) {
-  .shell { grid-template-columns: 1fr; }
+  /* Shell collapses to single column */
+  .shell,
+  .shellCollapsed { grid-template-columns: 1fr; }
+
+  /* Sidebar: always fixed, hidden by default */
   .side {
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     z-index: 30;
+    height: 100vh;
+    /* Reset desktop transform so only sideCollapsed drives it */
     transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
   }
-  .page { padding: 18px 14px 64px; }
-  .topbar { padding: 12px 14px; }
+  /* When sidebar is open on mobile (not collapsed) */
+  .side:not(.sideCollapsed) {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+    box-shadow: 0 30px 60px -20px rgba(20,40,70,.3);
+  }
+
+  /* Mobile sidebar backdrop scrim */
+  .mobileSidebarScrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(20,40,70,.25);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    z-index: 25;
+  }
+
+  .topbar { padding: 12px 16px; }
   .searchBar { min-width: 0; flex: 1; }
   .statsGrid { grid-template-columns: repeat(2, 1fr); }
+  .page { padding: 16px 16px 64px; }
 }
+
+/* ≤ 720px — hide search bar in topbar, compact filters */
+@media (max-width: 720px) {
+  .searchBar { display: none; }
+  .topbar { gap: 6px; padding: 10px 12px; }
+  .filters { gap: 8px; padding: 10px 12px; }
+  .monthPick b { display: none; }
+  .seg .segOpt span:last-child { display: none; }  /* icon only */
+  .segOpt { padding: 6px 8px; }
+}
+
+/* ≤ 600px — single-col stats, page head stacks */
 @media (max-width: 600px) {
-  .pageHead { flex-direction: column; align-items: flex-start; }
-  .pillTabs { overflow-x: auto; }
-  .filters { gap: 8px; }
+  .statsGrid { grid-template-columns: 1fr 1fr; }
+  .pageHead   { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .pillTabs   { width: 100%; overflow-x: auto; flex-wrap: nowrap; }
+  .filters    { flex-direction: column; align-items: stretch; }
+  .filterSearch { max-width: 100%; }
+  .btnPrimary,
+  .btnGhost   { flex: 1; justify-content: center; }
   .summaryGrid { grid-template-columns: repeat(2, 1fr); }
+  .tblFoot    { flex-direction: column; gap: 10px; align-items: center; }
+}
+
+/* ≤ 420px — full-width single col stats */
+@media (max-width: 420px) {
+  .statsGrid { grid-template-columns: 1fr; }
+  .page      { padding: 12px 10px 64px; }
+  .drawer    { top: 0; right: 0; bottom: 0; border-radius: 0; width: 100vw; }
 }

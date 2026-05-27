@@ -5,13 +5,13 @@
   gap: 10px;
 }
 
-/* track — 64×6, translucent navy bg, pill */
+/* track — 64×6, solid navy bg (#142846), pill */
 .track {
   position: relative;
   width: 64px;
   height: 6px;
   border-radius: var(--radius-pill);
-  background: rgba(20, 40, 70, 0.12);
+  background: var(--color-navy, #142846);
   flex-shrink: 0;
   overflow: hidden;
 }

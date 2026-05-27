@@ -28,9 +28,17 @@ const barColors: Record<StatCardKind, string> = {
 // Sparkline heights per kind (last bar is the accent one)
 const sparkBars = [8, 14, 11, 17, 14, 20, 23]
 
+// Delta colour is kind-based per Figma: Approved=green, Alerts=red, others=ink-2
+const deltaKindClass: Record<StatCardKind, string> = {
+  Pending:  'deltaInk',
+  Approved: 'deltaGood',
+  Locked:   'deltaInk',
+  Alerts:   'deltaBad',
+}
+
 export function StatCard({ kind, value, delta, deltaPositive, label, className }: StatCardProps) {
-  const isNegative = delta.startsWith('-')
-  const positive = deltaPositive ?? !isNegative
+  // deltaPositive override still honoured when explicitly passed
+  const kindCls = deltaPositive === true ? 'deltaGood' : deltaPositive === false ? 'deltaBad' : deltaKindClass[kind]
 
   return (
     <div className={[styles.card, className ?? ''].join(' ').trim()}>
@@ -45,7 +53,7 @@ export function StatCard({ kind, value, delta, deltaPositive, label, className }
 
       {/* Delta row */}
       <div className={styles.deltaRow}>
-        <span className={[styles.delta, positive ? styles.deltaGood : styles.deltaBad].join(' ')}>
+        <span className={[styles.delta, styles[kindCls]].join(' ')}>
           {delta}
         </span>
         <span className={styles.deltaCaption}>vs last month</span>

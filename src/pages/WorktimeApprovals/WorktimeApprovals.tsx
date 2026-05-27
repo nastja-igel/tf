@@ -550,7 +550,10 @@ export function WorktimeApprovals() {
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [sort, setSort] = useState<{ key: string; dir: 'asc'|'desc' }>({ key: 'user', dir: 'asc' })
   const [toasts, setToasts] = useState<ToastItem[]>([])
-  const [collapsed, setCollapsed] = useState(false)
+  // Default to collapsed on mobile (< 900px)
+  const [collapsed, setCollapsed] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth < 900 : false
+  )
   const [theme, setTheme] = useState<'light'|'dark'>('light')
   const [page, setPage] = useState(1)
 
@@ -626,6 +629,11 @@ export function WorktimeApprovals() {
   return (
     <div className={[styles.layout, theme === 'dark' ? styles.dark : ''].join(' ')}>
       <div className={[styles.shell, collapsed ? styles.shellCollapsed : ''].join(' ')}>
+
+        {/* Mobile scrim — shown when sidebar open on small screens */}
+        {!collapsed && (
+          <div className={styles.mobileSidebarScrim} onClick={() => setCollapsed(true)} />
+        )}
 
         <Sidebar counts={counts} collapsed={collapsed} onCollapse={() => setCollapsed(true)} />
 
