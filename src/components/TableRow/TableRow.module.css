@@ -150,12 +150,10 @@
   transition: background 0.12s, color 0.12s;
 }
 
-.act:hover { background: var(--surface-field-hover); color: var(--ink); }
+.act:hover { background: rgba(255,255,255,.95); color: var(--ink); }
 
-.actPrimary {
+.actPrimary:hover {
   background: var(--accent);
-  border-color: transparent;
+  border-color: var(--accent);
   color: #fff;
 }
-
-.actPrimary:hover { opacity: 0.85; }
