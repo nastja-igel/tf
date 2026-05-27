@@ -23,7 +23,7 @@ function Chevron({ dir }: { dir: 'left' | 'right' }) {
 }
 
 export function TableFoot({
-  page, totalPages, pageSize = 12, totalItems, onPage, className,
+  page, totalPages, pageSize: _pageSize = 12, totalItems, onPage, className,
 }: TableFootProps) {
   const pages = Array.from({ length: Math.min(totalPages, 7) }, (_, i) => {
     if (totalPages <= 7) return i + 1
