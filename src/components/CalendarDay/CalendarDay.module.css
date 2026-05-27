@@ -1,17 +1,15 @@
-/* CalendarDay — Figma node 235:219 — 52×37px calendar cell */
+/* CalendarDay — Figma node 235:219 — calendar cell */
 .cell {
-  width: 52px;
-  height: 37px;
+  aspect-ratio: 1.4;
   display: grid;
   place-items: center;
-  border-radius: var(--radius-sm);
+  border-radius: 8px;
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 11px;
   font-weight: var(--font-weight-medium);
   line-height: 1;
-  color: var(--ink);
-  background: var(--surface);
-  border: 1px solid var(--border-subtle, rgba(20,40,70,.08));
+  color: var(--ink-2);
+  background: rgba(255,255,255,.55);
   flex-shrink: 0;
   position: relative;
   user-select: none;
@@ -22,7 +20,7 @@
 .over::after {
   content: '';
   position: absolute;
-  bottom: 5px;
+  bottom: 4px;
   left: 50%;
   transform: translateX(-50%);
   width: 18px;
@@ -36,40 +34,35 @@
 /* State variants */
 .empty,
 .normal {
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
+  background: rgba(255,255,255,.55);
+  color: var(--ink-2);
 }
 
 .weekend {
   background: transparent;
-  border-color: transparent;
   color: var(--ink-4);
 }
 
 .work {
-  background: var(--surface);
-  border-color: var(--border-subtle, rgba(20,40,70,.08));
-  color: var(--ink);
+  background: rgba(255,255,255,.55);
+  color: var(--ink-2);
 }
 
 .over {
-  background: var(--surface);
-  border-color: var(--border-subtle, rgba(20,40,70,.08));
-  color: var(--ink);
+  background: rgba(255,255,255,.55);
+  color: var(--ink-2);
 }
 
 .absent {
   background: transparent;
-  border-color: transparent;
   color: var(--ink-4);
   text-decoration: line-through;
 }
 
 .today {
-  background: transparent;
-  border: 2px solid var(--accent);
+  outline: 1.5px solid var(--accent);
+  outline-offset: -1px;
+  background: rgba(255,255,255,.55);
   color: var(--accent);
-  font-weight: var(--font-weight-semibold);
-  border-radius: var(--radius-sm);
+  font-weight: var(--font-weight-bold);
 }

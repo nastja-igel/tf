@@ -2,21 +2,21 @@
 .card {
   flex: 1 1 0;
   min-width: 0;
-  background: var(--surface);
-  border: 1px solid var(--border-subtle, rgba(20,40,70,.08));
-  border-radius: var(--radius-md);   /* 12px */
-  padding: 12px 10px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--border, rgba(255,255,255,.70));
+  border-radius: 14px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 2px;
   overflow: hidden;
 }
 
 .label {
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: 10.5px;
   font-weight: var(--font-weight-semibold);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   line-height: 1;
   color: var(--ink-3);
   text-transform: uppercase;

@@ -5,11 +5,14 @@
   gap: 9px;
   padding: 8px 14px;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--border);
-  background: var(--surface);
+  border: 1px solid var(--border, rgba(255,255,255,.70));
+  background: rgba(255,255,255,.55);
   cursor: pointer;
   user-select: none;
+  transition: background 0.15s;
 }
+
+.wrap:hover { background: rgba(255,255,255,.8); }
 
 /* Switch track — 30×18 */
 .track {
@@ -30,7 +33,7 @@
   position: absolute;
   inset: 0;
   border-radius: var(--radius-pill);
-  background: var(--locked);
+  background: rgba(20, 40, 70, 0.20);
   transition: background 0.18s ease;
 }
 .thumb::after {

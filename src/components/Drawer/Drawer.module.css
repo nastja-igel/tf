@@ -11,20 +11,22 @@
 }
 
 .scrimOpen {
-  background: rgba(14, 22, 40, 0.35);
+  background: rgba(20, 40, 70, 0.25);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
   pointer-events: auto;
 }
 
 /* ── Panel ──────────────────────────────────────────────────── */
 .panel {
   width: 460px;
-  max-width: 100vw;
-  background: var(--surface, rgba(255,255,255,.92));
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
-  border: 1px solid var(--border-subtle, rgba(20,40,70,.10));
-  border-radius: var(--radius-lg);   /* 16px */
-  box-shadow: 0 8px 32px -4px rgba(0,0,0,.14), 0 2px 8px rgba(0,0,0,.06);
+  max-width: calc(100vw - 32px);
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid var(--border, rgba(255,255,255,.70));
+  border-radius: var(--radius-xl);   /* 24px */
+  box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 30px 60px -20px rgba(20,40,70,.28);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -33,28 +35,28 @@
 /* slide-in variant */
 .slide {
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
-  transform: translateX(100%);
-  transition: transform 0.28s cubic-bezier(0.32, 0, 0.67, 0);
+  top: 16px;
+  right: 16px;
+  bottom: 16px;
+  transform: translateX(calc(100% + 24px));
+  transition: transform 0.25s cubic-bezier(0.32, 0, 0.67, 0);
   z-index: 101;
   overflow-y: auto;
 }
 
 .slideOpen {
   transform: translateX(0);
-  transition: transform 0.28s cubic-bezier(0.33, 1, 0.68, 1);
+  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 /* ── Header ─────────────────────────────────────────────────── */
 .header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 18px 20px;
+  gap: 14px;
+  padding: 20px 22px;
   flex-shrink: 0;
+  border-bottom: 1px solid var(--border-subtle, rgba(20,40,70,.07));
 }
 
 .avatar {
@@ -139,13 +141,6 @@
   color: var(--ink);
 }
 
-/* ── Divider ────────────────────────────────────────────────── */
-.divider {
-  height: 1px;
-  background: var(--border-subtle, rgba(20,40,70,.07));
-  flex-shrink: 0;
-}
-
 /* ── Body ───────────────────────────────────────────────────── */
 .body {
   display: flex;
@@ -177,9 +172,12 @@
 
 .calGrid {
   display: grid;
-  grid-template-columns: repeat(7, 52px);
+  grid-template-columns: repeat(7, 1fr);
   gap: 4px;
-  padding: 0 14px;
+  padding: 8px 12px 12px;
+  background: rgba(255,255,255,.45);
+  border: 1px solid var(--border, rgba(255,255,255,.70));
+  border-radius: 14px;
 }
 
 .dayName {
@@ -196,25 +194,26 @@
 .tlSection { display: flex; flex-direction: column; }
 
 .timeline {
-  border: 1px solid var(--border-subtle, rgba(20,40,70,.08));
-  border-radius: var(--radius-sm);
+  border: 1px solid var(--border, rgba(255,255,255,.70));
+  border-radius: 14px;
   overflow: hidden;
+  background: rgba(255,255,255,.4);
 }
 
 /* ── Alert banner ───────────────────────────────────────────── */
 .alertBanner {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
-  padding: 12px 14px;
+  gap: 10px;
+  padding: 12px;
   background: var(--warn-bg);
-  border: 1px solid var(--warn);
-  border-radius: var(--radius-sm);
+  border: 1px solid oklch(68% 0.14 65 / .3);
+  border-radius: 10px;
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: var(--font-weight-regular);
   color: var(--ink-2);
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .alertBanner svg {
@@ -227,12 +226,15 @@
 .footer {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 16px 20px;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 22px;
   flex-shrink: 0;
+  border-top: 1px solid var(--border-subtle, rgba(20,40,70,.07));
+  background: rgba(255, 255, 255, 0.5);
 }
 
-.footerSpacer { flex: 1 1 0; }
+.footerSpacer { display: none; }
 
 /* ── Buttons ────────────────────────────────────────────────── */
 .btnGhost,
@@ -241,10 +243,11 @@
   align-items: center;
   gap: 6px;
   height: 36px;
-  padding: 0 14px;
-  border-radius: var(--radius-sm);
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
   font-family: var(--font-sans);
   font-size: 13px;
+  font-weight: var(--font-weight-semibold);
   line-height: 1;
   cursor: pointer;
   white-space: nowrap;
@@ -252,19 +255,18 @@
 }
 
 .btnGhost {
-  background: transparent;
-  border: 1px solid var(--border-subtle, rgba(20,40,70,.12));
-  color: var(--ink);
-  font-weight: var(--font-weight-medium);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--border, rgba(255,255,255,.70));
+  color: var(--ink-2);
 }
 
-.btnGhost:hover { background: var(--surface-faint, rgba(255,255,255,.28)); }
+.btnGhost:hover { background: rgba(255, 255, 255, 0.85); color: var(--ink); }
 
 .btnPrimary {
-  background: var(--accent);
+  background: var(--ink);
   border: 1px solid transparent;
   color: #fff;
-  font-weight: var(--font-weight-semibold);
+  box-shadow: 0 8px 18px -8px rgba(0,0,0,.35);
 }
 
-.btnPrimary:hover { opacity: 0.88; }
+.btnPrimary:hover { background: oklch(28% 0 0); }

@@ -67,7 +67,7 @@ export function StatCard({ kind, value, delta, deltaPositive, label, className }
             className={styles.bar}
             style={{
               height: h,
-              background: i === sparkBars.length - 1 ? barColors[kind] : 'var(--color-navy)',
+              background: i === sparkBars.length - 1 ? barColors[kind] : 'rgba(20,40,70,.15)',
             }}
           />
         ))}

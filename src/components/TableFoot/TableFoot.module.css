@@ -2,10 +2,11 @@
 .foot {
   display: flex;
   align-items: center;
-  height: 52px;
-  padding: 0 20px;
-  border-top: 1px solid var(--border-subtle, rgba(20,40,70,.08));
-  background: var(--surface);
+  padding: 14px 18px;
+  border-top: 1px solid var(--border-subtle, rgba(20,40,70,.07));
+  background: rgba(255,255,255,.4);
+  font-size: 13px;
+  color: var(--ink-3);
 }
 
 .count {
@@ -53,7 +54,7 @@
 }
 
 .pgActive {
-  background: var(--accent);
+  background: var(--ink);
   border-color: transparent;
   color: #fff !important;
 }

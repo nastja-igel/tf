@@ -3,8 +3,15 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 8px;
-  padding: 10px 0;
+  gap: 10px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--border, rgba(255,255,255,.70));
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: 0 1px 0 rgba(255,255,255,.5) inset, 0 12px 28px -12px rgba(20,40,70,.18);
+  min-height: 60px;
 }
 
 /* ── Month picker ────────────────────────────────────────────── */
@@ -16,21 +23,21 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  height: 32px;
-  padding: 0 12px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-subtle, rgba(20,40,70,.12));
-  background: var(--surface);
+  height: 34px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border, rgba(255,255,255,.70));
+  background: rgba(255, 255, 255, 0.55);
   color: var(--ink-3);
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: var(--font-weight-medium);
   cursor: pointer;
   white-space: nowrap;
-  transition: border-color 0.15s;
+  transition: background 0.15s;
 }
 
-.monthBtn:hover { border-color: var(--accent); color: var(--ink); }
+.monthBtn:hover { background: rgba(255,255,255,.8); color: var(--ink); }
 
 .monthLabel {
   font-weight: var(--font-weight-regular);
@@ -43,47 +50,48 @@
   left: 0;
   z-index: 50;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, minmax(60px, 1fr));
   gap: 4px;
   padding: 8px;
-  background: var(--surface-field-focus, rgba(255,255,255,.92));
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-subtle, rgba(20,40,70,.10));
-  border-radius: var(--radius-md);
-  box-shadow: 0 8px 24px rgba(0,0,0,.10);
-  min-width: 180px;
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--border, rgba(255,255,255,.70));
+  border-radius: 14px;
+  box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 12px 28px -12px rgba(20,40,70,.18);
+  min-width: 220px;
 }
 
 .monthOpt {
-  height: 30px;
-  padding: 0 6px;
-  border-radius: var(--radius-xs);
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 7px;
   border: none;
   background: transparent;
-  color: var(--ink-3);
+  color: var(--ink-2);
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: var(--font-weight-medium);
   cursor: pointer;
+  text-align: center;
   transition: background 0.12s, color 0.12s;
 }
 
-.monthOpt:hover { background: var(--surface-faint); color: var(--ink); }
+.monthOpt:hover { background: rgba(255,255,255,.85); color: var(--ink); }
 
 .monthOptActive {
-  background: var(--accent-tint);
-  color: var(--accent);
-  font-weight: var(--font-weight-semibold);
+  background: var(--accent);
+  color: white;
+  font-weight: var(--font-weight-medium);
 }
 
 /* ── Segmented control ──────────────────────────────────────── */
 .seg {
   display: flex;
   align-items: center;
-  background: var(--surface);
-  border: 1px solid var(--border-subtle, rgba(20,40,70,.10));
-  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,.5);
+  border: 1px solid var(--border, rgba(255,255,255,.70));
+  border-radius: var(--radius-pill);
   padding: 3px;
   gap: 2px;
 }
@@ -91,15 +99,15 @@
 .segOpt {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   height: 26px;
-  padding: 0 10px;
-  border-radius: calc(var(--radius-sm) - 2px);
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
   border: none;
   background: transparent;
   color: var(--ink-3);
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: var(--font-weight-medium);
   cursor: pointer;
   white-space: nowrap;
@@ -111,26 +119,29 @@
 .segActive {
   background: var(--ink);
   color: #fff !important;
+  font-weight: var(--font-weight-semibold);
 }
 
 /* ── Search ─────────────────────────────────────────────────── */
 .searchWrap {
   display: flex;
   align-items: center;
-  gap: 7px;
-  height: 32px;
-  padding: 0 10px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-subtle, rgba(20,40,70,.12));
-  background: var(--surface);
+  gap: 8px;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border, rgba(255,255,255,.70));
+  background: rgba(255,255,255,.55);
   color: var(--ink-3);
-  min-width: 180px;
-  transition: border-color 0.15s;
+  min-width: 200px;
+  max-width: 280px;
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
 }
 
 .searchWrap:focus-within {
-  border-color: var(--accent);
-  color: var(--ink);
+  background: rgba(255,255,255,.85);
+  border-color: rgba(255,255,255,1);
+  box-shadow: 0 0 0 4px rgba(74,63,203,.22);
 }
 
 .searchInput {
@@ -156,32 +167,32 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  height: 32px;
-  padding: 0 14px;
-  border-radius: var(--radius-sm);
+  height: 36px;
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
   font-family: var(--font-sans);
   font-size: 13px;
+  font-weight: var(--font-weight-semibold);
   line-height: 1;
   cursor: pointer;
   white-space: nowrap;
-  transition: opacity 0.15s, background 0.15s;
+  transition: background 0.15s, border-color 0.15s;
 }
 
 .btnGhost {
-  background: var(--surface);
-  border: 1px solid var(--border-subtle, rgba(20,40,70,.12));
-  color: var(--ink);
-  font-weight: var(--font-weight-medium);
+  background: rgba(255,255,255,.55);
+  border: 1px solid var(--border, rgba(255,255,255,.70));
+  color: var(--ink-2);
 }
 
-.btnGhost:hover { background: var(--surface-field-hover); }
+.btnGhost:hover { background: rgba(255,255,255,.85); color: var(--ink); }
 
 .btnPrimary {
-  background: var(--accent);
+  background: var(--ink);
   border: 1px solid transparent;
   color: #fff;
-  font-weight: var(--font-weight-semibold);
+  box-shadow: 0 8px 18px -8px rgba(0,0,0,.35);
 }
 
-.btnPrimary:hover:not(:disabled) { opacity: 0.88; }
+.btnPrimary:hover:not(:disabled) { background: oklch(28% 0 0); }
 .btnPrimary:disabled { opacity: 0.4; cursor: default; }

@@ -69,6 +69,7 @@ const IC = {
   Check:    'M20 6 9 17l-5-5',
   Send:     ['M22 2 11 13', 'M22 2 15 22l-4-9-9-4 20-7Z'],
   Download: ['M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4', 'M7 10l5 5 5-5', 'M12 15V3'],
+  Upload:   ['M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4', 'M17 8l-5-5-5 5', 'M12 3v12'],
   Alert:    ['m12 3 10 18H2L12 3Z', 'M12 10v5', 'M12 18h.01'],
 }
 
@@ -107,8 +108,6 @@ export function Drawer({ row, onClose, onAction, static: isStatic = false, class
           <Ico d={IC.X} size={14} />
         </button>
       </div>
-
-      <div className={styles.divider} />
 
       {/* Body */}
       <div className={styles.body}>
@@ -156,8 +155,6 @@ export function Drawer({ row, onClose, onAction, static: isStatic = false, class
         )}
       </div>
 
-      <div className={styles.divider} />
-
       {/* Footer */}
       <div className={styles.footer}>
         <div className={styles.footerSpacer} />
@@ -182,10 +179,10 @@ export function Drawer({ row, onClose, onAction, static: isStatic = false, class
         </>}
         {row.status === 'Approved' && <>
           <button className={styles.btnGhost} onClick={() => onAction?.(row.id, 'unlock')}>
-            <Ico d={IC.Unlock} size={13} /> Revert
+            <Ico d={IC.Unlock} size={13} /> Reopen
           </button>
-          <button className={styles.btnPrimary} onClick={() => onAction?.(row.id, 'lock')}>
-            <Ico d={IC.Lock} size={13} /> Lock
+          <button className={styles.btnPrimary} onClick={() => onAction?.(row.id, 'download')}>
+            <Ico d={IC.Upload} size={13} /> Export Payroll
           </button>
         </>}
         {row.status === 'Locked' && <>

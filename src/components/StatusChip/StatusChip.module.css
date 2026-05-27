@@ -10,7 +10,7 @@
 }
 
 /* Status variants */
-.open     { background: var(--accent-tint);  border-color: var(--border-focus);   color: var(--accent); }
+.open     { background: var(--accent-tint);  border-color: rgba(74,63,203,.22);   color: var(--accent); }
 .locked   { background: var(--locked-bg);    border-color: var(--border-subtle);  color: var(--locked); }
 .alert    { background: var(--warn-bg);      border-color: var(--warn);           color: var(--warn); }
 .approved { background: var(--good-bg);      border-color: var(--good);           color: var(--good); }

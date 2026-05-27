@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: 56px minmax(180px,1.6fr) minmax(110px,1fr) minmax(70px,.8fr) minmax(70px,.8fr) minmax(70px,.8fr) minmax(150px,1.4fr) 120px;
   align-items: center;
-  min-height: 56px;
+  min-height: 64px;
   padding: 0 16px;
   border-bottom: 1px solid var(--border-subtle, rgba(20,40,70,.06));
   background: transparent;
@@ -127,6 +127,13 @@
   justify-content: flex-end;
   gap: 6px;
   padding: 0 4px;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+
+.row:hover .colActions,
+.selected .colActions {
+  opacity: 1;
 }
 
 .act {
