@@ -1,0 +1,75 @@
+/* CalendarDay — Figma node 235:219 — 52×37px calendar cell */
+.cell {
+  width: 52px;
+  height: 37px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--border-subtle, rgba(20,40,70,.08));
+  flex-shrink: 0;
+  position: relative;
+  user-select: none;
+}
+
+/* dots (Work, Over) — shown via ::after */
+.work::after,
+.over::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 3px;
+  border-radius: var(--radius-pill);
+}
+
+.work::after { background: var(--accent); }
+.over::after { background: var(--warn); }
+
+/* State variants */
+.empty,
+.normal {
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.weekend {
+  background: transparent;
+  border-color: transparent;
+  color: var(--ink-4);
+}
+
+.work {
+  background: var(--surface);
+  border-color: var(--border-subtle, rgba(20,40,70,.08));
+  color: var(--ink);
+}
+
+.over {
+  background: var(--surface);
+  border-color: var(--border-subtle, rgba(20,40,70,.08));
+  color: var(--ink);
+}
+
+.absent {
+  background: transparent;
+  border-color: transparent;
+  color: var(--ink-4);
+  text-decoration: line-through;
+}
+
+.today {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-sm);
+}
