@@ -95,6 +95,36 @@
   --space-10: 40px;
   --space-12: 48px;
 
+  /* ── Semantic aliases (used in Worktime components) ── */
+  --surface: rgba(255, 255, 255, 0.62);   /* = surface-field-hover */
+  --border:  rgba(255, 255, 255, 0.70);   /* = border-default */
+  --text-on-accent: #ffffff;
+
+  /* ── Status colours ──────────────────────────── */
+  --good:       #229057;
+  --good-bg:    rgba(34,  144, 87,  0.14);
+  --warn:       #d28326;
+  --warn-bg:    rgba(210, 131, 38,  0.16);
+  --bad:        #cf4140;
+  --locked:     #4f565e;
+  --locked-bg:  rgba(79,  86,  94,  0.10);
+  --accent-tint: rgba(74, 63,  203, 0.10);
+  --color-navy: #142846;
+
+  /* ── Display typography ───────────────────────── */
+  --font-size-display:   36px;
+  --font-weight-display: 700;
+  --line-height-display: 44px;
+  --letter-spacing-display: 0px;
+
+  /* ── Extra font sizes ────────────────────────── */
+  --font-size-stat-label: 12.5px;
+  --font-size-stat-delta: 12px;
+  --font-size-caption:    12px;
+
+  /* ── Extra line heights ──────────────────────── */
+  --line-height-xs: 16px;
+
   /* ── Misc ──────────────────────────────────── */
   --color-bg-default: #e8f0f7;
   --color-bg-surface: rgba(255,255,255,0.32);

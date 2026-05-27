@@ -1,0 +1,16 @@
+/* StatusChip — Figma node 145:55 — 32×32 */
+.chip {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  border: 1px solid;
+  display: grid;
+  place-items: center;
+}
+
+/* Status variants */
+.open     { background: var(--accent-tint);  border-color: var(--border-focus);   color: var(--accent); }
+.locked   { background: var(--locked-bg);    border-color: var(--border-subtle);  color: var(--locked); }
+.alert    { background: var(--warn-bg);      border-color: var(--warn);           color: var(--warn); }
+.approved { background: var(--good-bg);      border-color: var(--good);           color: var(--good); }

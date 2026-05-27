@@ -1,0 +1,25 @@
+/* SegOption — Figma node 150:57 */
+.option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-sm);
+  letter-spacing: var(--letter-spacing-none);
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+  white-space: nowrap;
+}
+.option:hover:not(.active) { background: rgba(0,0,0,0.04); }
+
+.active {
+  background: var(--ink);
+  color: #fff;
+}

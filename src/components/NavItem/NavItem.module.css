@@ -1,0 +1,69 @@
+/* NavItem — Figma node 148:69 — 260×36 */
+.item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  height: 36px;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.12s ease, box-shadow 0.12s ease;
+  text-align: left;
+}
+
+.active {
+  background: var(--surface);
+  box-shadow: 0 4px 6px rgba(20, 41, 79, 0.12);
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  color: var(--ink-2);
+}
+
+/* label/md default, label/md SemiBold active */
+.label {
+  flex: 1 0 0;
+  min-width: 1px;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-sm);
+  color: var(--ink-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.active .icon { color: var(--ink); }
+.active .label {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-semibold);
+  color: var(--ink);
+}
+
+/* count badge */
+.badge {
+  flex-shrink: 0;
+  padding: 1px 8px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-xs);
+  color: var(--accent);
+  white-space: nowrap;
+}
+.badgeActive {
+  background: var(--ink);
+  color: #fff;
+}

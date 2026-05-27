@@ -1,0 +1,44 @@
+/* HoursBar — Figma node 152:133 */
+.wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* track — 64×6, navy bg, pill */
+.track {
+  position: relative;
+  width: 64px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--color-navy);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 6px;
+  border-radius: var(--radius-pill);
+}
+
+.normal { background: var(--accent); }
+.warn   { background: var(--warn); }
+.good   { background: var(--good); }
+.empty  { background: transparent; }
+
+/* label — body/sm: 14px Medium */
+.label {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-sm);
+  letter-spacing: var(--letter-spacing-none);
+  white-space: nowrap;
+}
+.label.normal { color: var(--ink-2); }
+.label.warn   { color: var(--warn); }
+.label.good   { color: var(--good); }
+.label.empty  { color: var(--ink-3); }

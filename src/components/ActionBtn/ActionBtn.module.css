@@ -1,0 +1,27 @@
+/* ActionBtn — Figma node 146:53 — 32×32 pill */
+.btn {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: var(--radius-pill);
+  border: 1px solid;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: opacity 0.12s ease, transform 0.1s ease;
+  padding: 0;
+}
+.btn:hover:not(:disabled) { opacity: 0.8; }
+.btn:active:not(:disabled) { transform: scale(0.94); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.default {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--ink-2);
+}
+.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}

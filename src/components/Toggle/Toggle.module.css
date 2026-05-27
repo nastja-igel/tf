@@ -1,0 +1,66 @@
+/* Toggle — Figma node 150:66 — pill container with switch + label */
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Switch track — 30×18 */
+.track {
+  position: relative;
+  width: 30px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.thumb {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-pill);
+  background: var(--locked);
+  transition: background 0.18s ease;
+}
+.thumb::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-pill);
+  background: #fff;
+  transition: transform 0.18s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.input:checked + .thumb { background: var(--accent); }
+.input:checked + .thumb::after { transform: translateX(12px); }
+
+.input:focus-visible + .thumb {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* Label — body/sm */
+.label {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-sm);
+  letter-spacing: var(--letter-spacing-none);
+  color: var(--ink-2);
+  white-space: nowrap;
+}

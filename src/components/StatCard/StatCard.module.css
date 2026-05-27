@@ -1,0 +1,92 @@
+/* StatCard — Figma node 152:117 — 240×165 glass card */
+.card {
+  width: 240px;
+  flex-shrink: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);  /* 24px */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 12px 14px rgba(20, 41, 69, 0.18);
+}
+
+/* dot + label row */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  flex-shrink: 0;
+}
+
+/* stat/label — 12.5px SemiBold, letter-spacing 5% */
+.kindLabel {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-stat-label);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  letter-spacing: 0.05em;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+
+/* display — 36px Bold */
+.value {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-display);
+  font-weight: var(--font-weight-display);
+  line-height: var(--line-height-display);
+  letter-spacing: var(--letter-spacing-display);
+  color: var(--ink);
+  margin: 0;
+}
+
+/* delta row */
+.deltaRow {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.delta {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-stat-delta);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+}
+.deltaGood { color: var(--good); }
+.deltaBad  { color: var(--bad); }
+
+.deltaCaption {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-xs);
+  color: var(--ink-3);
+}
+
+/* sparkline */
+.spark {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 32px;
+  overflow: hidden;
+}
+
+.bar {
+  width: 5px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  display: block;
+}

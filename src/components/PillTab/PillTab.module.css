@@ -1,0 +1,48 @@
+/* PillTab — Figma node 148:84 */
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-sm);
+  letter-spacing: var(--letter-spacing-none);
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+  white-space: nowrap;
+}
+.tab:hover:not(.active) { background: rgba(0,0,0,0.04); }
+
+.active {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* dot */
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.active .dot { background: #fff; }
+
+.label { flex-shrink: 0; }
+
+/* count caption — 12px Medium, 60% opacity */
+.count {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-xs);
+  color: var(--ink-3);
+  opacity: 0.60;
+  flex-shrink: 0;
+}
+.active .count { color: #fff; }
