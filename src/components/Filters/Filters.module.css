@@ -1,0 +1,187 @@
+/* Filters — Figma — filter bar: toggle + month picker + seg + search + actions */
+.bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 0;
+}
+
+/* ── Month picker ────────────────────────────────────────────── */
+.monthWrap {
+  position: relative;
+}
+
+.monthBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle, rgba(20,40,70,.12));
+  background: var(--surface);
+  color: var(--ink-3);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.15s;
+}
+
+.monthBtn:hover { border-color: var(--accent); color: var(--ink); }
+
+.monthLabel {
+  font-weight: var(--font-weight-regular);
+  opacity: 0.7;
+}
+
+.monthMenu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  padding: 8px;
+  background: var(--surface-field-focus, rgba(255,255,255,.92));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle, rgba(20,40,70,.10));
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(0,0,0,.10);
+  min-width: 180px;
+}
+
+.monthOpt {
+  height: 30px;
+  padding: 0 6px;
+  border-radius: var(--radius-xs);
+  border: none;
+  background: transparent;
+  color: var(--ink-3);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+
+.monthOpt:hover { background: var(--surface-faint); color: var(--ink); }
+
+.monthOptActive {
+  background: var(--accent-tint);
+  color: var(--accent);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ── Segmented control ──────────────────────────────────────── */
+.seg {
+  display: flex;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border-subtle, rgba(20,40,70,.10));
+  border-radius: var(--radius-sm);
+  padding: 3px;
+  gap: 2px;
+}
+
+.segOpt {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: calc(var(--radius-sm) - 2px);
+  border: none;
+  background: transparent;
+  color: var(--ink-3);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.12s, color 0.12s;
+}
+
+.segOpt:hover { color: var(--ink); }
+
+.segActive {
+  background: var(--ink);
+  color: #fff !important;
+}
+
+/* ── Search ─────────────────────────────────────────────────── */
+.searchWrap {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 32px;
+  padding: 0 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle, rgba(20,40,70,.12));
+  background: var(--surface);
+  color: var(--ink-3);
+  min-width: 180px;
+  transition: border-color 0.15s;
+}
+
+.searchWrap:focus-within {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.searchInput {
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: var(--font-weight-regular);
+  color: var(--ink);
+  outline: none;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.searchInput::placeholder { color: var(--ink-4); }
+
+/* ── Spacer ─────────────────────────────────────────────────── */
+.spacer { flex: 1 1 0; min-width: 8px; }
+
+/* ── Buttons ────────────────────────────────────────────────── */
+.btnGhost,
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s, background 0.15s;
+}
+
+.btnGhost {
+  background: var(--surface);
+  border: 1px solid var(--border-subtle, rgba(20,40,70,.12));
+  color: var(--ink);
+  font-weight: var(--font-weight-medium);
+}
+
+.btnGhost:hover { background: var(--surface-field-hover); }
+
+.btnPrimary {
+  background: var(--accent);
+  border: 1px solid transparent;
+  color: #fff;
+  font-weight: var(--font-weight-semibold);
+}
+
+.btnPrimary:hover:not(:disabled) { opacity: 0.88; }
+.btnPrimary:disabled { opacity: 0.4; cursor: default; }

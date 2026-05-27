@@ -1,0 +1,154 @@
+/* TableRow — Figma — 56px high data row with 8 columns */
+.row {
+  display: grid;
+  grid-template-columns: 56px minmax(180px,1.6fr) minmax(110px,1fr) minmax(70px,.8fr) minmax(70px,.8fr) minmax(70px,.8fr) minmax(150px,1.4fr) 120px;
+  align-items: center;
+  min-height: 56px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--border-subtle, rgba(20,40,70,.06));
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.12s;
+}
+
+.row:hover { background: var(--surface-faint, rgba(255,255,255,.28)); }
+
+.selected {
+  background: rgba(74, 63, 203, 0.05);
+}
+
+.selected:hover { background: rgba(74, 63, 203, 0.08); }
+
+/* left accent bar on selected row */
+.accentBar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  border-radius: 0 2px 2px 0;
+}
+
+/* ── Columns ─────────────────────────────────────────────────── */
+.cell {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  color: var(--ink-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 4px;
+}
+
+.colStatus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.colUser {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 0 4px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: var(--font-weight-semibold);
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.nameStack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.fullName {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: var(--font-weight-regular);
+  color: var(--ink-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.colPeriod {
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.numCell {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  color: var(--ink-2);
+  text-align: right;
+  padding: 0 8px;
+}
+
+.zero { color: var(--ink-4); }
+.warn { color: var(--warn); }
+
+.colHours {
+  padding: 0 4px;
+  overflow: hidden;
+}
+
+/* ── Action buttons ─────────────────────────────────────────── */
+.colActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 0 4px;
+}
+
+.act {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-subtle, rgba(20,40,70,.10));
+  background: var(--surface);
+  color: var(--ink-3);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.12s, color 0.12s;
+}
+
+.act:hover { background: var(--surface-field-hover); color: var(--ink); }
+
+.actPrimary {
+  background: var(--accent);
+  border-color: transparent;
+  color: #fff;
+}
+
+.actPrimary:hover { opacity: 0.85; }

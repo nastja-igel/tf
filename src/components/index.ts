@@ -50,3 +50,28 @@ export type { HoursBarProps, HoursBarState } from './HoursBar/HoursBar'
 
 export { IconBtn } from './IconBtn/IconBtn'
 export type { IconBtnProps } from './IconBtn/IconBtn'
+
+// ── Worktime Approvals — drawer & table ──────
+export { SummaryCard } from './SummaryCard/SummaryCard'
+export type { SummaryCardProps, SummaryCardKind } from './SummaryCard/SummaryCard'
+
+export { CalendarDay } from './CalendarDay/CalendarDay'
+export type { CalendarDayProps, CalendarDayState } from './CalendarDay/CalendarDay'
+
+export { TimelineRow } from './TimelineRow/TimelineRow'
+export type { TimelineRowProps } from './TimelineRow/TimelineRow'
+
+export { Drawer } from './Drawer/Drawer'
+export type { DrawerProps, DrawerStatus, DrawerAction, DrawerSummaryItem, DrawerCalCell, DrawerEntry } from './Drawer/Drawer'
+
+export { TableHead } from './TableHead/TableHead'
+export type { TableHeadProps, TableHeadColumn } from './TableHead/TableHead'
+
+export { TableRow } from './TableRow/TableRow'
+export type { TableRowProps } from './TableRow/TableRow'
+
+export { TableFoot } from './TableFoot/TableFoot'
+export type { TableFootProps } from './TableFoot/TableFoot'
+
+export { Filters } from './Filters/Filters'
+export type { FiltersProps, FiltersView } from './Filters/Filters'
