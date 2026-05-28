@@ -1,10 +1,10 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Filters } from './Filters'
 import type { FiltersView } from './Filters'
 
 const meta: Meta<typeof Filters> = {
-  title: 'Worktime/Filters',
+  title: 'Patterns/Filters',
   component: Filters,
   tags: ['autodocs'],
   parameters: { layout: 'fullscreen' },

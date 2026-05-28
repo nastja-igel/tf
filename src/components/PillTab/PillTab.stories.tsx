@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+﻿import type { Meta, StoryObj } from '@storybook/react'
 import { PillTab } from './PillTab'
 
 const meta: Meta<typeof PillTab> = {
-  title: 'Worktime/PillTab',
+  title: 'Navigation/PillTab',
   component: PillTab,
   tags: ['autodocs'],
   parameters: { backgrounds: { default: 'glass' } },

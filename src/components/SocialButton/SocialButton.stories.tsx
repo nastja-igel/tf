@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react'
+﻿import type { Meta, StoryObj } from '@storybook/react'
 import { expect, userEvent, within } from 'storybook/test'
 import { SocialButton } from './SocialButton'
 
 const meta: Meta<typeof SocialButton> = {
-  title: 'Components/SocialButton',
+  title: 'Foundations/SocialButton',
   component: SocialButton,
   tags: ['autodocs'],
   parameters: {
@@ -23,7 +23,7 @@ const meta: Meta<typeof SocialButton> = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-/* ── Base variants ─────────────────────────────────────────────── */
+/* â”€â”€ Base variants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 export const Default: Story = {}
 
@@ -31,7 +31,7 @@ export const Microsoft: Story = {
   args: { provider: 'microsoft' },
 }
 
-/* ── Interaction states ────────────────────────────────────────── */
+/* â”€â”€ Interaction states â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 export const Hover: Story = {
   play: async ({ canvasElement }) => {
@@ -59,7 +59,7 @@ export const Disabled: Story = {
   args: { disabled: true },
 }
 
-/* ── Both providers side by side ───────────────────────────────── */
+/* â”€â”€ Both providers side by side â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 export const BothProviders: Story = {
   name: 'Both Providers',
@@ -72,7 +72,7 @@ export const BothProviders: Story = {
 }
 
 export const BothDisabled: Story = {
-  name: 'Both Providers — Disabled',
+  name: 'Both Providers â€” Disabled',
   render: () => (
     <div style={{ display: 'flex', gap: 8 }}>
       <SocialButton provider="google" disabled />

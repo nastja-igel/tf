@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+﻿import type { Meta, StoryObj } from '@storybook/react'
 import { TableFoot } from './TableFoot'
 
 const meta: Meta<typeof TableFoot> = {
-  title: 'Worktime/TableFoot',
+  title: 'Table/TableFoot',
   component: TableFoot,
   tags: ['autodocs'],
   parameters: { layout: 'fullscreen' },

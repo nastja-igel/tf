@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+﻿import type { Meta, StoryObj } from '@storybook/react'
 import { TimelineRow } from './TimelineRow'
 
 const meta: Meta<typeof TimelineRow> = {
-  title: 'Worktime/TimelineRow',
+  title: 'Data Display/TimelineRow',
   component: TimelineRow,
   tags: ['autodocs'],
   decorators: [

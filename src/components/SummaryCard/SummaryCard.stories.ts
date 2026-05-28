@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+﻿import type { Meta, StoryObj } from '@storybook/react'
 import { SummaryCard } from './SummaryCard'
 
 const meta: Meta<typeof SummaryCard> = {
-  title: 'Worktime/SummaryCard',
+  title: 'Data Display/SummaryCard',
   component: SummaryCard,
   tags: ['autodocs'],
   argTypes: {

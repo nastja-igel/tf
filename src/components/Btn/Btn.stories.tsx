@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+﻿import type { Meta, StoryObj } from '@storybook/react'
 import { Btn } from './Btn'
 
 const meta: Meta<typeof Btn> = {
-  title: 'Components/Btn',
+  title: 'Actions/Btn',
   component: Btn,
   parameters: {
     backgrounds: { default: 'glass' },

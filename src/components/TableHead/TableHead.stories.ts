@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+﻿import type { Meta, StoryObj } from '@storybook/react'
 import { TableHead } from './TableHead'
 
 const COLS = [
@@ -13,7 +13,7 @@ const COLS = [
 ]
 
 const meta: Meta<typeof TableHead> = {
-  title: 'Worktime/TableHead',
+  title: 'Table/TableHead',
   component: TableHead,
   tags: ['autodocs'],
   parameters: { layout: 'fullscreen' },

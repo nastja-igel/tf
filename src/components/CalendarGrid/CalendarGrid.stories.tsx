@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+﻿import type { Meta, StoryObj } from '@storybook/react'
 import { CalendarGrid } from './CalendarGrid'
 
 const meta: Meta<typeof CalendarGrid> = {
-  title: 'Components/CalendarGrid',
+  title: 'Data Display/CalendarGrid',
   component: CalendarGrid,
   parameters: {
     backgrounds: { default: 'glass' },
