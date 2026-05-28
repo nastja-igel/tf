@@ -2,10 +2,19 @@
 import { Btn } from './Btn'
 
 const meta: Meta<typeof Btn> = {
-  title: 'Actions/Btn',
+  title: 'Foundations/Button/Btn',
   component: Btn,
+  tags: ['autodocs'],
   parameters: {
     backgrounds: { default: 'glass' },
+    docs: {
+      description: {
+        component:
+          'Lightweight glass/ink button used **internally** by `Drawer` and `Filters`. ' +
+          'It intentionally has a smaller API than `Button` (no `loading`, no `fullWidth`). ' +
+          'For standalone use outside those two components, prefer `Button`.',
+      },
+    },
   },
   argTypes: {
     variant: { control: 'radio', options: ['ghost', 'primary'] },
