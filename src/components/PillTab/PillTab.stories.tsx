@@ -19,9 +19,9 @@ const meta: Meta<typeof PillTab> = {
     },
     active:   { control: 'boolean' },
     count:    { control: 'number' },
-    dot:      { control: 'boolean', description: 'Override dot visibility (auto-set by variant)' },
-    dotColor: { control: 'color',   description: 'Override dot colour (auto-set by variant)' },
-    label:    { control: 'text',    description: 'Override label text (auto-set by variant)' },
+    dot:      { control: 'boolean' },
+    dotColor: { table: { disable: true } },
+    label:    { table: { disable: true } },
   },
   args: { label: 'All', count: 24 },
 }
