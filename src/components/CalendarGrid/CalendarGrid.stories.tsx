@@ -4,6 +4,7 @@ import { CalendarGrid } from './CalendarGrid'
 const meta: Meta<typeof CalendarGrid> = {
   title: 'Data Display/CalendarGrid',
   component: CalendarGrid,
+  tags: ['autodocs'],
   parameters: {
     backgrounds: { default: 'glass' },
     layout: 'centered',
