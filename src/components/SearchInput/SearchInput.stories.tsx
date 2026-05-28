@@ -1,29 +1,37 @@
-﻿import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { SearchInput } from './SearchInput'
 
 const meta: Meta<typeof SearchInput> = {
   title: 'Inputs/SearchInput',
   component: SearchInput,
+  tags: ['autodocs'],
   parameters: {
     backgrounds: { default: 'glass' },
+    layout: 'centered',
+  },
+  argTypes: {
+    placeholder:   { control: 'text' },
+    showShortcut:  { control: 'boolean' },
+    defaultValue:  { control: 'text' },
+  },
+  args: {
+    placeholder: 'Search…',
   },
 }
 export default meta
 
-type Story = StoryObj<typeof SearchInput>
+type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  args: { placeholder: 'Searchâ€¦' },
-}
+export const Default: Story = {}
 
 export const WithShortcut: Story = {
-  args: { placeholder: 'Searchâ€¦', showShortcut: true },
+  args: { showShortcut: true },
 }
 
 export const WithValue: Story = {
-  args: { placeholder: 'Searchâ€¦', defaultValue: 'John Smith' },
+  args: { defaultValue: 'John Smith' },
 }
 
 export const Wide: Story = {
-  args: { placeholder: 'Search employeesâ€¦', showShortcut: true, style: { minWidth: 280 } },
+  args: { placeholder: 'Search employees…', showShortcut: true, style: { minWidth: 280 } },
 }
