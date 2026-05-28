@@ -2,7 +2,7 @@
 import { Btn } from './Btn'
 
 const meta: Meta<typeof Btn> = {
-  title: 'Foundations/Button/Btn',
+  title: 'Foundations/Buttons/Btn',
   component: Btn,
   tags: ['autodocs'],
   parameters: {

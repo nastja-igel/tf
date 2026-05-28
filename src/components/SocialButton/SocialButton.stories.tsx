@@ -1,9 +1,13 @@
-﻿import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { expect, userEvent, within } from 'storybook/test'
 import { SocialButton } from './SocialButton'
+import type { SocialButtonProps } from './SocialButton'
 
-const meta: Meta<typeof SocialButton> = {
-  title: 'Foundations/SocialButton',
+type StateKey = 'default' | 'hover' | 'focused' | 'active' | 'disabled'
+type StoryArgs = SocialButtonProps & { state: StateKey }
+
+const meta: Meta<StoryArgs> = {
+  title: 'Foundations/Buttons/SocialButton',
   component: SocialButton,
   tags: ['autodocs'],
   parameters: {
@@ -14,16 +18,34 @@ const meta: Meta<typeof SocialButton> = {
     provider: {
       control: 'radio',
       options: ['google', 'microsoft'],
+      description: 'OAuth provider',
     },
-    disabled: { control: 'boolean' },
+    state: {
+      control: 'select',
+      options: ['default', 'hover', 'focused', 'active', 'disabled'] satisfies StateKey[],
+      description: 'Interaction state',
+      table: { defaultValue: { summary: 'default' } },
+    },
+    disabled: { table: { disable: true } }, // driven by state
   },
-  args: { provider: 'google' },
+  args: { provider: 'google', state: 'default' },
+  render: ({ state, ...args }) => (
+    <SocialButton {...args} disabled={state === 'disabled'} />
+  ),
+  play: async ({ canvasElement, args }) => {
+    if ((args as StoryArgs).state === 'disabled') return
+    const btn = within(canvasElement).getByRole('button')
+    const state = (args as StoryArgs).state
+    if (state === 'hover')   await userEvent.hover(btn)
+    if (state === 'focused') { btn.focus(); await expect(btn).toHaveFocus() }
+    if (state === 'active')  await userEvent.pointer({ target: btn, keys: '[MouseLeft>]' })
+  },
 }
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-/* â”€â”€ Base variants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Base variants ─────────────────────────────────────────────── */
 
 export const Default: Story = {}
 
@@ -31,35 +53,25 @@ export const Microsoft: Story = {
   args: { provider: 'microsoft' },
 }
 
-/* â”€â”€ Interaction states â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Interaction states ─────────────────────────────────────────── */
 
 export const Hover: Story = {
-  play: async ({ canvasElement }) => {
-    const btn = within(canvasElement).getByRole('button')
-    await userEvent.hover(btn)
-  },
+  args: { state: 'hover' },
 }
 
 export const Focused: Story = {
-  play: async ({ canvasElement }) => {
-    const btn = within(canvasElement).getByRole('button')
-    btn.focus()
-    await expect(btn).toHaveFocus()
-  },
+  args: { state: 'focused' },
 }
 
 export const Active: Story = {
-  play: async ({ canvasElement }) => {
-    const btn = within(canvasElement).getByRole('button')
-    await userEvent.pointer({ target: btn, keys: '[MouseLeft>]' })
-  },
+  args: { state: 'active' },
 }
 
 export const Disabled: Story = {
-  args: { disabled: true },
+  args: { state: 'disabled' },
 }
 
-/* â”€â”€ Both providers side by side â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Both providers side by side ────────────────────────────────── */
 
 export const BothProviders: Story = {
   name: 'Both Providers',
@@ -72,7 +84,7 @@ export const BothProviders: Story = {
 }
 
 export const BothDisabled: Story = {
-  name: 'Both Providers â€” Disabled',
+  name: 'Both Providers — Disabled',
   render: () => (
     <div style={{ display: 'flex', gap: 8 }}>
       <SocialButton provider="google" disabled />
