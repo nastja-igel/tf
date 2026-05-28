@@ -5,7 +5,15 @@ const meta: Meta<typeof CalendarDay> = {
   title: 'Data Display/CalendarDay',
   component: CalendarDay,
   tags: ['autodocs'],
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 44px)', gap: 4 }}>
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
+    backgrounds: { default: 'glass' },
     layout: 'centered',
     docs: {
       description: {
@@ -36,7 +44,7 @@ Used as a building block inside **\`CalendarGrid\`** and the **\`Drawer\`** week
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Normal:  Story = { args: { day: null,  state: 'normal'  } }
+export const Normal:  Story = { args: { day: 5,    state: 'normal'  } }
 export const Weekend: Story = { args: { day: 7,    state: 'weekend' } }
 export const Work:    Story = { args: { day: 14,   state: 'work'    } }
 export const Over:    Story = { args: { day: 21,   state: 'over'    } }

@@ -5,6 +5,13 @@ const meta: Meta<typeof Divider> = {
   title: 'Foundations/Divider',
   component: Divider,
   tags: ['autodocs'],
+  decorators: [
+    (Story) => (
+      <div style={{ width: 320 }}>
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     layout: 'centered',
     docs: {

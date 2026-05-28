@@ -4,6 +4,7 @@ import { CloseBtn } from './CloseBtn'
 const meta: Meta<typeof CloseBtn> = {
   title: 'Actions/CloseBtn',
   component: CloseBtn,
+  tags: ['autodocs'],
   parameters: {
     backgrounds: { default: 'glass' },
     layout: 'centered',
