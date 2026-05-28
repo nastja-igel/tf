@@ -93,7 +93,7 @@
 .md { height: 46px; padding: 0 var(--space-5); }
 .lg { height: 54px; padding: 0 var(--space-6); }
 
-.fullWidth { width: 100%; }
+.fullWidth { display: flex; width: 100%; }
 
 /* loading */
 .loading { pointer-events: none; }
