@@ -66,6 +66,8 @@ Right-side slide-in panel showing full employee worktime detail for the selected
 | Approved | Reopen | Export Payroll |
 | Locked | Unlock | Download Report |
 
+**Export Payroll / Download Report** triggers a real PDF download — a structured A4 document containing the employee header, status, summary values, and full daily breakdown table. The file is named \`payroll_{id}_{period}.pdf\` and saved immediately via the browser. The \`onAction(id, 'download')\` callback still fires afterwards for app-level side effects (e.g. audit logging).
+
 Pass \`static: true\` in Storybook or embedded panels to render as a static panel without the slide-in overlay and scrim. \`row={null}\` closes the drawer.
       `,
       },
