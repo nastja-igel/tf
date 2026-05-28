@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { SegOption } from './SegOption'
+import { SegOption, type SegOptionProps } from './SegOption'
 
 /* ── Inline icon set ─────────────────────────────────────────── */
 
@@ -18,11 +18,14 @@ const Icons = {
   clock:    <Svg><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></Svg>,
   card:     <Svg><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></Svg>,
   timeline: <Svg><line x1="12" y1="2" x2="12" y2="22"/><polyline points="19 15 12 22 5 15"/><polyline points="19 9 12 2 5 9"/></Svg>,
-}
+} as const
+
+type IconName = keyof typeof Icons
+type StoryArgs = SegOptionProps & { iconName: IconName | 'none' }
 
 /* ── Meta ────────────────────────────────────────────────────── */
 
-const meta: Meta<typeof SegOption> = {
+const meta: Meta<StoryArgs> = {
   title: 'Navigation/SegOption',
   component: SegOption,
   tags: ['autodocs'],
@@ -31,29 +34,79 @@ const meta: Meta<typeof SegOption> = {
     layout: 'centered',
   },
   argTypes: {
-    active: { control: 'boolean' },
-    label:  { control: 'text' },
-    icon:   { table: { disable: true } },
+    active:   { control: 'boolean', description: 'Selected / pressed state' },
+    label:    { control: 'text',    description: 'Button label' },
+    icon:     { table: { disable: true } },
+    iconName: {
+      control: 'select',
+      options: ['none', 'list', 'grid', 'calendar', 'chart', 'table', 'clock', 'card', 'timeline'] satisfies (IconName | 'none')[],
+      description: 'Icon shown before the label',
+      table: { defaultValue: { summary: 'none' } },
+    },
   },
-  args: { label: 'List' },
+  args: { label: 'Option', iconName: 'none', active: false },
+  render: ({ iconName, ...args }) => (
+    <SegOption {...args} icon={iconName !== 'none' ? Icons[iconName] : undefined} />
+  ),
 }
 export default meta
 type Story = StoryObj<typeof meta>
 
-/* ── Base ────────────────────────────────────────────────────── */
+/* ── Playground ──────────────────────────────────────────────── */
 
-export const Default: Story = {}
-export const Active: Story  = { args: { active: true } }
+export const Playground: Story = {
+  name: 'Playground',
+  args: { label: 'List', iconName: 'list', active: false },
+}
 
-/* ── With icons ──────────────────────────────────────────────── */
+/* ── States ──────────────────────────────────────────────────── */
 
-export const ListIcon: Story     = { name: 'Icon — List',     args: { icon: Icons.list,     label: 'List'     } }
-export const GridIcon: Story     = { name: 'Icon — Grid',     args: { icon: Icons.grid,     label: 'Grid'     } }
-export const CalendarIcon: Story = { name: 'Icon — Calendar', args: { icon: Icons.calendar, label: 'Calendar' } }
-export const ChartIcon: Story    = { name: 'Icon — Chart',    args: { icon: Icons.chart,    label: 'Chart'    } }
-export const TableIcon: Story    = { name: 'Icon — Table',    args: { icon: Icons.table,    label: 'Table'    } }
-export const TimelineIcon: Story = { name: 'Icon — Timeline', args: { icon: Icons.timeline, label: 'Timeline' } }
-export const CardIcon: Story     = { name: 'Icon — Card',     args: { icon: Icons.card,     label: 'Cards'    } }
+export const Default: Story = { args: { label: 'Option', iconName: 'none' } }
+export const Active: Story  = { args: { label: 'Option', iconName: 'none', active: true } }
+
+export const DefaultWithIcon: Story = {
+  name: 'Default — With Icon',
+  args: { label: 'List', iconName: 'list' },
+}
+export const ActiveWithIcon: Story = {
+  name: 'Active — With Icon',
+  args: { label: 'List', iconName: 'list', active: true },
+}
+
+/* ── All icons showcase ──────────────────────────────────────── */
+
+const ICONS: Array<{ name: IconName; label: string }> = [
+  { name: 'list',     label: 'List'     },
+  { name: 'grid',     label: 'Grid'     },
+  { name: 'calendar', label: 'Calendar' },
+  { name: 'chart',    label: 'Chart'    },
+  { name: 'table',    label: 'Table'    },
+  { name: 'clock',    label: 'Clock'    },
+  { name: 'card',     label: 'Cards'    },
+  { name: 'timeline', label: 'Timeline' },
+]
+
+export const AllIcons: Story = {
+  name: 'All Icons — Default',
+  render: () => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+      {ICONS.map(({ name, label }) => (
+        <SegOption key={name} label={label} icon={Icons[name]} />
+      ))}
+    </div>
+  ),
+}
+
+export const AllIconsActive: Story = {
+  name: 'All Icons — Active',
+  render: () => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+      {ICONS.map(({ name, label }) => (
+        <SegOption key={name} label={label} icon={Icons[name]} active />
+      ))}
+    </div>
+  ),
+}
 
 /* ── Segmented control bars ──────────────────────────────────── */
 
