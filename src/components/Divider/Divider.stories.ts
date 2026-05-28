@@ -14,6 +14,11 @@ Horizontal rule with a centered text label. Default label is \`"OR"\` — the mo
 
 Pass a custom \`label\` for other divider contexts (e.g. \`"or continue with"\`, \`"advanced options"\`).
 Renders with \`role="separator"\` and the label as \`aria-label\` for screen readers.
+
+### Accessibility
+- \`role="separator"\` and \`aria-label\` are already set — screen readers announce this as a named separator.
+- The two decorative line spans are \`aria-hidden\` by virtue of being presentational — only the text node is meaningful to AT.
+- No interactive elements — purely structural.
       `,
       },
     },

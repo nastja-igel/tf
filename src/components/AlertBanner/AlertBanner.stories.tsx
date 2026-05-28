@@ -21,6 +21,12 @@ Inline contextual feedback strip. Renders with \`role="alert"\` so it is announc
 
 Pass \`onDismiss\` to show a × button. Use above forms, inside drawer bodies, or at the top of data views.
 Do **not** use for toast notifications — those are transient; use a \`Toast\` component instead.
+
+### Accessibility
+- Renders with \`role="alert"\` — content is announced **immediately** by screen readers when it appears in the DOM, even without focus.
+- Only use \`role="alert"\` for urgent, action-blocking messages. For non-urgent status updates use \`role="status"\` (which this component does not currently expose).
+- The dismiss button has \`aria-label="Dismiss"\` — override at the call site if context requires a more specific label.
+- Severity is communicated by the icon and color together — color is never the sole indicator.
         `,
       },
     },

@@ -45,6 +45,12 @@ Single button in a segmented control bar. Groups of SegOptions inside a flex con
 - ✅ Only one SegOption should be \`active\` at a time within a bar.
 - ✅ Keep labels short — 1–2 words max.
 - ❌ Don't use for navigation between pages — use **\`NavItem\`** or **\`PillTab\`** instead.
+
+### Accessibility
+- Renders as \`<button type="button">\` with \`aria-pressed={active}\` — screen readers announce "pressed" / "not pressed" when the selection changes.
+- Wrap a group of SegOptions in a container with \`role="group"\` and \`aria-label\` (e.g. \`aria-label="View mode"\`) so AT announces the group context.
+- Icon SVG nodes should be \`aria-hidden="true"\` — the visible \`label\` text is the accessible name.
+- Only one option should be \`active\` at a time — enforce this in parent state, not inside SegOption itself.
       `,
       },
     },

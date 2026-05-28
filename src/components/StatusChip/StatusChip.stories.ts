@@ -23,6 +23,12 @@ Compact status badge for worktime approval states.
 | **Alert** | Amber | Irregular hours, needs attention |
 | **Approved** | Green | Manager approved |
 | **Locked** | Gray | Period locked, no edits allowed |
+
+### Accessibility
+- The wrapper \`<div>\` has \`aria-label="Status: [status]"\` — screen readers announce the full status without relying on color or icon alone.
+- Icon SVGs are \`aria-hidden="true"\`.
+- Color is **not** the sole indicator — the icon shape (lock, triangle, checkmark) and, in \`text\` variant, the label also convey status.
+- No interactive elements — read-only status display.
       `,
       },
     },

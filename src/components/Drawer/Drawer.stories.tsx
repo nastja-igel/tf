@@ -67,6 +67,13 @@ Right-side slide-in panel showing full employee worktime detail for the selected
 | Locked | Unlock | Download Report |
 
 Pass \`static: true\` in Storybook or embedded panels to render as a static panel without the slide-in overlay and scrim. \`row={null}\` closes the drawer.
+
+### Accessibility
+- Non-static mode renders \`role="dialog"\` with \`aria-modal="true"\` and \`aria-label\` set to the employee's name.
+- **Focus management is required at the consumer level**: move focus into the drawer (e.g. to CloseBtn) when it opens; return focus to the triggering row when it closes.
+- **Focus trap**: Tab should cycle within the drawer while it is open — implement with a focus-trap library or the \`inert\` attribute on the rest of the page.
+- The scrim overlay is \`aria-hidden="true"\` — keyboard users cannot tab to it.
+- Footer action buttons have visible labels (text + icon) — no additional \`aria-label\` needed.
       `,
       },
     },

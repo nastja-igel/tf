@@ -26,6 +26,11 @@ Pill-shaped filter tab with an optional count badge and status dot. Groups of Pi
 | \`locked\` | Locked | Gray |
 
 Without \`variant\`, pass \`label\` + \`dot\` manually (e.g. the "All" catch-all tab has no dot).
+
+### Accessibility
+- Currently renders as a plain \`<button>\` — for full tab semantics, wrap the group in \`role="tablist"\` and give each PillTab \`role="tab"\` and \`aria-selected\` at the consumer level.
+- The status dot is \`aria-hidden="true"\` — status meaning is also communicated by the label text (set via \`variant\`), so color is not the sole indicator.
+- Count badge is visible text — consider appending it to the \`aria-label\` (e.g. \`"Open, 8 items"\`) for screen readers that don't linearize adjacent text naturally.
       `,
       },
     },

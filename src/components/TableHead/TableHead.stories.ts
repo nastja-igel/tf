@@ -27,6 +27,13 @@ Column header row for the worktime data table. Renders column labels with option
 - \`onSort(key)\` fires when a sortable header is clicked — toggle \`sortDir\` in your state.
 - Active sort column shows a filled triangle; inactive sortable columns show a dimmed triangle.
 - Use together with **\`TableRow\`** (body) and **\`TableFoot\`** (pagination) to build the full table.
+
+### Accessibility
+- Container has \`role="row"\`; each cell has \`role="columnheader"\`.
+- Sortable columns have \`aria-sort="ascending"\` or \`"descending"\` when active — screen readers announce the current sort direction.
+- Inactive sortable columns have no \`aria-sort\` (not \`"none"\`) — this is correct per ARIA spec.
+- Sort indicator triangles are \`aria-hidden="true"\` — sort state is communicated via \`aria-sort\`, not the icon.
+- Consider wrapping the full table (Head + Rows + Foot) in \`role="grid"\` or a \`<table>\` element for complete table semantics.
       `,
       },
     },

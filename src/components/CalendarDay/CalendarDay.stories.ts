@@ -22,6 +22,12 @@ Single day cell for a monthly calendar grid. Null or 0 \`day\` renders as an emp
 | **today** | Current calendar date — highlighted ring |
 
 Used as a building block inside **\`CalendarGrid\`** and the **\`Drawer\`** weekly calendar section.
+
+### Accessibility
+- Non-empty cells have \`aria-label\` set to the day number — screen readers announce the date.
+- Null / 0 cells render as empty spacers with no ARIA attributes — they are invisible to AT.
+- State (work, absent, over…) is communicated by color and visual styling only. For full AT support, add a descriptive \`aria-label\` at the consuming component level (e.g. \`"14 — absent"\`).
+- The cell is a \`<div>\`, not a button — it is not interactive by itself. Interactivity should be added at the CalendarGrid or Drawer level.
       `,
       },
     },

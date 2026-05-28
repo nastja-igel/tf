@@ -26,6 +26,13 @@ Full employee worktime row for the approvals data table. Displays: avatar initia
 - HoursBar color auto-derives from hours vs \`target\` (default 168 h/month).
 
 Use together with **\`TableHead\`** and **\`TableFoot\`** to build the full worktime approvals table.
+
+### Accessibility
+- Container has \`role="row"\` and \`aria-selected\` — AT announces selection state.
+- Each data cell has \`role="cell"\`.
+- Action buttons have \`title\` attributes for tooltip — consider adding explicit \`aria-label\` (e.g. \`"Approve Jordan Davis"\`) for more specific announcements in screen readers.
+- The row click for selection (\`onSelect\`) is mouse-only — **keyboard users cannot currently select a row** without a focusable element (consider a checkbox for keyboard selection support).
+- The accent bar shown when selected is \`aria-hidden="true"\` — selection is communicated via \`aria-selected\`, not the bar.
       `,
       },
     },

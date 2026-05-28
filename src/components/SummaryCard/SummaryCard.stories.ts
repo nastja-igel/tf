@@ -14,6 +14,11 @@ Minimal label + value tile used in the **\`Drawer\`** summary grid (worked hours
 
 \`kind\` controls the accent color strip on the left edge, matching the employee's approval status color scheme.
 Tiles are laid out in a 2-column grid inside the drawer body — do not use as standalone KPI cards; use **\`StatCard\`** for dashboard-level metrics instead.
+
+### Accessibility
+- Label and value are plain text — fully accessible by default.
+- No interactive elements — purely presentational.
+- The left-edge accent color strip is decorative (\`aria-hidden\` is implicit for CSS-only elements). Status meaning is also communicated by the visible label text.
       `,
       },
     },

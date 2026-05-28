@@ -21,6 +21,13 @@ Text, email, or password field with a label, optional helper text, and error sta
 - ✅ Always provide a \`label\` — placeholder alone is not an accessible substitute.
 - ✅ Use \`helperText\` for format hints (e.g. "MM/DD/YYYY"); use \`error\` only after validation fails.
 - ❌ Don't show \`error\` before the user has interacted with the field.
+
+### Accessibility
+- \`aria-describedby\` links the input to the helper text or error message — screen readers announce the hint after the field label.
+- \`aria-invalid="true"\` is set automatically when \`error\` is present — AT announces the field as invalid.
+- IDs are auto-generated via \`useId\` — the \`label\`/\`htmlFor\` pairing is always guaranteed.
+- The password show/hide button is \`tabIndex={-1}\` to keep the natural tab flow on the input itself.
+- \`label\` is always required — placeholder text alone is not a sufficient accessible name (it disappears on input and is not announced as a label by most screen readers).
       `,
       },
     },

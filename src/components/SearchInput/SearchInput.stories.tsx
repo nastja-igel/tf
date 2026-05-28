@@ -16,6 +16,12 @@ Glassmorphic search field with a magnifier icon prefix. \`forwardRef\`-enabled f
 - Pass \`showShortcut\` to display a \`⌘K\` badge on the right — wire a global keydown listener separately.
 - The \`placeholder\` also serves as the accessible \`aria-label\`, so keep it descriptive.
 - Used inside **\`Filters\`** for employee / ID search.
+
+### Accessibility
+- The \`placeholder\` doubles as \`aria-label\` — keep it descriptive (e.g. \`"Search employees, IDs…"\`) since it is the only accessible name for the input.
+- The magnifier icon is \`aria-hidden="true"\` — purely decorative.
+- \`forwardRef\`-enabled: use the \`ref\` to focus the input programmatically (e.g. on ⌘K keydown).
+- The \`⌘K\` shortcut hint badge is visual only — wire a global \`keydown\` listener and call \`ref.current?.focus()\` separately.
       `,
       },
     },

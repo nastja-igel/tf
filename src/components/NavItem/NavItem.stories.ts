@@ -16,6 +16,12 @@ Sidebar navigation item with an icon, text label, and an optional count badge.
 - The default icon is a clock (Worktime section). Pass a custom \`icon\` ReactNode for other sections.
 - \`count\` shows a numeric badge — use for pending-approval counts or unread notifications.
 - Only one NavItem should be \`active\` at a time in a sidebar.
+
+### Accessibility
+- Active item sets \`aria-current="page"\` — announced by screen readers as the current page, which is the correct ARIA pattern for navigation.
+- Wrap a group of NavItems in a \`<nav>\` element with \`aria-label\` (e.g. \`aria-label="Main navigation"\`) at the consumer level.
+- The icon is decorative — it is not \`aria-hidden\` by default, but the \`label\` provides the accessible name. Ensure the icon SVG itself is \`aria-hidden="true"\` in custom icon nodes.
+- Count badge is visible text but not explicitly described as a count — consider \`aria-label\` on the badge (e.g. \`"12 pending"\`) for screen reader users.
       `,
       },
     },

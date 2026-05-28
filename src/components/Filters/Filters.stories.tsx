@@ -24,6 +24,12 @@ Full filter and action bar for the worktime approvals table. Composes five sub-c
 | Right | Btn primary | Approve All (disabled when 0 pending) |
 
 Wire all \`on*\` callbacks to your data layer. The \`Default\` story uses local \`useState\` to demonstrate fully interactive behaviour.
+
+### Accessibility
+- The segmented view control has \`role="group"\` and \`aria-label="View mode"\`; each button uses \`aria-pressed\`.
+- SearchInput uses its \`placeholder\` as \`aria-label\` — keep the placeholder text descriptive.
+- "Approve All" is \`disabled\` via the HTML attribute (not just visually dimmed) when \`pendingCount\` is 0 — AT announces it as unavailable.
+- Toggle, MonthPicker, and SearchInput each carry their own ARIA semantics — see their individual docs.
       `,
       },
     },

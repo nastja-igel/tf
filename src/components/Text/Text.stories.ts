@@ -24,6 +24,13 @@ Typography wrapper that picks the right HTML element for each scale and lets you
 | \`mono\` | \`<span>\` | IDs, codes, employee numbers |
 
 Colors: \`primary\`, \`secondary\`, \`disabled\`, \`accent\`. Override the tag with \`as\` for semantic flexibility (e.g. \`<Text variant="label" as="label">\`).
+
+### Accessibility
+- Heading variants render the correct semantic HTML tags (\`h1\`–\`h3\`) — **do not skip heading levels** (e.g. jumping from \`h1\` to \`h3\`).
+- Use \`as\` when the visual scale doesn't match the document hierarchy (e.g. visually \`h2\` style but semantically a \`p\`).
+- \`caption\` and \`label\` render as \`<span>\` — inline elements. Wrap in block-level elements when needed for layout.
+- Color variants affect only visual appearance — they do not change the semantic role or ARIA properties.
+- Ensure sufficient color contrast: \`disabled\` color (\`--text-disabled: #80878f\`) on white background is ~3.7:1 — below WCAG AA for body text (4.5:1). Use sparingly and never as the primary means of conveying information.
       `,
       },
     },

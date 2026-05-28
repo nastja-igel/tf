@@ -21,6 +21,11 @@ KPI summary card with a colored dot, large numeric value, delta vs last month, a
 
 Pass \`deltaPositive\` to override the delta color signal (e.g. +3 Alerts is \`deltaPositive: false\`).
 Used in dashboard header rows above the worktime approvals table.
+
+### Accessibility
+- The sparkline chart is \`aria-hidden="true"\` — purely decorative. The numeric value and delta text are the accessible representations.
+- Status (dot color, delta color) is communicated visually only. For a richer AT experience, add a visually-hidden summary (e.g. \`"28 pending, up 3 from last month"\`) via \`aria-label\` on the card wrapper.
+- No interactive elements — read-only data display.
       `,
       },
     },

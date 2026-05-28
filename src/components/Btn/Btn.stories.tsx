@@ -19,6 +19,12 @@ Intentionally smaller API than \`Button\` — no \`loading\`, no \`fullWidth\`, 
 | **primary** | Confirm actions — Save, Approve & Lock, Export Payroll |
 
 For standalone CTAs outside Drawer/Filters footers, use **\`Button\`** instead.
+
+### Accessibility
+- Standard \`<button>\` element — fully keyboard accessible (Tab, Space / Enter).
+- If children are icon-only (no visible text), add \`aria-label\` to provide an accessible name.
+- \`disabled\` is set via the HTML attribute — communicated to AT without requiring additional ARIA.
+- \`forwardRef\`-enabled — wire \`ref\` to manage focus programmatically (e.g. auto-focus the primary action when a dialog opens).
         `,
       },
     },

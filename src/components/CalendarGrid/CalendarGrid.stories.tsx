@@ -18,6 +18,11 @@ Full monthly calendar grid with Mon–Sun column headers and CalendarDay cells.
 - Empty leading cells are padded automatically based on the first weekday of the month.
 
 Used inside the **\`Drawer\`** calendar section to show a month overview of attendance.
+
+### Accessibility
+- Day-of-week column headers (Mo, Tu…) are visible text but not marked with \`role="columnheader"\` — the grid currently has no explicit grid/table semantics.
+- Individual CalendarDay cells carry \`aria-label\` with the day number but not the state — a full accessible implementation would include state in the label (e.g. \`"14 — worked"\`).
+- The grid is read-only / decorative in its current form. If you add click interactions, add \`role="grid"\` with keyboard navigation (arrow keys).
       `,
       },
     },

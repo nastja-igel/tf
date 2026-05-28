@@ -14,6 +14,13 @@ Standard checkbox with an accessible label. Supports both controlled (\`checked\
 
 Use in filter panels, bulk-selection lists, settings forms, and any binary opt-in/opt-out choice.
 Don't use for binary on/off preferences in compact toolbars — use **\`Toggle\`** instead.
+
+### Accessibility
+- The \`<label>\` wraps both the visual box and the hidden \`<input type="checkbox">\` — clicking the label text activates the checkbox.
+- The custom visual box is \`aria-hidden="true"\`; the native input remains in the tab order and carries the checked state.
+- IDs are auto-generated via \`useId\` — \`htmlFor\`/\`id\` pairing is always guaranteed even with multiple instances on one page.
+- \`disabled\` uses the native HTML attribute — AT announces the field as unavailable.
+- Always provide a \`label\` — a checkbox without a visible or programmatic label has no accessible name.
       `,
       },
     },

@@ -25,6 +25,12 @@ The **state** control drives interaction states via Storybook \`play()\` functio
 ### Do / Don't
 - ✅ Always show both providers together — don't show Google without Microsoft (or vice versa) unless intentionally limited.
 - ❌ Don't add a text label alongside the icon — it's not part of the design spec and breaks the compact layout.
+
+### Accessibility
+- **Icon-only button** — \`aria-label\` and \`title\` are the only accessible names. Both are set automatically: \`"Continue with Google"\` / \`"Continue with Microsoft"\`.
+- Both provider logo SVGs are \`aria-hidden="true"\`.
+- \`disabled\` uses the native HTML attribute — AT announces the button as unavailable.
+- When both providers are shown, ensure they have distinct \`aria-label\` values (already the case) so AT can differentiate them.
       `,
       },
     },

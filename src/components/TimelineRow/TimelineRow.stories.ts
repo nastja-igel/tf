@@ -15,6 +15,11 @@ Single entry in an employee's daily hour log: date number, weekday abbreviation,
 Rows are stacked vertically with a subtle dividing line between them.
 Used inside the **\`Drawer\`** "Daily Breakdown" section to show a week's worth of time entries.
 Long project names truncate with ellipsis — the full name is always available via tooltip or accessible text.
+
+### Accessibility
+- No interactive elements — purely presentational.
+- All content (day, weekday, hours, project) is plain text — accessible by default to screen readers.
+- Long project names are truncated visually with CSS — the full text remains in the DOM and is read by screen readers. Consider adding \`title\` on the project span for a native browser tooltip on hover.
       `,
       },
     },

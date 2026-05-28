@@ -20,6 +20,11 @@ Horizontal filled progress bar showing worked hours vs monthly target, with a nu
 | **empty** | Gray track only | No hours logged yet |
 
 Pass a custom \`fill\` (0–1) to override the preset widths. Used inside **\`TableRow\`** and **\`Drawer\`** summary sections.
+
+### Accessibility
+- The colored fill bar has \`aria-hidden="true"\` — it is purely visual. The numeric \`hours\` label (e.g. \`"140:00"\`) is the accessible text representation.
+- Status (warn / good / empty) is conveyed by color only at the visual level. For a richer AT experience, consider wrapping with a visually-hidden description (e.g. \`"140 h — below target"\`).
+- No interactive elements — read-only data display.
       `,
       },
     },

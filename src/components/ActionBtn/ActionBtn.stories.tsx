@@ -46,6 +46,12 @@ Compact square icon button for row-level quick actions — approve, lock, unlock
 
 Always pass \`aria-label\` describing the action (e.g. \`"Approve"\`, \`"Download report"\`).
 Used inside **TableRow** action columns; never as a standalone primary CTA.
+
+### Accessibility
+- **\`aria-label\` is required** — the button contains only an icon; there is no visible text label. Be specific: \`"Approve Jordan Davis"\` is better than \`"Approve"\` in a long list.
+- Icon SVGs are \`aria-hidden="true"\` — they are purely decorative.
+- Renders as \`<button type="button">\` — fully keyboard accessible (Tab to focus, Space / Enter to activate).
+- \`disabled\` is communicated via the HTML \`disabled\` attribute, not just opacity — AT will announce "dimmed" or skip the button entirely.
         `,
       },
     },
