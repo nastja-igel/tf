@@ -1,4 +1,4 @@
-/* StatusChip — Figma node 145:55 — 32×32 */
+/* StatusChip — Figma node 145:55 — icon (32×32) or text (pill) variants */
 .chip {
   width: 32px;
   height: 32px;
@@ -7,6 +7,24 @@
   border: 1px solid;
   display: grid;
   place-items: center;
+}
+
+/* Text variant — pill with icon + label */
+.text {
+  width: auto;
+  height: 26px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 10px;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
 }
 
 /* Status variants */

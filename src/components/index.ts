@@ -22,10 +22,10 @@ export type { ToastProps } from './Toast/Toast'
 
 // ── Worktime Approvals components ────────────
 export { StatusChip } from './StatusChip/StatusChip'
-export type { StatusChipProps, StatusChipKind } from './StatusChip/StatusChip'
+export type { StatusChipProps, StatusChipKind, StatusChipVariant } from './StatusChip/StatusChip'
 
 export { ActionBtn } from './ActionBtn/ActionBtn'
-export type { ActionBtnProps, ActionBtnType } from './ActionBtn/ActionBtn'
+export type { ActionBtnProps, ActionBtnVariant } from './ActionBtn/ActionBtn'
 
 export { PagerBtn } from './PagerBtn/PagerBtn'
 export type { PagerBtnProps } from './PagerBtn/PagerBtn'
@@ -75,3 +75,22 @@ export type { TableFootProps } from './TableFoot/TableFoot'
 
 export { Filters } from './Filters/Filters'
 export type { FiltersProps, FiltersView } from './Filters/Filters'
+
+// ── New extracted components ─────────────────
+export { MonthPicker } from './MonthPicker/MonthPicker'
+export type { MonthPickerProps } from './MonthPicker/MonthPicker'
+
+export { SearchInput } from './SearchInput/SearchInput'
+export type { SearchInputProps } from './SearchInput/SearchInput'
+
+export { CalendarGrid } from './CalendarGrid/CalendarGrid'
+export type { CalendarGridProps } from './CalendarGrid/CalendarGrid'
+
+export { Btn } from './Btn/Btn'
+export type { BtnProps } from './Btn/Btn'
+
+export { AlertBanner } from './AlertBanner/AlertBanner'
+export type { AlertBannerProps, AlertVariant } from './AlertBanner/AlertBanner'
+
+export { CloseBtn } from './CloseBtn/CloseBtn'
+export type { CloseBtnProps } from './CloseBtn/CloseBtn'

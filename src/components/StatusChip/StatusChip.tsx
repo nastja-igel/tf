@@ -1,9 +1,11 @@
 import styles from './StatusChip.module.css'
 
 export type StatusChipKind = 'Open' | 'Locked' | 'Alert' | 'Approved'
+export type StatusChipVariant = 'icon' | 'text'
 
 export interface StatusChipProps {
   status: StatusChipKind
+  variant?: StatusChipVariant
   className?: string
 }
 
@@ -34,14 +36,27 @@ const icons: Record<StatusChipKind, JSX.Element> = {
   ),
 }
 
-export function StatusChip({ status, className }: StatusChipProps) {
+const LABELS: Record<StatusChipKind, string> = {
+  Open: 'Open',
+  Locked: 'Locked',
+  Alert: 'Alert',
+  Approved: 'Approved',
+}
+
+export function StatusChip({ status, variant = 'icon', className }: StatusChipProps) {
+  const isText = variant === 'text'
   return (
     <div
-      className={[styles.chip, styles[status.toLowerCase()], className ?? ''].join(' ').trim()}
-      title={status}
+      className={[
+        styles.chip,
+        styles[status.toLowerCase()],
+        isText ? styles.text : '',
+        className ?? '',
+      ].join(' ').trim()}
       aria-label={`Status: ${status}`}
     >
       {icons[status]}
+      {isText && <span className={styles.label}>{LABELS[status]}</span>}
     </div>
   )
 }

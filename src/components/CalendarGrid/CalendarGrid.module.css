@@ -1,0 +1,26 @@
+/* CalendarGrid — 7-column month grid with day-of-week headers */
+.wrap {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  padding: 8px 12px 12px;
+  background: rgba(255,255,255,.55);
+  border: 1px solid var(--border, rgba(20,40,70,.12));
+  border-radius: 14px;
+  backdrop-filter: blur(12px) saturate(130%);
+}
+
+.dow {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  text-align: center;
+  padding: 4px 0;
+}
+
+.empty {
+  aspect-ratio: 1.4;
+}

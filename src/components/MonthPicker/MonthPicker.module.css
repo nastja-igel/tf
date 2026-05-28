@@ -1,0 +1,85 @@
+/* MonthPicker — pill trigger + 12-month dropdown */
+.wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border, rgba(20,40,70,.14));
+  background: rgba(255,255,255,.55);
+  color: var(--ink-2);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .15s, border-color .15s;
+}
+
+.trigger:hover {
+  background: rgba(255,255,255,.82);
+}
+
+.triggerOpen {
+  background: rgba(255,255,255,.85);
+  border-color: rgba(74,63,203,.3);
+}
+
+.label {
+  color: var(--ink-3);
+  font-weight: var(--font-weight-regular);
+  font-size: 12px;
+}
+
+.value {
+  color: var(--ink);
+  font-weight: var(--font-weight-semibold);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  padding: 10px;
+  background: rgba(255,255,255,.88);
+  border: 1px solid var(--border, rgba(20,40,70,.12));
+  border-radius: 14px;
+  backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: 0 8px 28px rgba(20,40,70,.14);
+  min-width: 168px;
+}
+
+.opt {
+  height: 28px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ink-2);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: background .12s, color .12s;
+  white-space: nowrap;
+}
+
+.opt:hover:not(.optActive) {
+  background: rgba(255,255,255,.9);
+  color: var(--ink);
+}
+
+.optActive {
+  background: var(--accent);
+  color: #fff;
+  border-color: transparent;
+}

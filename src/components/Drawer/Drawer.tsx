@@ -3,6 +3,9 @@ import type { SummaryCardKind } from '../SummaryCard/SummaryCard'
 import { CalendarDay } from '../CalendarDay/CalendarDay'
 import type { CalendarDayState } from '../CalendarDay/CalendarDay'
 import { TimelineRow } from '../TimelineRow/TimelineRow'
+import { Btn } from '../Btn/Btn'
+import { CloseBtn } from '../CloseBtn/CloseBtn'
+import { AlertBanner } from '../AlertBanner/AlertBanner'
 import styles from './Drawer.module.css'
 
 /* ── Types ──────────────────────────────────────────────────────── */
@@ -104,9 +107,7 @@ export function Drawer({ row, onClose, onAction, static: isStatic = false, class
           {row.status === 'Locked'   && <Ico d={IC.Lock}   size={12} />}
           {statusMeta[row.status].label}
         </div>
-        <button className={styles.closeBtn} onClick={onClose} aria-label="Close">
-          <Ico d={IC.X} size={14} />
-        </button>
+        <CloseBtn onClick={onClose} />
       </div>
 
       {/* Body */}
@@ -148,10 +149,10 @@ export function Drawer({ row, onClose, onAction, static: isStatic = false, class
 
         {/* Alert banner */}
         {row.status === 'Alert' && (
-          <div className={styles.alertBanner}>
-            <Ico d={IC.Alert} size={14} />
-            <span>{row.alertMessage ?? 'Hours are irregular — review before approving.'}</span>
-          </div>
+          <AlertBanner
+            variant="warn"
+            message={row.alertMessage ?? 'Hours are irregular — review before approving.'}
+          />
         )}
       </div>
 
@@ -159,39 +160,39 @@ export function Drawer({ row, onClose, onAction, static: isStatic = false, class
       <div className={styles.footer}>
         <div className={styles.footerSpacer} />
         {row.status === 'Open' && <>
-          <button className={styles.btnGhost} onClick={() => onAction?.(row.id, 'sendback')}>
+          <Btn variant="ghost" onClick={() => onAction?.(row.id, 'sendback')}>
             <Ico d={IC.Send} size={13} /> Send Back
-          </button>
-          <button className={styles.btnGhost} onClick={() => onAction?.(row.id, 'lock')}>
+          </Btn>
+          <Btn variant="ghost" onClick={() => onAction?.(row.id, 'lock')}>
             <Ico d={IC.Lock} size={13} /> Lock
-          </button>
-          <button className={styles.btnPrimary} onClick={() => onAction?.(row.id, 'approve')}>
+          </Btn>
+          <Btn variant="primary" onClick={() => onAction?.(row.id, 'approve')}>
             <Ico d={IC.Check} size={13} /> Approve &amp; Lock
-          </button>
+          </Btn>
         </>}
         {row.status === 'Alert' && <>
-          <button className={styles.btnGhost} onClick={() => onAction?.(row.id, 'sendback')}>
+          <Btn variant="ghost" onClick={() => onAction?.(row.id, 'sendback')}>
             <Ico d={IC.Send} size={13} /> Send Back
-          </button>
-          <button className={styles.btnPrimary} onClick={() => onAction?.(row.id, 'approve')}>
+          </Btn>
+          <Btn variant="primary" onClick={() => onAction?.(row.id, 'approve')}>
             <Ico d={IC.Check} size={13} /> Approve Anyway
-          </button>
+          </Btn>
         </>}
         {row.status === 'Approved' && <>
-          <button className={styles.btnGhost} onClick={() => onAction?.(row.id, 'unlock')}>
+          <Btn variant="ghost" onClick={() => onAction?.(row.id, 'unlock')}>
             <Ico d={IC.Unlock} size={13} /> Reopen
-          </button>
-          <button className={styles.btnPrimary} onClick={() => onAction?.(row.id, 'download')}>
+          </Btn>
+          <Btn variant="primary" onClick={() => onAction?.(row.id, 'download')}>
             <Ico d={IC.Upload} size={13} /> Export Payroll
-          </button>
+          </Btn>
         </>}
         {row.status === 'Locked' && <>
-          <button className={styles.btnGhost} onClick={() => onAction?.(row.id, 'unlock')}>
+          <Btn variant="ghost" onClick={() => onAction?.(row.id, 'unlock')}>
             <Ico d={IC.Unlock} size={13} /> Unlock
-          </button>
-          <button className={styles.btnPrimary} onClick={() => onAction?.(row.id, 'download')}>
+          </Btn>
+          <Btn variant="primary" onClick={() => onAction?.(row.id, 'download')}>
             <Ico d={IC.Download} size={13} /> Download Report
-          </button>
+          </Btn>
         </>}
       </div>
     </>
