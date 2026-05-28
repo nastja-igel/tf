@@ -18,6 +18,8 @@ Dropdown month selector with a calendar-icon trigger button. Clicking opens a 12
 - \`label\` appears as a soft prefix before the selected month name (default: \`"Period"\`). Pass \`undefined\` to hide it.
 - The trigger shows \`aria-haspopup="listbox"\` and \`aria-expanded\` for accessibility.
 - Used inside **\`Filters\`** to select the approval period.
+
+**Keyboard navigation** (when dropdown is open): Arrow Left/Right move by 1 month, Arrow Up/Down move by 3 (one grid row), Home/End jump to Jan/Dec, Escape closes and returns focus to the trigger. The currently selected month is auto-focused on open.
       `,
       },
     },

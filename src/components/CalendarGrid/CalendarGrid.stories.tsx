@@ -18,6 +18,8 @@ Full monthly calendar grid with Mon–Sun column headers and CalendarDay cells.
 - Empty leading cells are padded automatically based on the first weekday of the month.
 
 Used inside the **\`Drawer\`** calendar section to show a month overview of attendance.
+
+**Accessibility:** each non-empty cell renders an \`aria-label\` that includes the day number and its state — e.g. \`"14, hours logged"\`, \`"21, overtime"\`, \`"27, today"\`. Empty padding cells have no label.
       `,
       },
     },

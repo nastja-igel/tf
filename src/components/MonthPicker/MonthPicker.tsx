@@ -34,20 +34,51 @@ export function MonthPicker({
   className,
 }: MonthPickerProps) {
   const [open, setOpen] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
+  const wrapRef    = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLButtonElement>(null)
+  const optRefs    = useRef<(HTMLButtonElement | null)[]>([])
 
+  // Close on outside click
   useEffect(() => {
     if (!open) return
     const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
+      if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) setOpen(false)
     }
     document.addEventListener('mousedown', handler)
     return () => document.removeEventListener('mousedown', handler)
   }, [open])
 
+  // Focus the selected option when dropdown opens
+  useEffect(() => {
+    if (open) {
+      optRefs.current[month]?.focus()
+    }
+  }, [open, month])
+
+  function close() {
+    setOpen(false)
+    triggerRef.current?.focus()
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent, idx: number) {
+    let next: number | null = null
+    if (e.key === 'ArrowRight') next = Math.min(idx + 1, 11)
+    else if (e.key === 'ArrowLeft') next = Math.max(idx - 1, 0)
+    else if (e.key === 'ArrowDown') next = Math.min(idx + 3, 11)
+    else if (e.key === 'ArrowUp') next = Math.max(idx - 3, 0)
+    else if (e.key === 'Home') next = 0
+    else if (e.key === 'End') next = 11
+    else if (e.key === 'Escape') { close(); return }
+    else return
+
+    e.preventDefault()
+    if (next !== null) optRefs.current[next]?.focus()
+  }
+
   return (
-    <div className={[styles.wrap, className ?? ''].join(' ').trim()} ref={ref}>
+    <div className={[styles.wrap, className ?? ''].join(' ').trim()} ref={wrapRef}>
       <button
+        ref={triggerRef}
         className={[styles.trigger, open ? styles.triggerOpen : ''].join(' ')}
         onClick={() => setOpen(o => !o)}
         aria-haspopup="listbox"
@@ -66,10 +97,12 @@ export function MonthPicker({
           {MONTHS_SHORT.map((m, i) => (
             <button
               key={i}
+              ref={el => { optRefs.current[i] = el }}
               className={[styles.opt, i === month ? styles.optActive : ''].join(' ')}
               role="option"
               aria-selected={i === month}
-              onClick={() => { onMonthChange?.(i); setOpen(false) }}
+              onClick={() => { onMonthChange?.(i); close() }}
+              onKeyDown={e => handleKeyDown(e, i)}
             >
               {m}
             </button>

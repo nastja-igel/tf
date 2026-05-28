@@ -8,9 +8,19 @@ export interface CalendarDayProps {
   className?: string
 }
 
+const STATE_SUFFIX: Record<CalendarDayState, string> = {
+  normal:  '',
+  weekend: ', weekend',
+  work:    ', hours logged',
+  over:    ', overtime',
+  absent:  ', absent',
+  today:   ', today',
+}
+
 export function CalendarDay({ day, state = 'normal', className }: CalendarDayProps) {
   const isEmpty = day == null || day === 0
   const effectiveState = isEmpty ? 'normal' : state
+  const ariaLabel = isEmpty ? undefined : `${day}${STATE_SUFFIX[effectiveState]}`
 
   return (
     <div
@@ -20,7 +30,7 @@ export function CalendarDay({ day, state = 'normal', className }: CalendarDayPro
         isEmpty ? styles.empty : '',
         className ?? '',
       ].join(' ').trim()}
-      aria-label={isEmpty ? undefined : `${day}`}
+      aria-label={ariaLabel}
     >
       {isEmpty ? '' : day}
     </div>
