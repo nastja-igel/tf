@@ -49,8 +49,8 @@ export function CalendarGrid({
             day={day}
             state={
               todayDate === day ? 'today'
-              : markedDays.includes(day) ? 'marked'
-              : 'default'
+              : markedDays.includes(day) ? 'work'
+              : 'normal'
             }
           />
         )

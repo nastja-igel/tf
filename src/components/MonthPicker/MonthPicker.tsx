@@ -56,7 +56,9 @@ export function MonthPicker({
         <Ico d={IC_CALENDAR} />
         <span className={styles.label}>{label}</span>
         <b className={styles.value}>{MONTHS_LONG[month]} {year}</b>
-        <Ico d={IC_CHEVDOWN} size={11} style={{ transition: 'transform .15s', transform: open ? 'rotate(180deg)' : 'none' } as React.CSSProperties} />
+        <span style={{ display: 'flex', transition: 'transform .15s', transform: open ? 'rotate(180deg)' : 'none' }}>
+          <Ico d={IC_CHEVDOWN} size={11} />
+        </span>
       </button>
 
       {open && (
