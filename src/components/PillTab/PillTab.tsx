@@ -1,15 +1,39 @@
 import { ButtonHTMLAttributes } from 'react'
 import styles from './PillTab.module.css'
 
+export type PillTabVariant = 'open' | 'needs-review' | 'approved' | 'locked'
+
 export interface PillTabProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  label: string
+  label?: string
   count?: number
   active?: boolean
   dot?: boolean
   dotColor?: string
+  variant?: PillTabVariant
 }
 
-export function PillTab({ label, count, active = false, dot = false, dotColor, className, ...props }: PillTabProps) {
+const VARIANT_CONFIG: Record<PillTabVariant, { label: string; dotColor: string }> = {
+  'open':         { label: 'Open',         dotColor: 'var(--accent)'  },
+  'needs-review': { label: 'Needs Review', dotColor: 'var(--warn)'    },
+  'approved':     { label: 'Approved',     dotColor: 'var(--good)'    },
+  'locked':       { label: 'Locked',       dotColor: 'var(--locked)'  },
+}
+
+export function PillTab({
+  variant,
+  label: labelProp,
+  count,
+  active = false,
+  dot: dotProp,
+  dotColor: dotColorProp,
+  className,
+  ...props
+}: PillTabProps) {
+  const cfg      = variant ? VARIANT_CONFIG[variant] : undefined
+  const label    = labelProp    ?? cfg?.label    ?? ''
+  const dotColor = dotColorProp ?? cfg?.dotColor
+  const dot      = dotProp      ?? (cfg !== undefined)
+
   return (
     <button
       type="button"
