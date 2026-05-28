@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+﻿import type { Meta, StoryObj } from '@storybook/react'
 import { CloseBtn } from './CloseBtn'
 
 const meta: Meta<typeof CloseBtn> = {
-  title: 'Components/CloseBtn',
+  title: 'Actions/CloseBtn',
   component: CloseBtn,
   parameters: {
     backgrounds: { default: 'glass' },

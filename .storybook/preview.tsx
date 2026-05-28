@@ -15,7 +15,19 @@ const preview: Preview = {
       // 'error' - fail CI on a11y violations
       // 'off' - skip a11y checks entirely
       test: 'todo'
-    }
+    },
+
+    backgrounds: {
+      default: 'light',
+      values: [
+        { name: 'light', value: '#ffffff' },
+        { name: 'dark',  value: '#1a1a2e' },
+        {
+          name: 'glass',
+          value: 'linear-gradient(160deg, #5b8db8 0%, #3a6a9a 50%, #2a4f7a 100%)',
+        },
+      ],
+    },
   },
 };
 

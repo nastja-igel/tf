@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+﻿import type { Meta, StoryObj } from '@storybook/react'
 import { CalendarDay } from './CalendarDay'
 
 const meta: Meta<typeof CalendarDay> = {
-  title: 'Worktime/CalendarDay',
+  title: 'Data Display/CalendarDay',
   component: CalendarDay,
   tags: ['autodocs'],
   argTypes: {

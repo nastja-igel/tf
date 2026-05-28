@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+﻿import type { Meta, StoryObj } from '@storybook/react'
 import { PagerBtn } from './PagerBtn'
 
 const meta: Meta<typeof PagerBtn> = {
-  title: 'Worktime/PagerBtn',
+  title: 'Navigation/PagerBtn',
   component: PagerBtn,
   tags: ['autodocs'],
   args: { page: 1 },

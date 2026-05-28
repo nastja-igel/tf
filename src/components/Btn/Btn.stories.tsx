@@ -1,11 +1,20 @@
-import type { Meta, StoryObj } from '@storybook/react'
+﻿import type { Meta, StoryObj } from '@storybook/react'
 import { Btn } from './Btn'
 
 const meta: Meta<typeof Btn> = {
-  title: 'Components/Btn',
+  title: 'Foundations/Buttons/Btn',
   component: Btn,
+  tags: ['autodocs'],
   parameters: {
     backgrounds: { default: 'glass' },
+    docs: {
+      description: {
+        component:
+          'Lightweight glass/ink button used **internally** by `Drawer` and `Filters`. ' +
+          'It intentionally has a smaller API than `Button` (no `loading`, no `fullWidth`). ' +
+          'For standalone use outside those two components, prefer `Button`.',
+      },
+    },
   },
   argTypes: {
     variant: { control: 'radio', options: ['ghost', 'primary'] },

@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+﻿import type { Meta, StoryObj } from '@storybook/react'
 import { HoursBar } from './HoursBar'
 
 const meta: Meta<typeof HoursBar> = {
-  title: 'Worktime/HoursBar',
+  title: 'Table/HoursBar',
   component: HoursBar,
   tags: ['autodocs'],
 }

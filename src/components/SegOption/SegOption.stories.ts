@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+﻿import type { Meta, StoryObj } from '@storybook/react'
 import { SegOption } from './SegOption'
 
 const meta: Meta<typeof SegOption> = {
-  title: 'Worktime/SegOption',
+  title: 'Navigation/SegOption',
   component: SegOption,
   tags: ['autodocs'],
   args: { label: 'List' },

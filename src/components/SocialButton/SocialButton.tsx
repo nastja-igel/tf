@@ -7,7 +7,7 @@ export interface SocialButtonProps extends ButtonHTMLAttributes<HTMLButtonElemen
   provider: SocialProvider
 }
 
-/* Google logo — exact Figma colours */
+/* Google logo — exact brand colours */
 const GoogleIcon = () => (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
     <path d="M18.17 10.23c0-.66-.06-1.3-.17-1.9H10v3.6h4.59a3.93 3.93 0 0 1-1.7 2.57v2.13h2.75c1.6-1.48 2.53-3.66 2.53-6.4Z" fill="#4285F4"/>

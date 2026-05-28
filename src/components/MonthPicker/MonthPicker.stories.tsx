@@ -3,26 +3,28 @@ import { useState } from 'react'
 import { MonthPicker } from './MonthPicker'
 
 const meta: Meta<typeof MonthPicker> = {
-  title: 'Components/MonthPicker',
+  title: 'Inputs/MonthPicker',
   component: MonthPicker,
+  tags: ['autodocs'],
   parameters: {
     backgrounds: { default: 'glass' },
+    layout: 'centered',
   },
   argTypes: {
     month: { control: { type: 'number', min: 0, max: 11 } },
     year:  { control: { type: 'number' } },
+    label: { control: 'text' },
   },
+  args: { month: 4, year: 2026, label: 'Period' },
 }
 export default meta
 
-type Story = StoryObj<typeof MonthPicker>
+type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  args: { month: 4, year: 2026, label: 'Period' },
-}
+export const Default: Story = {}
 
 export const WithoutLabel: Story = {
-  args: { month: 0, year: 2025 },
+  args: { month: 0, year: 2025, label: undefined },
 }
 
 export const Controlled: Story = {

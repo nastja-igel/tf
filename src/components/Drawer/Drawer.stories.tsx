@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react'
+﻿import type { Meta, StoryObj } from '@storybook/react'
 import { Drawer } from './Drawer'
 import type { DrawerCalCell } from './Drawer'
 
-/* ── Sample calendar: May 2026 (Mon-first, today=27) ─────────── */
+/* â”€â”€ Sample calendar: May 2026 (Mon-first, today=27) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const MAY2026: DrawerCalCell[] = [
-  // Row 1 — May starts on Friday
+  // Row 1 â€” May starts on Friday
   { day: null, state: 'normal' }, { day: null, state: 'normal' }, { day: null, state: 'normal' }, { day: null, state: 'normal' },
   { day: 1,  state: 'work'    }, { day: 2,  state: 'weekend' }, { day: 3,  state: 'weekend' },
   // Row 2
@@ -32,7 +32,7 @@ const BASE_ROW = {
   id: 'AS02007',
   name: { full: 'Jordan Davis', initials: 'JD' },
   avatarBg: 'linear-gradient(135deg,oklch(68% 0.12 260),oklch(48% 0.14 305))',
-  subtitle: 'Dev  ·  May 25–31, 2026',
+  subtitle: 'Dev  Â·  May 25â€“31, 2026',
   summary: [
     { label: 'WORKED',   value: '148h', kind: 'pending'  as const },
     { label: 'TARGET',   value: '168h', kind: 'approved' as const },
@@ -45,7 +45,7 @@ const BASE_ROW = {
 }
 
 const meta: Meta<typeof Drawer> = {
-  title: 'Worktime/Drawer',
+  title: 'Patterns/Drawer',
   component: Drawer,
   tags: ['autodocs'],
   parameters: { layout: 'centered' },
@@ -63,7 +63,7 @@ export const Alert: Story = {
     row: {
       ...BASE_ROW,
       status: 'Alert',
-      alertMessage: '3 days have irregular hours — review before approving.',
+      alertMessage: '3 days have irregular hours â€” review before approving.',
     },
   },
 }
