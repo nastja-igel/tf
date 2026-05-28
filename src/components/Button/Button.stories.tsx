@@ -91,6 +91,13 @@ export const Disabled:  Story = { args: { disabled: true } }
 export const FullWidth: Story = {
   args: { fullWidth: true },
   parameters: { layout: 'padded' },
+  decorators: [
+    (Story) => (
+      <div style={{ width: '100%', padding: '0 24px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 }
 
 /* ── All variants row ────────────────────────────────────────── */

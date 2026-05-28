@@ -8,6 +8,22 @@ const meta: Meta<typeof AlertBanner> = {
   parameters: {
     backgrounds: { default: 'glass' },
     layout: 'centered',
+    docs: {
+      description: {
+        component: `
+Inline contextual feedback strip. Renders with \`role="alert"\` so it is announced immediately to screen readers.
+
+| Variant | Color | When to use |
+|---|---|---|
+| **warn** | Amber | Missing data, overtime, needs review |
+| **info** | Blue | Informational — period still open, deadlines |
+| **error** | Red | Action failure, validation blocked |
+
+Pass \`onDismiss\` to show a × button. Use above forms, inside drawer bodies, or at the top of data views.
+Do **not** use for toast notifications — those are transient; use a \`Toast\` component instead.
+        `,
+      },
+    },
   },
   argTypes: {
     variant:   { control: 'radio', options: ['warn', 'info', 'error'] },

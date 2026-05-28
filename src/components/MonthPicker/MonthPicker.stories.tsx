@@ -9,6 +9,18 @@ const meta: Meta<typeof MonthPicker> = {
   parameters: {
     backgrounds: { default: 'glass' },
     layout: 'centered',
+    docs: {
+      description: {
+        component: `
+Dropdown month selector with a calendar-icon trigger button. Clicking opens a 12-option month grid; clicking outside closes it.
+
+- \`onMonthChange\` receives the **0-indexed** month number (Jan = 0, Dec = 11).
+- \`label\` appears as a soft prefix before the selected month name (default: \`"Period"\`). Pass \`undefined\` to hide it.
+- The trigger shows \`aria-haspopup="listbox"\` and \`aria-expanded\` for accessibility.
+- Used inside **\`Filters\`** to select the approval period.
+      `,
+      },
+    },
   },
   argTypes: {
     month: { control: { type: 'number', min: 0, max: 11 } },

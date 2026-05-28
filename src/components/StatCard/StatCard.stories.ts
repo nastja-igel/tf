@@ -5,6 +5,26 @@ const meta: Meta<typeof StatCard> = {
   title: 'Data Display/StatCard',
   component: StatCard,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component: `
+KPI summary card with a colored dot, large numeric value, delta vs last month, and a 7-bar sparkline.
+
+| Kind | Dot / bar color | Delta color |
+|---|---|---|
+| **Pending** | Accent (indigo) | Neutral |
+| **Approved** | Green | Green |
+| **Locked** | Gray | Neutral |
+| **Alerts** | Amber | Red |
+
+Pass \`deltaPositive\` to override the delta color signal (e.g. +3 Alerts is \`deltaPositive: false\`).
+Used in dashboard header rows above the worktime approvals table.
+      `,
+      },
+    },
+  },
 }
 export default meta
 type Story = StoryObj<typeof meta>
