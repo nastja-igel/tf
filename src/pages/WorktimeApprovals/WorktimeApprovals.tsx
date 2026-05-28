@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback } from 'react'
+import { exportPayrollPdf } from '../../utils/exportPayrollPdf'
 import { PillTab } from '../../components/PillTab/PillTab'
 import { Toggle } from '../../components/Toggle/Toggle'
 import { StatCard } from '../../components/StatCard/StatCard'
@@ -403,7 +404,19 @@ function Drawer({ row, month, onClose, onAction }: {
                 <button className={styles.btnGhost} onClick={() => onAction(row.id, 'unlock')}>
                   <Ic d={IC.Unlock} size={12} /> Reopen
                 </button>
-                <button className={styles.btnPrimary}>
+                <button className={styles.btnPrimary} onClick={() => exportPayrollPdf({
+                  id: row.id,
+                  name: row.name,
+                  status: row.status,
+                  subtitle: `${row.department} · ${MONTHS[month]} 2026`,
+                  summary: [
+                    { label: 'WORKED',   value: `${Math.round(row.hours)}h` },
+                    { label: 'TARGET',   value: `${row.target}h` },
+                    { label: 'VACATION', value: `${row.vacations}d` },
+                    { label: 'SICK',     value: `${row.sickDays}d` },
+                  ],
+                  dailyEntries: daily,
+                })}>
                   <Ic d={IC.Upload} size={12} /> Export to payroll
                 </button>
               </>}
@@ -411,7 +424,19 @@ function Drawer({ row, month, onClose, onAction }: {
                 <button className={styles.btnGhost} onClick={() => onAction(row.id, 'unlock')}>
                   <Ic d={IC.Unlock} size={12} /> Unlock
                 </button>
-                <button className={styles.btnPrimary}>
+                <button className={styles.btnPrimary} onClick={() => exportPayrollPdf({
+                  id: row.id,
+                  name: row.name,
+                  status: row.status,
+                  subtitle: `${row.department} · ${MONTHS[month]} 2026`,
+                  summary: [
+                    { label: 'WORKED',   value: `${Math.round(row.hours)}h` },
+                    { label: 'TARGET',   value: `${row.target}h` },
+                    { label: 'VACATION', value: `${row.vacations}d` },
+                    { label: 'SICK',     value: `${row.sickDays}d` },
+                  ],
+                  dailyEntries: daily,
+                })}>
                   <Ic d={IC.Download} size={12} /> Download report
                 </button>
               </>}
