@@ -14,6 +14,7 @@ export function Toggle({ label, checked, defaultChecked, onChange, className }: 
       <span className={styles.track}>
         <input
           type="checkbox"
+          role="switch"
           className={styles.input}
           checked={checked}
           defaultChecked={defaultChecked}
