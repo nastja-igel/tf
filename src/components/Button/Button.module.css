@@ -43,6 +43,51 @@
   filter: none;
 }
 
+/* ── Variants ──────────────────────────────────────────────── */
+
+/* primary — inherits base (dark ink) */
+.primary {}
+
+/* secondary — glassmorphic surface */
+.secondary {
+  background: var(--surface-field);
+  color: var(--text-primary);
+  border: 1px solid var(--border-default);
+  filter: none;
+}
+.secondary:hover:not(:disabled) {
+  background: var(--surface-field-hover);
+}
+.secondary:active:not(:disabled) {
+  background: var(--surface-field-focus);
+  transform: translateY(1px);
+}
+.secondary:disabled {
+  background: var(--surface-field);
+  opacity: 0.40;
+}
+
+/* ghost — transparent, text only */
+.ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border: none;
+  filter: none;
+}
+.ghost:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.06);
+}
+.ghost:active:not(:disabled) {
+  background: rgba(0, 0, 0, 0.10);
+  transform: translateY(1px);
+}
+.ghost:disabled {
+  background: transparent;
+  opacity: 0.40;
+}
+
+/* ── Sizes ─────────────────────────────────────────────────── */
+
 /* sizes */
 .sm { height: 36px; padding: 0 var(--space-4); font-size: var(--font-size-md); }
 .md { height: 46px; padding: 0 var(--space-5); }
