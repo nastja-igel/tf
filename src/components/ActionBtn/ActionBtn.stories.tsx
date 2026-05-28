@@ -28,7 +28,7 @@ type StoryArgs = ActionBtnProps & { icon: IconKey }
 /* ── Meta ───────────────────────────────────────────────────── */
 
 const meta: Meta<StoryArgs> = {
-  title: 'Actions/ActionBtn',
+  title: 'Table/ActionBtn',
   component: ActionBtn,
   tags: ['autodocs'],
   parameters: {
