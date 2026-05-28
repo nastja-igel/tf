@@ -2,7 +2,7 @@
 import { HoursBar } from './HoursBar'
 
 const meta: Meta<typeof HoursBar> = {
-  title: 'Data Display/HoursBar',
+  title: 'Table/HoursBar',
   component: HoursBar,
   tags: ['autodocs'],
 }
