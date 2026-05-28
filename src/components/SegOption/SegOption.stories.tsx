@@ -32,6 +32,22 @@ const meta: Meta<StoryArgs> = {
   parameters: {
     backgrounds: { default: 'glass' },
     layout: 'centered',
+    docs: {
+      description: {
+        component: `
+Single button in a segmented control bar. Groups of SegOptions inside a flex container form a view switcher (List / Grid / Calendar, Table / Chart / Timeline, Day / Week / Month).
+
+- \`active\` marks the currently selected option — sets \`aria-pressed\` for accessibility.
+- \`icon\` accepts any ReactNode; use the \`iconName\` select in Controls to try all built-in icons.
+- Wrap SegOptions in a \`display: inline-flex\` container with a glassmorphic background and \`border-radius: 999px\` to build a full segmented control bar.
+
+### Do / Don't
+- ✅ Only one SegOption should be \`active\` at a time within a bar.
+- ✅ Keep labels short — 1–2 words max.
+- ❌ Don't use for navigation between pages — use **\`NavItem\`** or **\`PillTab\`** instead.
+      `,
+      },
+    },
   },
   argTypes: {
     active:   { control: 'boolean', description: 'Selected / pressed state' },

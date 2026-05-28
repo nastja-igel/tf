@@ -5,6 +5,19 @@ const meta: Meta<typeof SummaryCard> = {
   title: 'Data Display/SummaryCard',
   component: SummaryCard,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component: `
+Minimal label + value tile used in the **\`Drawer\`** summary grid (worked hours, target, vacation days, sick days, overtime).
+
+\`kind\` controls the accent color strip on the left edge, matching the employee's approval status color scheme.
+Tiles are laid out in a 2-column grid inside the drawer body — do not use as standalone KPI cards; use **\`StatCard\`** for dashboard-level metrics instead.
+      `,
+      },
+    },
+  },
   argTypes: {
     kind: {
       control: 'select',

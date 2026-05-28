@@ -5,6 +5,28 @@ const meta: Meta<typeof StatusChip> = {
   title: 'Feedback/StatusChip',
   component: StatusChip,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component: `
+Compact status badge for worktime approval states.
+
+| Variant | Size | When to use |
+|---|---|---|
+| **icon** | 32×32 px square | Table rows — compact, icon-only |
+| **text** | Pill with icon + label | Drawer headers, detail panels |
+
+| Status | Color | Meaning |
+|---|---|---|
+| **Open** | Accent (indigo) | Submitted, pending review |
+| **Alert** | Amber | Irregular hours, needs attention |
+| **Approved** | Green | Manager approved |
+| **Locked** | Gray | Period locked, no edits allowed |
+      `,
+      },
+    },
+  },
   argTypes: {
     variant: { control: 'radio', options: ['icon', 'text'] },
     status:  { control: 'radio', options: ['Open', 'Locked', 'Alert', 'Approved'] },

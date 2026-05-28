@@ -9,6 +9,26 @@ const meta: Meta<typeof PillTab> = {
   parameters: {
     backgrounds: { default: 'glass' },
     layout: 'centered',
+    docs: {
+      description: {
+        component: `
+Pill-shaped filter tab with an optional count badge and status dot. Groups of PillTabs form the status filter bar above the worktime approvals table.
+
+- Use \`variant\` for preset status tabs — sets the label and dot color automatically.
+- \`active\` highlights the currently selected tab (one active tab per bar).
+- \`count\` shows the number of records matching that filter.
+
+| Variant | Label | Dot color |
+|---|---|---|
+| \`open\` | Open | Accent (indigo) |
+| \`needs-review\` | Needs Review | Amber |
+| \`approved\` | Approved | Green |
+| \`locked\` | Locked | Gray |
+
+Without \`variant\`, pass \`label\` + \`dot\` manually (e.g. the "All" catch-all tab has no dot).
+      `,
+      },
+    },
   },
   argTypes: {
     variant: {

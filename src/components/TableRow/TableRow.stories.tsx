@@ -5,7 +5,31 @@ const meta: Meta<typeof TableRow> = {
   title: 'Table/TableRow',
   component: TableRow,
   tags: ['autodocs'],
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component: `
+Full employee worktime row for the approvals data table. Displays: avatar initials, StatusChip, name + employee ID + department, period, vacation/holiday/sick day counts, HoursBar with worked vs target, and context-aware action buttons.
+
+**Action buttons change by status:**
+
+| Status | Available actions |
+|---|---|
+| Open | Lock · Approve (primary) |
+| Alert | View · Send Back (primary) |
+| Approved | Lock · More |
+| Locked | Unlock · Export |
+
+- Clicking the row triggers \`onSelect(id)\` — adds the left accent bar and \`aria-selected\`.
+- Action column clicks are isolated from row selection via \`stopPropagation\`.
+- HoursBar color auto-derives from hours vs \`target\` (default 168 h/month).
+
+Use together with **\`TableHead\`** and **\`TableFoot\`** to build the full worktime approvals table.
+      `,
+      },
+    },
+  },
   decorators: [
     (Story) => (
       <div style={{ background: 'var(--color-bg-default,#e8f0f7)', padding: 0 }}>

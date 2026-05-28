@@ -7,7 +7,27 @@ const meta: Meta<typeof Filters> = {
   title: 'Patterns/Filters',
   component: Filters,
   tags: ['autodocs'],
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component: `
+Full filter and action bar for the worktime approvals table. Composes five sub-components into one horizontal toolbar:
+
+| Slot | Component | Purpose |
+|---|---|---|
+| Left | Toggle | "Opened only" quick filter |
+| Left | MonthPicker | Period selector |
+| Left | Segmented control | View mode: List / Calendar / Chart |
+| Center | SearchInput | Employee / ID search |
+| Right | Btn ghost | Export |
+| Right | Btn primary | Approve All (disabled when 0 pending) |
+
+Wire all \`on*\` callbacks to your data layer. The \`Default\` story uses local \`useState\` to demonstrate fully interactive behaviour.
+      `,
+      },
+    },
+  },
   decorators: [
     (Story) => (
       <div style={{ padding: '16px 24px', background: 'var(--color-bg-default,#e8f0f7)' }}>

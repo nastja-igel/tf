@@ -13,6 +13,21 @@ const meta: Meta<StoryArgs> = {
   parameters: {
     backgrounds: { default: 'glass' },
     layout: 'centered',
+    docs: {
+      description: {
+        component: `
+Icon-only OAuth provider button for Google and Microsoft sign-in. No visible text label — the provider name lives in \`aria-label\` and \`title\` for accessibility and tooltip.
+
+Place below the primary auth form, separated by a **\`Divider\`** (\`"OR"\`). Both providers sit side by side in a \`gap: 8px\` flex row.
+
+The **state** control drives interaction states via Storybook \`play()\` functions — hover, focus, active, disabled — without needing real CSS pseudo-class overrides.
+
+### Do / Don't
+- ✅ Always show both providers together — don't show Google without Microsoft (or vice versa) unless intentionally limited.
+- ❌ Don't add a text label alongside the icon — it's not part of the design spec and breaks the compact layout.
+      `,
+      },
+    },
   },
   argTypes: {
     provider: {

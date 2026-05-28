@@ -9,10 +9,17 @@ const meta: Meta<typeof Btn> = {
     backgrounds: { default: 'glass' },
     docs: {
       description: {
-        component:
-          'Lightweight glass/ink button used **internally** by `Drawer` and `Filters`. ' +
-          'It intentionally has a smaller API than `Button` (no `loading`, no `fullWidth`). ' +
-          'For standalone use outside those two components, prefer `Button`.',
+        component: `
+Lightweight glass/ink button used **internally** by \`Drawer\` and \`Filters\` footer areas.
+Intentionally smaller API than \`Button\` — no \`loading\`, no \`fullWidth\`, no size \`lg\`.
+
+| Variant | When to use |
+|---|---|
+| **ghost** | Low-emphasis actions — Cancel, Reopen, Send Back |
+| **primary** | Confirm actions — Save, Approve & Lock, Export Payroll |
+
+For standalone CTAs outside Drawer/Filters footers, use **\`Button\`** instead.
+        `,
       },
     },
   },

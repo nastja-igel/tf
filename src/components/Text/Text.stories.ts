@@ -5,6 +5,29 @@ const meta: Meta<typeof Text> = {
   title: 'Foundations/Text',
   component: Text,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component: `
+Typography wrapper that picks the right HTML element for each scale and lets you override via \`as\`.
+
+| Variant | Tag | Use case |
+|---|---|---|
+| \`h1\` | \`<h1>\` | Page title |
+| \`h2\` | \`<h2>\` | Section heading |
+| \`h3\` | \`<h3>\` | Card / panel heading |
+| \`body\` | \`<p>\` | Primary paragraph text |
+| \`body-sm\` | \`<p>\` | Secondary or dense paragraph text |
+| \`caption\` | \`<span>\` | Metadata, timestamps, helper labels |
+| \`label\` | \`<span>\` | Form labels, chip labels |
+| \`mono\` | \`<span>\` | IDs, codes, employee numbers |
+
+Colors: \`primary\`, \`secondary\`, \`disabled\`, \`accent\`. Override the tag with \`as\` for semantic flexibility (e.g. \`<Text variant="label" as="label">\`).
+      `,
+      },
+    },
+  },
   args: { children: 'The quick brown fox jumps over the lazy dog' },
 }
 

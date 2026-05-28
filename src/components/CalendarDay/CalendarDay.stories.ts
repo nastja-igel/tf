@@ -5,6 +5,27 @@ const meta: Meta<typeof CalendarDay> = {
   title: 'Data Display/CalendarDay',
   component: CalendarDay,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component: `
+Single day cell for a monthly calendar grid. Null or 0 \`day\` renders as an empty spacer (used to pad the first week offset).
+
+| State | Meaning |
+|---|---|
+| **normal** | Regular working day |
+| **weekend** | Saturday / Sunday — muted style |
+| **work** | Day has logged hours — accent dot |
+| **over** | Overtime logged — warning style |
+| **absent** | Absence recorded |
+| **today** | Current calendar date — highlighted ring |
+
+Used as a building block inside **\`CalendarGrid\`** and the **\`Drawer\`** weekly calendar section.
+      `,
+      },
+    },
+  },
   argTypes: {
     state: {
       control: 'select',

@@ -34,6 +34,21 @@ const meta: Meta<StoryArgs> = {
   parameters: {
     backgrounds: { default: 'glass' },
     layout: 'centered',
+    docs: {
+      description: {
+        component: `
+Compact square icon button for row-level quick actions — approve, lock, unlock, download, view.
+
+| Variant | When to use |
+|---|---|
+| **default** | Neutral ghost action — view, download, unlock |
+| **primary** | Accent-filled confirm action — approve, send back |
+
+Always pass \`aria-label\` describing the action (e.g. \`"Approve"\`, \`"Download report"\`).
+Used inside **TableRow** action columns; never as a standalone primary CTA.
+        `,
+      },
+    },
   },
   argTypes: {
     variant: {

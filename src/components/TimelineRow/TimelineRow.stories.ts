@@ -5,6 +5,20 @@ const meta: Meta<typeof TimelineRow> = {
   title: 'Data Display/TimelineRow',
   component: TimelineRow,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component: `
+Single entry in an employee's daily hour log: date number, weekday abbreviation, logged hours, and project name.
+
+Rows are stacked vertically with a subtle dividing line between them.
+Used inside the **\`Drawer\`** "Daily Breakdown" section to show a week's worth of time entries.
+Long project names truncate with ellipsis — the full name is always available via tooltip or accessible text.
+      `,
+      },
+    },
+  },
   decorators: [
     (Story) => {
       const el = document.createElement('div')

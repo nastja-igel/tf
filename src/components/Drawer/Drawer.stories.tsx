@@ -48,7 +48,29 @@ const meta: Meta<typeof Drawer> = {
   title: 'Patterns/Drawer',
   component: Drawer,
   tags: ['autodocs'],
-  parameters: { layout: 'centered' },
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component: `
+Right-side slide-in panel showing full employee worktime detail for the selected table row.
+
+**Structure** (top → bottom): avatar + name + status chip + CloseBtn → summary grid (SummaryCards) → weekly CalendarGrid → daily timeline (TimelineRows) → AlertBanner (Alert status only) → footer actions.
+
+**Footer actions change by status:**
+
+| Status | Ghost action | Primary action |
+|---|---|---|
+| Open | Send Back, Lock | Approve & Lock |
+| Alert | Send Back | Approve Anyway |
+| Approved | Reopen | Export Payroll |
+| Locked | Unlock | Download Report |
+
+Pass \`static: true\` in Storybook or embedded panels to render as a static panel without the slide-in overlay and scrim. \`row={null}\` closes the drawer.
+      `,
+      },
+    },
+  },
   args: { static: true },
 }
 export default meta
