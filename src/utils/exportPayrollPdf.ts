@@ -1,7 +1,13 @@
 import jsPDF from 'jspdf'
-import type { DrawerProps } from '../components/Drawer/Drawer'
 
-type DrawerRow = NonNullable<DrawerProps['row']>
+export interface PayrollPdfData {
+  id: string
+  name: { full: string }
+  status: string
+  subtitle?: string
+  summary: Array<{ label: string; value: string | number }>
+  dailyEntries?: Array<{ day: number | string; dayName: string; hours: string; project: string }>
+}
 
 const STATUS_COLORS: Record<string, [number, number, number]> = {
   Open:     [74,  63,  203],
@@ -19,7 +25,7 @@ const INNER_W = PAGE_W - MARGIN * 2
  * Generates and downloads a payroll PDF for the given drawer row.
  * Called directly from the Drawer component on "Export Payroll" / "Download Report" click.
  */
-export function exportPayrollPdf(row: DrawerRow): void {
+export function exportPayrollPdf(row: PayrollPdfData): void {
   const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' })
   const F = 'helvetica'
   let y = 0
