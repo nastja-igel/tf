@@ -14,14 +14,14 @@ const meta: Meta<typeof PillTab> = {
     variant: {
       control: 'select',
       options: [undefined, 'open', 'needs-review', 'approved', 'locked'] satisfies (PillTabVariant | undefined)[],
-      description: 'Preset status variant — sets label and dot colour automatically',
+      description: 'Status preset — sets label and dot colour automatically',
       table: { defaultValue: { summary: '—' } },
     },
     active:   { control: 'boolean' },
     count:    { control: 'number' },
-    dot:      { control: 'boolean', description: 'Override dot visibility (auto-set by variant)' },
-    dotColor: { control: 'color',   description: 'Override dot colour (auto-set by variant)' },
-    label:    { control: 'text',    description: 'Override label text (auto-set by variant)' },
+    dot:      { control: 'boolean' },
+    label:    { table: { disable: true } },
+    dotColor: { table: { disable: true } },
   },
   args: { label: 'All', count: 24 },
 }
