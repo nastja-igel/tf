@@ -1,3 +1,4 @@
+import { exportPayrollPdf } from '../../utils/exportPayrollPdf'
 import { SummaryCard } from '../SummaryCard/SummaryCard'
 import type { SummaryCardKind } from '../SummaryCard/SummaryCard'
 import { CalendarDay } from '../CalendarDay/CalendarDay'
@@ -182,7 +183,7 @@ export function Drawer({ row, onClose, onAction, static: isStatic = false, class
           <Btn variant="ghost" onClick={() => onAction?.(row.id, 'unlock')}>
             <Ico d={IC.Unlock} size={13} /> Reopen
           </Btn>
-          <Btn variant="primary" onClick={() => onAction?.(row.id, 'download')}>
+          <Btn variant="primary" onClick={() => { exportPayrollPdf(row); onAction?.(row.id, 'download') }}>
             <Ico d={IC.Upload} size={13} /> Export Payroll
           </Btn>
         </>}
@@ -190,7 +191,7 @@ export function Drawer({ row, onClose, onAction, static: isStatic = false, class
           <Btn variant="ghost" onClick={() => onAction?.(row.id, 'unlock')}>
             <Ico d={IC.Unlock} size={13} /> Unlock
           </Btn>
-          <Btn variant="primary" onClick={() => onAction?.(row.id, 'download')}>
+          <Btn variant="primary" onClick={() => { exportPayrollPdf(row); onAction?.(row.id, 'download') }}>
             <Ico d={IC.Download} size={13} /> Download Report
           </Btn>
         </>}
