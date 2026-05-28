@@ -3,6 +3,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0;
   padding: 6px 14px;
   border-radius: var(--radius-pill);
   border: none;
@@ -22,4 +23,13 @@
 .active {
   background: var(--ink);
   color: #fff;
+}
+
+.withIcon { gap: 6px; }
+
+.icon {
+  display: flex;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
 }
