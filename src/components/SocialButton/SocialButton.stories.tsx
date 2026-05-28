@@ -11,7 +11,7 @@ const meta: Meta<StoryArgs> = {
   component: SocialButton,
   tags: ['autodocs'],
   parameters: {
-    backgrounds: { default: 'light' },
+    backgrounds: { default: 'glass' },
     layout: 'centered',
   },
   argTypes: {
@@ -33,9 +33,9 @@ const meta: Meta<StoryArgs> = {
     <SocialButton {...args} disabled={state === 'disabled'} />
   ),
   play: async ({ canvasElement, args }) => {
-    if ((args as StoryArgs).state === 'disabled') return
-    const btn = within(canvasElement).getByRole('button')
     const state = (args as StoryArgs).state
+    if (!state || state === 'default' || state === 'disabled') return
+    const btn = within(canvasElement).getByRole('button')
     if (state === 'hover')   await userEvent.hover(btn)
     if (state === 'focused') { btn.focus(); await expect(btn).toHaveFocus() }
     if (state === 'active')  await userEvent.pointer({ target: btn, keys: '[MouseLeft>]' })
@@ -75,6 +75,7 @@ export const Disabled: Story = {
 
 export const BothProviders: Story = {
   name: 'Both Providers',
+  play: undefined,
   render: () => (
     <div style={{ display: 'flex', gap: 8 }}>
       <SocialButton provider="google" />
@@ -85,6 +86,7 @@ export const BothProviders: Story = {
 
 export const BothDisabled: Story = {
   name: 'Both Providers — Disabled',
+  play: undefined,
   render: () => (
     <div style={{ display: 'flex', gap: 8 }}>
       <SocialButton provider="google" disabled />
