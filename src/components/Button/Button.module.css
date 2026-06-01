@@ -95,6 +95,13 @@
 
 .fullWidth { display: flex; width: 100%; }
 
+/* label — flex so icon + text center correctly */
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
 /* loading */
 .loading { pointer-events: none; }
 .loading .label { opacity: 0.70; }
