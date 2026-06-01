@@ -1,7 +1,7 @@
 import { Toggle } from '../Toggle/Toggle'
 import { MonthPicker } from '../MonthPicker/MonthPicker'
 import { SearchInput } from '../SearchInput/SearchInput'
-import { Btn } from '../Btn/Btn'
+import { Button } from '../Button/Button'
 import styles from './Filters.module.css'
 
 export type FiltersView = 'list' | 'calendar' | 'chart'
@@ -95,15 +95,16 @@ export function Filters({
       <div className={styles.spacer} />
 
       {/* Export */}
-      <Btn variant="ghost" onClick={onExport}>
+      <Button variant="ghost" size="sm" onClick={onExport}>
         <Ico d={IC.Download} size={13} /> Export
-      </Btn>
+      </Button>
 
       {/* Approve all */}
-      <Btn variant="primary" onClick={onApproveAll} disabled={!pendingCount}>
+      <Button variant="primary" size="sm" onClick={onApproveAll} disabled={!pendingCount}>
         <Ico d={IC.Check} size={13} />
         Approve All{pendingCount != null ? ` (${pendingCount})` : ''}
-      </Btn>
+      </Button>
     </div>
   )
 }
+

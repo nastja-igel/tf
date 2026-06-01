@@ -123,3 +123,62 @@ export const AllSizes: Story = {
     </div>
   ),
 }
+
+/* ── Icon usage ──────────────────────────────────────────────── */
+
+const PlusIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"
+    aria-hidden="true">
+    <path d="M12 5v14M5 12h14"/>
+  </svg>
+)
+
+const CheckIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"
+    aria-hidden="true">
+    <path d="M20 6 9 17l-5-5"/>
+  </svg>
+)
+
+export const WithIconLeft: Story = {
+  name: 'Icon — Left',
+  render: () => (
+    <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+      <Button variant="primary"><PlusIcon /> New entry</Button>
+      <Button variant="secondary"><PlusIcon /> New entry</Button>
+      <Button variant="ghost"><PlusIcon /> New entry</Button>
+    </div>
+  ),
+}
+
+export const WithIconRight: Story = {
+  name: 'Icon — Right',
+  render: () => (
+    <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+      <Button variant="primary">Continue <CheckIcon /></Button>
+      <Button variant="secondary">Continue <CheckIcon /></Button>
+      <Button variant="ghost">Continue <CheckIcon /></Button>
+    </div>
+  ),
+}
+
+/* ── Compact sm — replaces old Btn component ─────────────────── */
+
+export const CompactActions: Story = {
+  name: 'Compact (sm) — Drawer / Toolbar',
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+      <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+        <Button variant="ghost" size="sm">Send Back</Button>
+        <Button variant="ghost" size="sm">Lock</Button>
+        <Button variant="primary" size="sm">Approve &amp; Lock</Button>
+      </div>
+      <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+        <Button variant="ghost" size="sm">Export</Button>
+        <Button variant="primary" size="sm">Approve All (5)</Button>
+      </div>
+    </div>
+  ),
+}
