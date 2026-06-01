@@ -86,9 +86,6 @@ export type { SearchInputProps } from './SearchInput/SearchInput'
 export { CalendarGrid } from './CalendarGrid/CalendarGrid'
 export type { CalendarGridProps } from './CalendarGrid/CalendarGrid'
 
-export { Btn } from './Btn/Btn'
-export type { BtnProps } from './Btn/Btn'
-
 export { AlertBanner } from './AlertBanner/AlertBanner'
 export type { AlertBannerProps, AlertVariant } from './AlertBanner/AlertBanner'
 

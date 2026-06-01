@@ -4,7 +4,7 @@ import type { SummaryCardKind } from '../SummaryCard/SummaryCard'
 import { CalendarDay } from '../CalendarDay/CalendarDay'
 import type { CalendarDayState } from '../CalendarDay/CalendarDay'
 import { TimelineRow } from '../TimelineRow/TimelineRow'
-import { Btn } from '../Btn/Btn'
+import { Button } from '../Button/Button'
 import { CloseBtn } from '../CloseBtn/CloseBtn'
 import { AlertBanner } from '../AlertBanner/AlertBanner'
 import styles from './Drawer.module.css'
@@ -161,39 +161,39 @@ export function Drawer({ row, onClose, onAction, static: isStatic = false, class
       <div className={styles.footer}>
         <div className={styles.footerSpacer} />
         {row.status === 'Open' && <>
-          <Btn variant="ghost" onClick={() => onAction?.(row.id, 'sendback')}>
+          <Button variant="ghost" size="sm" onClick={() => onAction?.(row.id, 'sendback')}>
             <Ico d={IC.Send} size={13} /> Send Back
-          </Btn>
-          <Btn variant="ghost" onClick={() => onAction?.(row.id, 'lock')}>
+          </Button>
+          <Button variant="ghost" size="sm" onClick={() => onAction?.(row.id, 'lock')}>
             <Ico d={IC.Lock} size={13} /> Lock
-          </Btn>
-          <Btn variant="primary" onClick={() => onAction?.(row.id, 'approve')}>
+          </Button>
+          <Button variant="primary" size="sm" onClick={() => onAction?.(row.id, 'approve')}>
             <Ico d={IC.Check} size={13} /> Approve &amp; Lock
-          </Btn>
+          </Button>
         </>}
         {row.status === 'Alert' && <>
-          <Btn variant="ghost" onClick={() => onAction?.(row.id, 'sendback')}>
+          <Button variant="ghost" size="sm" onClick={() => onAction?.(row.id, 'sendback')}>
             <Ico d={IC.Send} size={13} /> Send Back
-          </Btn>
-          <Btn variant="primary" onClick={() => onAction?.(row.id, 'approve')}>
+          </Button>
+          <Button variant="primary" size="sm" onClick={() => onAction?.(row.id, 'approve')}>
             <Ico d={IC.Check} size={13} /> Approve Anyway
-          </Btn>
+          </Button>
         </>}
         {row.status === 'Approved' && <>
-          <Btn variant="ghost" onClick={() => onAction?.(row.id, 'unlock')}>
+          <Button variant="ghost" size="sm" onClick={() => onAction?.(row.id, 'unlock')}>
             <Ico d={IC.Unlock} size={13} /> Reopen
-          </Btn>
-          <Btn variant="primary" onClick={() => { exportPayrollPdf(row); onAction?.(row.id, 'download') }}>
+          </Button>
+          <Button variant="primary" size="sm" onClick={() => { exportPayrollPdf(row); onAction?.(row.id, 'download') }}>
             <Ico d={IC.Upload} size={13} /> Export Payroll
-          </Btn>
+          </Button>
         </>}
         {row.status === 'Locked' && <>
-          <Btn variant="ghost" onClick={() => onAction?.(row.id, 'unlock')}>
+          <Button variant="ghost" size="sm" onClick={() => onAction?.(row.id, 'unlock')}>
             <Ico d={IC.Unlock} size={13} /> Unlock
-          </Btn>
-          <Btn variant="primary" onClick={() => { exportPayrollPdf(row); onAction?.(row.id, 'download') }}>
+          </Button>
+          <Button variant="primary" size="sm" onClick={() => { exportPayrollPdf(row); onAction?.(row.id, 'download') }}>
             <Ico d={IC.Download} size={13} /> Download Report
-          </Btn>
+          </Button>
         </>}
       </div>
     </>
@@ -225,3 +225,4 @@ export function Drawer({ row, onClose, onAction, static: isStatic = false, class
     </>
   )
 }
+
