@@ -55,7 +55,7 @@
 
 .absent {
   background: transparent;
-  color: var(--ink-4);
+  color: var(--ink-3); /* ink-4 #80878f fails 4.5:1 at 11px — use ink-3 */
   text-decoration: line-through;
 }
 

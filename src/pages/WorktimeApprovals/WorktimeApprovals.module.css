@@ -796,7 +796,7 @@
 }
 .chipOpen     { background: rgba(74,63,203,.10); color: var(--accent); border-color: rgba(74,63,203,.22); }
 .chipLocked   { background: var(--locked-bg); color: var(--locked); border-color: rgba(79,86,94,.25); }
-.chipAlert    { background: var(--warn-bg); color: var(--warn); border-color: rgba(210,131,38,.3); }
+.chipAlert    { background: var(--warn-bg); color: #7e4d15; border-color: rgba(210,131,38,.3); } /* #7e4d15 = warning-800, 6.3:1 on warm bg */
 .chipApproved { background: var(--good-bg); color: var(--good); border-color: rgba(34,144,87,.28); }
 
 /* Drawer body */

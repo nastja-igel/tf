@@ -483,6 +483,8 @@ function TblRow({ row, month, selected, onSelect, onAction }: {
 
   return (
     <div
+      role="row"
+      aria-selected={selected}
       className={[styles.tblRow, selected ? styles.tblRowSelected : ''].join(' ')}
       onClick={() => onSelect(row.id)}
     >

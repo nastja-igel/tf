@@ -117,7 +117,7 @@
 }
 
 .chipOpen     { background: var(--accent-tint);  border-color: var(--accent);  color: var(--accent);  }
-.chipAlert    { background: var(--warn-bg);       border-color: var(--warn);    color: var(--warn);    }
+.chipAlert    { background: var(--warn-bg);       border-color: var(--warn);    color: #7e4d15;    } /* #7e4d15 = warning-800, 6.3:1 on warm bg */
 .chipApproved { background: var(--good-bg);       border-color: var(--good);    color: var(--good);    }
 .chipLocked   { background: var(--locked-bg);     border-color: var(--locked);  color: var(--locked);  }
 

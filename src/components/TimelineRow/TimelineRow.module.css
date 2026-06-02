@@ -27,7 +27,7 @@
 .dow {
   font-size: 10.5px;
   font-weight: var(--font-weight-semibold);
-  color: var(--ink-4);
+  color: var(--ink-3); /* ink-4 #80878f fails 4.5:1 at 10.5px — use ink-3 */
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
