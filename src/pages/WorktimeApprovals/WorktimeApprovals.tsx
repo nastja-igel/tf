@@ -811,9 +811,10 @@ export function WorktimeApprovals() {
                   />
               ))}
               </div>
+            </div>{/* /role=table */}
 
-              {/* Footer */}
-              <div className={styles.tblFoot}>
+            {/* Footer — intentionally outside role=table */}
+            <div className={styles.tblFoot}>
                 <span>Showing <b style={{ color: 'var(--ink)' }}>{filtered.length}</b> of {rows.length} timesheets</span>
                 <div className={styles.pager}>
                   <button className={styles.pg} onClick={() => setPage(p => Math.max(1, p - 1))} aria-label="Previous page">
@@ -831,7 +832,6 @@ export function WorktimeApprovals() {
                   </button>
                 </div>
               </div>
-            </div>
 
           </div>{/* /page */}
         </div>{/* /main */}
