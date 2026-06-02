@@ -1,7 +1,7 @@
 /* ================================================================
    AUTO-GENERATED — do not edit by hand.
    Source : Figma file QR1l96ckjmA9QeZyCVzTi2
-   Updated: 2026-06-02T11:23 UTC
+   Updated: 2026-06-02T14:00 UTC
    ================================================================ */
 
 :root {
@@ -89,6 +89,7 @@
   --color-info-950: #172554;
 
   /* ── primitives.dimension -------------------------- */
+  --size-0: 0px;
   --size-1: 4px;
   --size-2: 8px;
   --size-3: 12px;
@@ -106,6 +107,7 @@
   --size-32: 128px;
 
   /* ── primitives.number ----------------------------- */
+  --opacity-0: 0;
   --opacity-5: 0.05;
   --opacity-10: 0.1;
   --opacity-20: 0.2;
@@ -117,6 +119,7 @@
   --opacity-80: 0.8;
   --opacity-90: 0.9;
   --opacity-100: 1;
+  --stroke-width-0: 0;
   --stroke-width-1: 1;
   --stroke-width-2: 2;
   --stroke-width-3: 3;
@@ -139,6 +142,13 @@
   --radius-rounded-2xl: 32px;
   --radius-rounded-3xl: 40px;
   --radius-rounded-pill: 9999px;
+  --radius-none-xs: 0px;
+  --radius-none-sm: 0px;
+  --radius-none-md: 0px;
+  --radius-none-lg: 0px;
+  --radius-none-xl: 0px;
+  --radius-none-2xl: 0px;
+  --radius-none-3xl: 0px;
   --radius-none-pill: 4px;
 
   /* ── primitives.typography ------------------------- */
@@ -169,10 +179,13 @@
   --line-height-5xl: 56px;
   --tracking-tighter: -0.5px;
   --tracking-tight: -0.25px;
+  --tracking-normal: 0px;
   --tracking-wide: 0.5px;
+  --paragraph-spacing-none: 0px;
   --paragraph-spacing-sm: 4px;
   --paragraph-spacing-md: 8px;
   --paragraph-spacing-lg: 12px;
+  --paragraph-indent-none: 0px;
 
   /* ── primitives.shadow ----------------------------- */
   --shadow-none: none;
@@ -260,18 +273,21 @@
   --overlay-strong: rgba(0,0,0,0.6);
 
   /* ── semantic.dimension ---------------------------- */
+  --space-inset-none: 0px;
   --space-inset-xs: 4px;
   --space-inset-sm: 8px;
   --space-inset-md: 16px;
   --space-inset-lg: 24px;
   --space-inset-xl: 32px;
   --space-inset-2xl: 48px;
+  --space-stack-none: 0px;
   --space-stack-xs: 4px;
   --space-stack-sm: 8px;
   --space-stack-md: 16px;
   --space-stack-lg: 24px;
   --space-stack-xl: 32px;
   --space-stack-2xl: 48px;
+  --space-inline-none: 0px;
   --space-inline-xs: 4px;
   --space-inline-sm: 8px;
   --space-inline-md: 16px;
@@ -295,6 +311,7 @@
   --radius-container-lg: 16px;
   --radius-container-xl: 20px;
   --radius-dialog: 20px;
+  --radius-pill: 9999px;
 
   /* ── semantic.typography --------------------------- */
   --typography-display-font-family: Montserrat;
