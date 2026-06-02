@@ -86,7 +86,7 @@ export function TableRow({
       <div className={styles.colUser} role="cell">
         <div
           className={styles.avatar}
-          style={{ background: avatarBg ?? 'var(--accent-2)' }}
+          style={{ background: avatarBg ?? 'var(--accent)' }}
           aria-hidden="true"
         >
           {name.initials}
