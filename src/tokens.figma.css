@@ -1,14 +1,14 @@
 /* ================================================================
-   AUTO-GENERATED — do not edit by hand.
+   AUTO-GENERATED -- do not edit by hand.
    Source : Figma file sVpDRrA1nRbENMMIcS3HqN (jS_mt_ds)
-   Updated: 2026-06-02T16:00 UTC
+   Updated: 2026-06-02T19:00 UTC
    ================================================================ */
 
 :root {
 
-  /* ── primitives.color ──────────────────────────────────────── */
+  /* -- primitives.color ----------------------------------------- */
   --color-white: #ffffff;
-  --color-ink-900: #4b66ed;
+  --color-ink-900: #161616;
   --color-ink-800: #373b40;
   --color-ink-600: #575e66;
   --color-ink-500: #80878f;
@@ -65,7 +65,7 @@
   --color-brand-microsoft-blue: #00a4ef;
   --color-brand-microsoft-yellow: #ffb900;
 
-  /* ── primitives.dimension ──────────────────────────────────── */
+  /* -- primitives.dimension ------------------------------------- */
   --dimension-size-0: 0px;
   --dimension-size-4: 4px;
   --dimension-size-8: 8px;
@@ -83,7 +83,7 @@
   --dimension-size-96: 96px;
   --dimension-size-128: 128px;
 
-  /* ── primitives.number ─────────────────────────────────────── */
+  /* -- primitives.number ---------------------------------------- */
   --number-opacity-0: 0;
   --number-opacity-4: 0.04;
   --number-opacity-8: 0.08;
@@ -99,7 +99,7 @@
   --number-stroke-width-1: 1;
   --number-stroke-width-2: 2;
 
-  /* ── primitives.radius ─────────────────────────────────────── */
+  /* -- primitives.radius ---------------------------------------- */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 18px;
@@ -107,7 +107,7 @@
   --radius-full: 999px;
   --radius-pill: 9999px;
 
-  /* ── primitives.spacing ────────────────────────────────────── */
+  /* -- primitives.spacing --------------------------------------- */
   --spacing-row-h: 64px;
   --spacing-side-w: 296px;
   --spacing-xs: 4px;
@@ -115,7 +115,7 @@
   --spacing-md: 16px;
   --spacing-lg: 24px;
 
-  /* ── primitives.typography ─────────────────────────────────── */
+  /* -- primitives.typography ------------------------------------ */
   --typography-font-family-sans: Montserrat;
   --typography-font-family-mono: JetBrains Mono;
   --typography-font-weight-light: 300;
@@ -144,7 +144,7 @@
   --typography-line-height-4xl: 44px;
   --typography-line-height-5xl: 56px;
 
-  /* ── primitives.shadow ─────────────────────────────────────── */
+  /* -- primitives.shadow ---------------------------------------- */
   --shadow-sm: 0 1px 0 rgba(255,255,255,.5) inset, 0 1px 2px rgba(20,40,70,.04);
   --shadow-md: 0 1px 0 rgba(255,255,255,.6) inset, 0 12px 28px -12px rgba(20,40,70,.18);
   --shadow-lg: 0 1px 0 rgba(255,255,255,.7) inset, 0 30px 60px -20px rgba(20,40,70,.28);
@@ -152,7 +152,7 @@
   --shadow-md-dark: 0 1px 0 rgba(255,255,255,.04) inset, 0 12px 28px -12px rgba(0,0,0,.55);
   --shadow-lg-dark: 0 1px 0 rgba(255,255,255,.05) inset, 0 30px 60px -20px rgba(0,0,0,.7);
 
-  /* ── semantic: surfaces ────────────────────────────────────── */
+  /* -- semantic: surfaces --------------------------------------- */
   --bg: rgba(207,225,238,0);
   --surface: rgba(255,255,255,0.62);
   --surface-2: rgba(255,255,255,0.42);
@@ -166,7 +166,7 @@
   --surface-field-hover: rgba(255,255,255,0.62);
   --surface-field-focus: rgba(255,255,255,0.85);
 
-  /* ── semantic: borders ─────────────────────────────────────── */
+  /* -- semantic: borders ---------------------------------------- */
   --border: rgba(255,255,255,0.7);
   --border-2: rgba(255,255,255,0.95);
   --hairline: rgba(20,40,70,0.08);
@@ -178,12 +178,12 @@
   --border-success: #229057;
   --border-warning: #d28326;
 
-  /* ── semantic: ink / text / icon ───────────────────────────── */
-  --ink: #4b66ed;
+  /* -- semantic: ink / text / icon ------------------------------ */
+  --ink: #161616;
   --ink-2: #373b40;
   --ink-3: #575e66;
   --ink-4: #80878f;
-  --text-primary: #4b66ed;
+  --text-primary: #161616;
   --text-secondary: #373b40;
   --text-tertiary: #575e66;
   --text-disabled: #80878f;
@@ -193,7 +193,7 @@
   --text-success: #229057;
   --text-warning: #d28326;
   --text-error: #cf4140;
-  --icon-primary: #4b66ed;
+  --icon-primary: #161616;
   --icon-secondary: #373b40;
   --icon-tertiary: #575e66;
   --icon-disabled: #80878f;
@@ -205,7 +205,7 @@
   --icon-error: #cf4140;
   --icon-locked: #4f565e;
 
-  /* ── semantic: accent & status ─────────────────────────────── */
+  /* -- semantic: accent & status -------------------------------- */
   --accent: #4a3fcb;
   --accent-2: rgba(74,63,203,0.1);
   --accent-3: rgba(74,63,203,0.22);
@@ -218,22 +218,21 @@
   --locked: #4f565e;
   --locked-bg: rgba(79,86,94,0.1);
 
-  /* ── semantic: elevation ───────────────────────────────────── */
+  /* -- semantic: elevation -------------------------------------- */
   --elevation-shadow-sm: 0 1px 0 rgba(255,255,255,.5) inset, 0 1px 2px rgba(20,40,70,.04);
   --elevation-shadow-md: 0 1px 0 rgba(255,255,255,.6) inset, 0 12px 28px -12px rgba(20,40,70,.18);
   --elevation-shadow-lg: 0 1px 0 rgba(255,255,255,.7) inset, 0 30px 60px -20px rgba(20,40,70,.28);
 
-  /* ── semantic: number ──────────────────────────────────────── */
+  /* -- semantic: number ----------------------------------------- */
   --number-opacity-disabled: 0.4;
   --number-opacity-subtle: 0.6;
   --number-opacity-overlay: 0.5;
   --number-stroke-width-default: 1;
   --number-stroke-width-strong: 2;
 
-  /* ── semantic: typography (jS_mt_ds scale)
-     Note: these are overridden in tokens.css to preserve current visual sizing.
-     h2/h3/h4 line-heights are broken in jS_mt_ds (resolve to 16px).
-     Override those in tokens.css until fixed in Figma.             ─────────── */
+  /* -- semantic: typography (jS_mt_ds scale)
+     Note: overridden in tokens.css to preserve current visual sizing.
+     h2/h3/h4 line-heights resolve to 16px due to broken aliases in Figma.   */
   --typography-display-font-family: Montserrat;
   --typography-display-font-weight: 700;
   --typography-display-font-size: 36px;
