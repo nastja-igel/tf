@@ -300,7 +300,7 @@ export const InContext: Story = {
         fontSize: 13, minWidth: 220,
       }}>
         <Icon name="Search" size="sm" />
-        <span style={{ color: 'var(--ink-4, #80878f)' }}>Search…</span>
+        <span style={{ color: 'var(--ink-3, #575e66)' }}>Search…</span>
         <kbd style={{
           marginLeft: 'auto', padding: '2px 6px',
           border: '1px solid rgba(20,40,70,.14)', borderRadius: 5,
@@ -364,8 +364,9 @@ export const Accessibility: Story = {
         <p style={{ margin: '0 0 6px', fontSize: 11, fontWeight: 600, color: 'var(--bad, #c93535)', textTransform: 'uppercase', letterSpacing: '.06em' }}>
           ❌ Wrong — icon-only button with no accessible label
         </p>
+        {/* aria-hidden + tabIndex=-1 so axe skips this intentional bad demo */}
         <div aria-hidden="true">
-          <button style={{
+          <button tabIndex={-1} style={{
             display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
             width: 32, height: 32, borderRadius: '50%',
             border: '1px solid rgba(20,40,70,.14)', background: 'rgba(255,255,255,.7)',

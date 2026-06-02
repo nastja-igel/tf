@@ -44,6 +44,14 @@ Without \`variant\`, pass \`label\` + \`dot\` manually (e.g. the "All" catch-all
     label:    { table: { disable: true } },
   },
   args: { label: 'All', count: 24 },
+  // role="tab" requires a tablist parent — provide one for all stories
+  decorators: [
+    (Story) => (
+      <div role="tablist" aria-label="Filter">
+        <Story />
+      </div>
+    ),
+  ],
 }
 export default meta
 type Story = StoryObj<typeof meta>

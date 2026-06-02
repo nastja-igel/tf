@@ -767,34 +767,39 @@ export function WorktimeApprovals() {
             {/* ── Table ── */}
             <div className={styles.tblWrap} role="table" aria-label="Worktime approvals">
               {/* Head */}
-              <div className={styles.tblHead}>
-                <div />
-                <div
-                  className={styles.sortable}
-                  onClick={() => setSort(s => ({ key: 'user', dir: s.key === 'user' && s.dir === 'asc' ? 'desc' : 'asc' }))}
-                >
-                  {sort.key === 'user' && <Ic d={sort.dir === 'asc' ? IC.ArrowUp : IC.ArrowDn} size={11} style={{ color: 'var(--accent)' }} />}
-                  <span>Employee</span>
+              <div role="rowgroup">
+                <div className={styles.tblHead} role="row">
+                  <div role="columnheader" aria-label="Status" />
+                  <div
+                    role="columnheader"
+                    className={styles.sortable}
+                    onClick={() => setSort(s => ({ key: 'user', dir: s.key === 'user' && s.dir === 'asc' ? 'desc' : 'asc' }))}
+                  >
+                    {sort.key === 'user' && <Ic d={sort.dir === 'asc' ? IC.ArrowUp : IC.ArrowDn} size={11} style={{ color: 'var(--accent)' }} />}
+                    <span>Employee</span>
+                  </div>
+                  <div role="columnheader" className={styles.colPeriod}>Period</div>
+                  <div role="columnheader" className={[styles.numHead, styles.colVac].join(' ')}>Vac.</div>
+                  <div role="columnheader" className={[styles.numHead, styles.colHol].join(' ')}>Hol.</div>
+                  <div role="columnheader" className={[styles.numHead, styles.colSick].join(' ')}>Sick</div>
+                  <div
+                    role="columnheader"
+                    className={[styles.numHead, styles.sortable].join(' ')}
+                    onClick={() => setSort(s => ({ key: 'hours', dir: s.key === 'hours' && s.dir === 'asc' ? 'desc' : 'asc' }))}
+                  >
+                    {sort.key === 'hours' && <Ic d={sort.dir === 'asc' ? IC.ArrowUp : IC.ArrowDn} size={11} style={{ color: 'var(--accent)' }} />}
+                    <span>Hours</span>
+                  </div>
+                  <div role="columnheader" aria-label="Actions" />
                 </div>
-                <div className={styles.colPeriod}>Period</div>
-                <div className={[styles.numHead, styles.colVac].join(' ')}>Vac.</div>
-                <div className={[styles.numHead, styles.colHol].join(' ')}>Hol.</div>
-                <div className={[styles.numHead, styles.colSick].join(' ')}>Sick</div>
-                <div
-                  className={[styles.numHead, styles.sortable].join(' ')}
-                  onClick={() => setSort(s => ({ key: 'hours', dir: s.key === 'hours' && s.dir === 'asc' ? 'desc' : 'asc' }))}
-                >
-                  {sort.key === 'hours' && <Ic d={sort.dir === 'asc' ? IC.ArrowUp : IC.ArrowDn} size={11} style={{ color: 'var(--accent)' }} />}
-                  <span>Hours</span>
-                </div>
-                <div />
               </div>
 
               {/* Rows */}
               {filtered.length === 0 ? (
                 <div className={styles.empty}>No timesheets match the current filter.</div>
               ) : (
-                filtered.map(r => (
+                <div role="rowgroup">
+                {filtered.map(r => (
                   <TblRow
                     key={r.id + '-' + r.status}
                     row={r}
@@ -803,7 +808,8 @@ export function WorktimeApprovals() {
                     onSelect={id => setSelectedId(prev => prev === id ? null : id)}
                     onAction={onRowAction}
                   />
-                ))
+                ))}
+                </div>
               )}
 
               {/* Footer */}
