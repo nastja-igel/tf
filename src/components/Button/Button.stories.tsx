@@ -1,8 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from './Button'
-import type { ButtonVariant, ButtonSize } from './Button'
+import type { ButtonProps, ButtonVariant, ButtonSize } from './Button'
+import { Icon, ALL_ICON_NAMES } from '../Icon/Icon'
+import type { IconName } from '../Icon/Icon'
 
-const meta: Meta<typeof Button> = {
+// ── Story arg type ─────────────────────────────────────────────────────────
+// Extends ButtonProps with two story-level fields that drive icon rendering.
+// These are NOT Button component props — the render function consumes them.
+
+type StoryArgs = ButtonProps & {
+  icon: IconName | 'none'
+  iconPosition: 'left' | 'right'
+}
+
+// ── Meta ───────────────────────────────────────────────────────────────────
+
+const meta: Meta<StoryArgs> = {
   title: 'Foundations/Buttons/Button',
   component: Button,
   tags: ['autodocs'],
@@ -61,33 +74,76 @@ The primary interactive element for triggering actions. Use \`Button\` for any u
     loading:    { control: 'boolean' },
     disabled:   { control: 'boolean' },
     children:   { control: 'text', description: 'Button label' },
+
+    // ── Icon story controls ──────────────────────────────────────────────
+    icon: {
+      control: 'select',
+      options: ['none', ...ALL_ICON_NAMES.filter(n => n !== 'Google' && n !== 'Microsoft')],
+      description: 'Icon shown alongside the label. **Story control only** — pass an `<Icon>` as part of `children` in production.',
+      table: {
+        defaultValue: { summary: 'none' },
+        category: 'Icon',
+      },
+    },
+    iconPosition: {
+      control: 'radio',
+      options: ['left', 'right'],
+      description: 'Side of the label where the icon appears.',
+      // only show this control when an icon is actually selected
+      if: { arg: 'icon', neq: 'none' },
+      table: {
+        defaultValue: { summary: 'left' },
+        category: 'Icon',
+      },
+    },
   },
-  args: { children: 'Button', variant: 'primary', size: 'md' },
+  args: {
+    children: 'Button',
+    variant: 'primary',
+    size: 'md',
+    icon: 'none',
+    iconPosition: 'left',
+  },
+
+  // Meta-level render: all stories that use args get the icon injection automatically.
+  render: ({ icon, iconPosition, children, ...buttonProps }) => {
+    const ico = icon !== 'none'
+      ? <Icon name={icon} size="sm" />
+      : null
+
+    return (
+      <Button {...buttonProps}>
+        {iconPosition === 'left'  && ico}
+        {children}
+        {iconPosition === 'right' && ico}
+      </Button>
+    )
+  },
 }
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-/* ── Playground ──────────────────────────────────────────────── */
+// ── Playground ─────────────────────────────────────────────────────────────
 
 export const Playground: Story = {}
 
-/* ── Variants ────────────────────────────────────────────────── */
+// ── Variants ───────────────────────────────────────────────────────────────
 
-export const Primary: Story   = { args: { variant: 'primary'   } }
+export const Primary:   Story = { args: { variant: 'primary'   } }
 export const Secondary: Story = { args: { variant: 'secondary' } }
-export const Ghost: Story     = { args: { variant: 'ghost'     } }
+export const Ghost:     Story = { args: { variant: 'ghost'     } }
 
-/* ── Sizes ───────────────────────────────────────────────────── */
+// ── Sizes ──────────────────────────────────────────────────────────────────
 
 export const Small:  Story = { args: { size: 'sm' } }
 export const Medium: Story = { args: { size: 'md' } }
 export const Large:  Story = { args: { size: 'lg' } }
 
-/* ── States ──────────────────────────────────────────────────── */
+// ── States ─────────────────────────────────────────────────────────────────
 
-export const Loading:   Story = { args: { loading: true } }
-export const Disabled:  Story = { args: { disabled: true } }
+export const Loading:  Story = { args: { loading: true } }
+export const Disabled: Story = { args: { disabled: true } }
 export const FullWidth: Story = {
   args: { fullWidth: true },
   parameters: { layout: 'padded' },
@@ -100,7 +156,7 @@ export const FullWidth: Story = {
   ],
 }
 
-/* ── All variants row ────────────────────────────────────────── */
+// ── All variants row ────────────────────────────────────────────────────────
 
 export const AllVariants: Story = {
   name: 'All Variants',
@@ -124,47 +180,36 @@ export const AllSizes: Story = {
   ),
 }
 
-/* ── Icon usage ──────────────────────────────────────────────── */
+// ── Icon placement ──────────────────────────────────────────────────────────
 
-const PlusIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"
-    aria-hidden="true">
-    <path d="M12 5v14M5 12h14"/>
-  </svg>
-)
-
-const CheckIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"
-    aria-hidden="true">
-    <path d="M20 6 9 17l-5-5"/>
-  </svg>
-)
-
-export const WithIconLeft: Story = {
+export const IconLeft: Story = {
   name: 'Icon — Left',
-  render: () => (
-    <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-      <Button variant="primary"><PlusIcon /> New entry</Button>
-      <Button variant="secondary"><PlusIcon /> New entry</Button>
-      <Button variant="ghost"><PlusIcon /> New entry</Button>
-    </div>
-  ),
+  args: { icon: 'Plus', iconPosition: 'left', children: 'New entry' },
 }
 
-export const WithIconRight: Story = {
+export const IconRight: Story = {
   name: 'Icon — Right',
+  args: { icon: 'Check', iconPosition: 'right', children: 'Continue' },
+}
+
+export const AllVariantsWithIcon: Story = {
+  name: 'Icon — All Variants',
   render: () => (
     <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-      <Button variant="primary">Continue <CheckIcon /></Button>
-      <Button variant="secondary">Continue <CheckIcon /></Button>
-      <Button variant="ghost">Continue <CheckIcon /></Button>
+      <Button variant="primary">
+        <Icon name="Plus" size="sm" /> New entry
+      </Button>
+      <Button variant="secondary">
+        <Icon name="Plus" size="sm" /> New entry
+      </Button>
+      <Button variant="ghost">
+        <Icon name="Plus" size="sm" /> New entry
+      </Button>
     </div>
   ),
 }
 
-/* ── Compact sm — replaces old Btn component ─────────────────── */
+// ── Compact sm ─────────────────────────────────────────────────────────────
 
 export const CompactActions: Story = {
   name: 'Compact (sm) — Drawer / Toolbar',
@@ -172,11 +217,17 @@ export const CompactActions: Story = {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
       <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
         <Button variant="ghost" size="sm">Send Back</Button>
-        <Button variant="ghost" size="sm">Lock</Button>
-        <Button variant="primary" size="sm">Approve &amp; Lock</Button>
+        <Button variant="ghost" size="sm">
+          <Icon name="Lock" size="sm" /> Lock
+        </Button>
+        <Button variant="primary" size="sm">
+          <Icon name="Check" size="sm" /> Approve &amp; Lock
+        </Button>
       </div>
       <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-        <Button variant="ghost" size="sm">Export</Button>
+        <Button variant="ghost" size="sm">
+          <Icon name="Download" size="sm" /> Export
+        </Button>
         <Button variant="primary" size="sm">Approve All (5)</Button>
       </div>
     </div>
