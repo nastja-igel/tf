@@ -35,12 +35,13 @@ svg {
   --ink-4: var(--color-slate-400,#80878f);
   --accent: var(--surface-bg-accent, #4a3fcb);
 
-  /* ── Text — same bridge ──────────────────────────────────────────────── */
-  --text-primary:   var(--text-default,  #161616);
-  --text-secondary: var(--text-subtle,   #373b40);
-  --text-tertiary:  var(--text-muted,    #575e66);
-  --text-disabled:  var(--text-disabled, #80878f);
-  --text-inverse:   var(--text-inverse,  #ffffff);
+  /* ── Text aliases for legacy component references ───────────────────── */
+  /* Note: --text-disabled and --text-inverse are NOT redefined here       */
+  /* because they already exist in tokens.figma.css — redefining them       */
+  /* with the same name would create a circular var() reference.            */
+  --text-primary:   var(--text-default, #161616);
+  --text-secondary: var(--text-subtle,  #373b40);
+  --text-tertiary:  var(--text-muted,   #575e66);
 
   /* ── Surfaces (glassmorphic) ───────────────── */
   --surface-field:       rgba(255, 255, 255, 0.35);
