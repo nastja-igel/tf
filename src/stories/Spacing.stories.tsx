@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 function useToken(name: string) {
@@ -9,8 +9,8 @@ function useToken(name: string) {
   return v
 }
 
-// ── spacing bar ────────────────────────────────────────────────────
-function SpacingRow({ token, label, description }: { token: string; label: string; description: string }) {
+// â”€â”€ spacing bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function SpacingRow({ token, description }: { token: string; label: string; description: string }) {
   const value = useToken(token)
   const px = parseInt(value) || 0
 
@@ -33,7 +33,7 @@ function SpacingRow({ token, label, description }: { token: string; label: strin
   )
 }
 
-// ── radius swatch ──────────────────────────────────────────────────
+// â”€â”€ radius swatch â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function RadiusRow({ token, label, description }: { token: string; label: string; description: string }) {
   const value = useToken(token)
   const px = parseInt(value) || 0
@@ -54,7 +54,7 @@ function RadiusRow({ token, label, description }: { token: string; label: string
         opacity: 0.85,
       }} />
       <div style={{ fontSize: 12, color: '#575e66', fontFamily: 'Montserrat, sans-serif' }}>
-        <strong style={{ color: '#161616' }}>{label}</strong> — {description}
+        <strong style={{ color: '#161616' }}>{label}</strong> â€” {description}
       </div>
     </div>
   )
@@ -65,10 +65,10 @@ function SpacingPage() {
     <div style={{ fontFamily: 'Montserrat, sans-serif', padding: '32px 40px 64px', maxWidth: 900 }}>
       <h1 style={{ fontSize: 28, fontWeight: 700, color: '#161616', marginBottom: 6 }}>Spacing & Radius</h1>
       <p style={{ fontSize: 14, color: '#575e66', marginBottom: 48, lineHeight: 1.6 }}>
-        All values are live CSS variables. Use spacing tokens for all gaps, padding, and margins — never hardcode px values.
+        All values are live CSS variables. Use spacing tokens for all gaps, padding, and margins â€” never hardcode px values.
       </p>
 
-      {/* ── Semantic spacing ─────────────────────── */}
+      {/* â”€â”€ Semantic spacing â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <h2 style={{ fontSize: 18, fontWeight: 600, color: '#161616', marginBottom: 6, paddingBottom: 10, borderBottom: '1px solid rgba(20,40,70,0.08)' }}>
         Semantic Spacing
       </h2>
@@ -82,7 +82,7 @@ function SpacingPage() {
         { token: '--spacing-lg', label: 'lg', description: 'Panel padding, large card inset, drawer header' },
       ].map(r => <SpacingRow key={r.token} {...r} />)}
 
-      {/* ── App spacing shortcuts ────────────────── */}
+      {/* â”€â”€ App spacing shortcuts â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <h2 style={{ fontSize: 18, fontWeight: 600, color: '#161616', margin: '40px 0 6px', paddingBottom: 10, borderBottom: '1px solid rgba(20,40,70,0.08)' }}>
         Spacing Scale (--space-*)
       </h2>
@@ -90,23 +90,23 @@ function SpacingPage() {
         Fine-grained scale for layout use. Multiples of 4px.
       </p>
       {[
-        { token: '--space-1',  label: '4px',  description: '1 unit — micro offset, badge shift' },
-        { token: '--space-2',  label: '8px',  description: '2 units — tight gap, inner padding' },
-        { token: '--space-3',  label: '12px', description: '3 units — compact spacing' },
-        { token: '--space-4',  label: '16px', description: '4 units — standard component padding' },
-        { token: '--space-5',  label: '20px', description: '5 units — comfortable gap' },
-        { token: '--space-6',  label: '24px', description: '6 units — section gap, card padding' },
-        { token: '--space-8',  label: '32px', description: '8 units — generous spacing' },
-        { token: '--space-10', label: '40px', description: '10 units — large section break' },
-        { token: '--space-12', label: '48px', description: '12 units — page-level spacing' },
+        { token: '--space-1',  label: '4px',  description: '1 unit â€” micro offset, badge shift' },
+        { token: '--space-2',  label: '8px',  description: '2 units â€” tight gap, inner padding' },
+        { token: '--space-3',  label: '12px', description: '3 units â€” compact spacing' },
+        { token: '--space-4',  label: '16px', description: '4 units â€” standard component padding' },
+        { token: '--space-5',  label: '20px', description: '5 units â€” comfortable gap' },
+        { token: '--space-6',  label: '24px', description: '6 units â€” section gap, card padding' },
+        { token: '--space-8',  label: '32px', description: '8 units â€” generous spacing' },
+        { token: '--space-10', label: '40px', description: '10 units â€” large section break' },
+        { token: '--space-12', label: '48px', description: '12 units â€” page-level spacing' },
       ].map(r => <SpacingRow key={r.token} {...r} />)}
 
-      {/* ── Radius ──────────────────────────────── */}
+      {/* â”€â”€ Radius â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <h2 style={{ fontSize: 18, fontWeight: 600, color: '#161616', margin: '40px 0 6px', paddingBottom: 10, borderBottom: '1px solid rgba(20,40,70,0.08)' }}>
         Border Radius
       </h2>
       <p style={{ fontSize: 13, color: '#575e66', marginBottom: 20 }}>
-        Use semantic names — never hardcode corner radius values.
+        Use semantic names â€” never hardcode corner radius values.
       </p>
       {[
         { token: '--radius-xs', label: 'xs', description: 'Badges, tiny indicators' },
@@ -115,8 +115,8 @@ function SpacingPage() {
         { token: '--radius-lg', label: 'lg', description: 'Large panels, drawers' },
         { token: '--radius-xl', label: 'xl', description: 'Extra-large containers' },
         { token: '--radius-2xl', label: '2xl', description: 'Hero sections, overlays' },
-        { token: '--radius-full', label: 'full', description: 'Nearly circular (999px) — avatars' },
-        { token: '--radius-pill', label: 'pill', description: 'Fully pill-shaped — chips, tags, badges' },
+        { token: '--radius-full', label: 'full', description: 'Nearly circular (999px) â€” avatars' },
+        { token: '--radius-pill', label: 'pill', description: 'Fully pill-shaped â€” chips, tags, badges' },
       ].map(r => <RadiusRow key={r.token} {...r} />)}
     </div>
   )
@@ -133,9 +133,9 @@ const meta: Meta = {
 Spacing tokens and border radius values for mt_ds.
 
 ### Rules
-- Always use **\`--spacing-*\`** or **\`--space-*\`** tokens — never hardcode \`px\` values.
-- Use **semantic spacing** (\`--spacing-xs\` → \`--spacing-lg\`) for component internals.
-- Use **scale spacing** (\`--space-1\` → \`--space-12\`) for layout and page structure.
+- Always use **\`--spacing-*\`** or **\`--space-*\`** tokens â€” never hardcode \`px\` values.
+- Use **semantic spacing** (\`--spacing-xs\` â†’ \`--spacing-lg\`) for component internals.
+- Use **scale spacing** (\`--space-1\` â†’ \`--space-12\`) for layout and page structure.
 - Radius: \`--radius-sm\` for inputs/checkboxes, \`--radius-md\` for cards, \`--radius-pill\` for chips.
         `,
       },
