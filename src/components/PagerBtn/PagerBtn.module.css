@@ -1,4 +1,4 @@
-/* PagerBtn — Figma node 146:58 — 30×30 pill */
+﻿/* PagerBtn — Figma node 146:58 — 30×30 pill */
 .btn {
   width: 30px;
   height: 30px;
@@ -8,10 +8,10 @@
   display: grid;
   place-items: center;
   font-family: var(--font-sans);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-sm);
-  color: var(--ink-2);
+  color: var(--text-subtle);
   cursor: pointer;
   transition: background 0.12s ease, color 0.12s ease;
   padding: 0;
@@ -19,6 +19,6 @@
 .btn:hover:not(.active) { background: var(--surface); }
 
 .active {
-  background: var(--ink);
+  background: var(--text-default);
   color: #fff;
 }

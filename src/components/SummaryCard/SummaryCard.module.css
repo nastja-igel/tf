@@ -1,9 +1,9 @@
-/* SummaryCard — Figma node 235:202 — 98px wide stat card for Drawer */
+﻿/* SummaryCard — Figma node 235:202 — 98px wide stat card for Drawer */
 .card {
   flex: 1 1 0;
   min-width: 0;
   background: rgba(255, 255, 255, 0.55);
-  border: 1px solid var(--border, rgba(255,255,255,.70));
+  border: 1px solid var(--glass-border);
   border-radius: 14px;
   padding: 12px;
   display: flex;
@@ -18,7 +18,7 @@
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.06em;
   line-height: 1;
-  color: var(--ink-3);
+  color: var(--text-muted);
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -28,12 +28,12 @@
   font-size: 20px;
   font-weight: var(--font-weight-bold);
   line-height: 1.1;
-  color: var(--ink);
+  color: var(--text-default);
   white-space: nowrap;
 }
 
 /* kind accent stripe */
-.pending  { border-top: 2px solid var(--accent); }
-.approved { border-top: 2px solid var(--good); }
-.locked   { border-top: 2px solid var(--locked); }
-.alerts   { border-top: 2px solid var(--warn); }
+.pending  { border-top: 2px solid var(--surface-bg-accent); }
+.approved { border-top: 2px solid var(--text-success); }
+.locked   { border-top: 2px solid var(--text-disabled); }
+.alerts   { border-top: 2px solid var(--text-warning); }

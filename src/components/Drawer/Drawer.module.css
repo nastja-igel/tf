@@ -1,4 +1,4 @@
-/* Drawer — Figma node 248:976 — 460px slide-in detail panel */
+﻿/* Drawer — Figma node 248:976 — 460px slide-in detail panel */
 
 /* ── Overlay scrim ───────────────────────────────────────────── */
 .scrim {
@@ -24,7 +24,7 @@
   background: rgba(255, 255, 255, 0.70);
   backdrop-filter: blur(28px) saturate(160%);
   -webkit-backdrop-filter: blur(28px) saturate(160%);
-  border: 1px solid var(--border, rgba(255,255,255,.70));
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);   /* 24px */
   box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 30px 60px -20px rgba(20,40,70,.28);
   display: flex;
@@ -63,13 +63,13 @@
   width: 42px;
   height: 42px;
   border-radius: var(--radius-pill);
-  background: var(--accent-tint);
+  background: var(--surface-bg-accent-subtle);
   display: grid;
   place-items: center;
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: var(--font-weight-semibold);
-  color: var(--accent);
+  color: var(--text-accent);
   flex-shrink: 0;
 }
 
@@ -85,7 +85,7 @@
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: var(--font-weight-semibold);
-  color: var(--ink);
+  color: var(--text-default);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -95,7 +95,7 @@
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: var(--font-weight-regular);
-  color: var(--ink-3);
+  color: var(--text-muted);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -116,10 +116,10 @@
   flex-shrink: 0;
 }
 
-.chipOpen     { background: var(--accent-tint);  border-color: var(--accent);  color: var(--accent);  }
-.chipAlert    { background: var(--warn-bg);       border-color: var(--warn);    color: #7e4d15;    } /* #7e4d15 = warning-800, 6.3:1 on warm bg */
-.chipApproved { background: var(--good-bg);       border-color: var(--good);    color: var(--good);    }
-.chipLocked   { background: var(--locked-bg);     border-color: var(--locked);  color: var(--locked);  }
+.chipOpen     { background: var(--surface-bg-accent-subtle);  border-color: var(--surface-bg-accent);  color: var(--text-accent);  }
+.chipAlert    { background: var(--surface-bg-warning-subtle);       border-color: var(--text-warning);    color: #7e4d15;    } /* #7e4d15 = warning-800, 6.3:1 on warm bg */
+.chipApproved { background: var(--surface-bg-success-subtle);       border-color: var(--text-success);    color: var(--text-success);    }
+.chipLocked   { background: var(--surface-bg-disabled);     border-color: var(--text-disabled);  color: var(--text-disabled);  }
 
 /* ── Close button ──────────────────────────────────────────── */
 .closeBtn {
@@ -128,7 +128,7 @@
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-subtle, rgba(20,40,70,.08));
   background: var(--surface);
-  color: var(--ink-3);
+  color: var(--text-muted);
   display: grid;
   place-items: center;
   cursor: pointer;
@@ -138,7 +138,7 @@
 
 .closeBtn:hover {
   background: var(--surface-field-hover, rgba(255,255,255,.62));
-  color: var(--ink);
+  color: var(--text-default);
 }
 
 /* ── Body ───────────────────────────────────────────────────── */
@@ -162,7 +162,7 @@
   font-size: 10px;
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.05em;
-  color: var(--ink-3);
+  color: var(--text-muted);
   margin: 0 0 8px;
   text-transform: uppercase;
 }
@@ -176,7 +176,7 @@
   gap: 4px;
   padding: 8px 12px 12px;
   background: rgba(255,255,255,.45);
-  border: 1px solid var(--border, rgba(255,255,255,.70));
+  border: 1px solid var(--glass-border);
   border-radius: 14px;
 }
 
@@ -187,14 +187,14 @@
   font-family: var(--font-sans);
   font-size: 10px;
   font-weight: var(--font-weight-medium);
-  color: var(--ink-3);
+  color: var(--text-muted);
 }
 
 /* ── Timeline section ───────────────────────────────────────── */
 .tlSection { display: flex; flex-direction: column; }
 
 .timeline {
-  border: 1px solid var(--border, rgba(255,255,255,.70));
+  border: 1px solid var(--glass-border);
   border-radius: 14px;
   overflow: hidden;
   background: rgba(255,255,255,.4);
@@ -206,18 +206,18 @@
   align-items: flex-start;
   gap: 10px;
   padding: 12px;
-  background: var(--warn-bg);
+  background: var(--surface-bg-warning-subtle);
   border: 1px solid oklch(68% 0.14 65 / .3);
   border-radius: 10px;
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: var(--font-weight-regular);
-  color: var(--ink-2);
+  color: var(--text-subtle);
   line-height: 1.45;
 }
 
 .alertBanner svg {
-  color: var(--warn);
+  color: var(--text-warning);
   flex-shrink: 0;
   margin-top: 1px;
 }
@@ -256,14 +256,14 @@
 
 .btnGhost {
   background: rgba(255, 255, 255, 0.55);
-  border: 1px solid var(--border, rgba(255,255,255,.70));
-  color: var(--ink-2);
+  border: 1px solid var(--glass-border);
+  color: var(--text-subtle);
 }
 
-.btnGhost:hover { background: rgba(255, 255, 255, 0.85); color: var(--ink); }
+.btnGhost:hover { background: rgba(255, 255, 255, 0.85); color: var(--text-default); }
 
 .btnPrimary {
-  background: var(--ink);
+  background: var(--text-default);
   border: 1px solid transparent;
   color: #fff;
   box-shadow: 0 8px 18px -8px rgba(0,0,0,.35);

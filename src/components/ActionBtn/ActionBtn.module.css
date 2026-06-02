@@ -1,4 +1,4 @@
-/* ActionBtn — Figma node 146:53 — 32×32 pill
+﻿/* ActionBtn — Figma node 146:53 — 32×32 pill
    Both variants share identical resting state (white glass).
    primary only adds accent color on hover — matches design .act.primary:hover */
 .btn {
@@ -6,9 +6,9 @@
   height: 32px;
   flex-shrink: 0;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--border, rgba(255,255,255,.70));
+  border: 1px solid var(--glass-border);
   background: rgba(255,255,255,.7);
-  color: var(--ink-3);
+  color: var(--text-muted);
   display: grid;
   place-items: center;
   cursor: pointer;
@@ -20,11 +20,11 @@
 
 .default:hover:not(:disabled) {
   background: rgba(255,255,255,.95);
-  color: var(--ink);
+  color: var(--text-default);
 }
 
 .primary:hover:not(:disabled) {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--surface-bg-accent);
+  border-color: var(--surface-bg-accent);
   color: #fff;
 }

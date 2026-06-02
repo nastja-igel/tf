@@ -1,11 +1,11 @@
-/* CalendarGrid — 7-column month grid with day-of-week headers */
+﻿/* CalendarGrid — 7-column month grid with day-of-week headers */
 .wrap {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 4px;
   padding: 8px 12px 12px;
   background: rgba(255,255,255,.55);
-  border: 1px solid var(--border, rgba(20,40,70,.12));
+  border: 1px solid var(--border-subtle);
   border-radius: 14px;
   backdrop-filter: blur(12px) saturate(130%);
 }
@@ -16,7 +16,7 @@
   font-weight: var(--font-weight-bold);
   letter-spacing: .07em;
   text-transform: uppercase;
-  color: var(--ink-3); /* ink-4 #80878f fails 4.5:1 at 10px — use ink-3 */
+  color: var(--text-muted); /* ink-4 #80878f fails 4.5:1 at 10px — use ink-3 */
   text-align: center;
   padding: 4px 0;
 }

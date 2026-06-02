@@ -1,4 +1,4 @@
-/* Input — Figma node 98:78 */
+﻿/* Input — Figma node 98:78 */
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-xs); /* 100% */
   letter-spacing: var(--letter-spacing-none);
-  color: var(--text-primary);
+  color: var(--text-default);
 }
 
 .label.labelDisabled {
@@ -34,11 +34,11 @@
   border: 1px solid var(--border-default);
   border-radius: var(--radius-md); /* 12px */
   font-family: var(--font-sans);
-  font-size: var(--font-size-md);   /* 14px */
+  font-size: var(--font-size-sm);   /* 14px */
   font-weight: var(--font-weight-medium); /* 500 */
   line-height: var(--line-height-sm);     /* 20px */
   letter-spacing: var(--letter-spacing-none);
-  color: var(--text-tertiary);
+  color: var(--text-muted);
   background: var(--surface-field);
   outline: none;
   transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
@@ -46,7 +46,7 @@
 }
 
 /* Placeholder = tertiary */
-.input::placeholder { color: var(--text-tertiary); }
+.input::placeholder { color: var(--text-muted); }
 
 /* Hover */
 .input:hover:not(:disabled):not(:focus) {
@@ -58,12 +58,12 @@
   background: var(--surface-field-focus);
   border-color: var(--border-focus);
   box-shadow: var(--shadow-focus);
-  color: var(--text-primary);
+  color: var(--text-default);
 }
 
 /* Filled (has value, not focused) */
 .input:not(:placeholder-shown):not(:focus) {
-  color: var(--text-primary);
+  color: var(--text-default);
 }
 
 /* Disabled */
@@ -77,7 +77,7 @@
 
 /* Error */
 .hasError {
-  border-color: var(--border-error) !important;
+  border-color: var(--border-danger) !important;
   background: var(--surface-field);
 }
 .hasError:focus {
@@ -100,7 +100,7 @@
   background: transparent;
   display: grid;
   place-items: center;
-  color: var(--text-tertiary);
+  color: var(--text-muted);
   cursor: pointer;
   transition: background 0.12s ease, color 0.12s ease;
   padding: 0;
@@ -108,17 +108,17 @@
 }
 .eye:hover {
   background: rgba(255, 255, 255, 0.50);
-  color: var(--text-primary);
+  color: var(--text-default);
 }
 
 /* Hint / error text */
 .helper {
   font-family: var(--font-sans);
   font-size: var(--font-size-sm);
-  color: var(--text-tertiary);
+  color: var(--text-muted);
 }
 .error {
   font-family: var(--font-sans);
   font-size: var(--font-size-sm);
-  color: var(--border-error);
+  color: var(--border-danger);
 }

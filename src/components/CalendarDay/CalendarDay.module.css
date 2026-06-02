@@ -1,4 +1,4 @@
-/* CalendarDay — Figma node 235:219 — calendar cell */
+﻿/* CalendarDay — Figma node 235:219 — calendar cell */
 .cell {
   aspect-ratio: 1.4;
   display: grid;
@@ -8,7 +8,7 @@
   font-size: 11px;
   font-weight: var(--font-weight-medium);
   line-height: 1;
-  color: var(--ink-2);
+  color: var(--text-subtle);
   background: rgba(255,255,255,.55);
   flex-shrink: 0;
   position: relative;
@@ -28,41 +28,41 @@
   border-radius: var(--radius-pill);
 }
 
-.work::after { background: var(--accent); }
-.over::after { background: var(--warn); }
+.work::after { background: var(--surface-bg-accent); }
+.over::after { background: var(--text-warning); }
 
 /* State variants */
 .empty,
 .normal {
   background: rgba(255,255,255,.55);
-  color: var(--ink-2);
+  color: var(--text-subtle);
 }
 
 .weekend {
   background: transparent;
-  color: var(--ink-3); /* darkened from ink-4 for 4.5:1 contrast */
+  color: var(--text-muted); /* darkened from ink-4 for 4.5:1 contrast */
 }
 
 .work {
   background: rgba(255,255,255,.55);
-  color: var(--ink-2);
+  color: var(--text-subtle);
 }
 
 .over {
   background: rgba(255,255,255,.55);
-  color: var(--ink-2);
+  color: var(--text-subtle);
 }
 
 .absent {
   background: transparent;
-  color: var(--ink-3); /* ink-4 #80878f fails 4.5:1 at 11px — use ink-3 */
+  color: var(--text-muted); /* ink-4 #80878f fails 4.5:1 at 11px — use ink-3 */
   text-decoration: line-through;
 }
 
 .today {
-  outline: 1.5px solid var(--accent);
+  outline: 1.5px solid var(--surface-bg-accent);
   outline-offset: -1px;
   background: rgba(255,255,255,.55);
-  color: var(--accent);
+  color: var(--text-accent);
   font-weight: var(--font-weight-bold);
 }

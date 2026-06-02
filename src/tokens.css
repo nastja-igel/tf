@@ -1,62 +1,41 @@
-/* Auto-generated Figma variables — updated by "Обнови токены" */
-@import './tokens.figma.css';
+/* ──────────────────────────────────────────────────────────────
+   mt_ds — Token Layer
+   tokens.figma.css  ← auto-generated from Figma (all primitives + semantics)
+   tokens.css        ← imports figma, then adds app-specific extensions
+   ────────────────────────────────────────────────────────────── */
 
-/* ============================================================
-   mt_ds — Design Tokens
-   Source: Figma file sVpDRrA1nRbENMMIcS3HqN (jS_mt_ds)
-   Last synced: 2026-05-27
-   ============================================================ */
+@import './tokens.figma.css';
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* ── Reset ─────────────────────────────────────────── */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-}
-
-svg {
-  display: block; /* prevent inline baseline gap and sub-pixel shift */
-}
+/* ── Reset ────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html, body             { margin: 0; padding: 0; min-height: 100%; }
+svg                    { display: block; }
 
 :root {
 
-  /* ── Brand ink — bridged to tokens.figma.css (Figma semantic layer) ── */
-  /* When "Обнови токены" runs, tokens.figma.css updates and these         */
-  /* automatically reflect the new Figma values.                           */
-  --ink:   var(--text-default,   #161616);
-  --ink-2: var(--text-subtle,    #373b40);
-  --ink-3: var(--text-muted,     #575e66);
-  --ink-4: var(--color-slate-400,#80878f);
-  --accent: var(--surface-bg-accent, #4a3fcb);
+  /* ── Font aliases (shorter names for component CSS) ─────────── */
+  --font-sans: var(--font-family-body, 'Montserrat', sans-serif);
+  --font-mono: var(--font-family-code, 'JetBrains Mono', monospace);
 
-  /* ── Text aliases for legacy component references ───────────────────── */
-  /* Note: --text-disabled and --text-inverse are NOT redefined here       */
-  /* because they already exist in tokens.figma.css — redefining them       */
-  /* with the same name would create a circular var() reference.            */
-  --text-primary:   var(--text-default, #161616);
-  --text-secondary: var(--text-subtle,  #373b40);
-  --text-tertiary:  var(--text-muted,   #575e66);
+  /* ── App-specific font sizes (no Figma primitive equivalent) ── */
+  --font-size-label:      13.5px; /* Input label — between xs(12) and sm(14) */
+  --font-size-stat-label: 12.5px;
+  --font-size-stat-delta: 12px;
+  --font-size-display:    36px;
+  --font-weight-display:  700;
+  --line-height-display:  44px;
 
-  /* ── Surfaces (glassmorphic) ───────────────── */
-  --surface-field:       rgba(255, 255, 255, 0.35);
-  --surface-field-hover: rgba(255, 255, 255, 0.62);
-  --surface-field-focus: rgba(255, 255, 255, 0.85);
-  --surface-faint:       rgba(255, 255, 255, 0.28);
+  /* ── Line-height unitless aliases (Figma uses px, layout uses ratios) ── */
+  --line-height-tight:  1.2;
+  --line-height-normal: 1.5;
 
-  /* ── Borders ───────────────────────────────── */
-  --border-default: rgba(255, 255, 255, 0.70);
-  --border-strong:  rgba(255, 255, 255, 0.95);
-  --border-subtle:  rgba(20, 40, 70, 0.08);
-  --border-focus:   #4a3fcb;
-  --border-error:   #cf4140;
+  /* ── Letter-spacing aliases (Figma has no zero-tracking token) ──────── */
+  --letter-spacing-none:    0px;
+  --letter-spacing-display: 0px;
 
-  /* ── Radius ────────────────────────────────── */
+  /* ── Radius overrides (component-level design decisions) ─────── */
   --radius-pill: 9999px;
   --radius-2xl:  32px;
   --radius-xl:   24px;
@@ -65,47 +44,7 @@ svg {
   --radius-sm:   8px;
   --radius-xs:   4px;
 
-  /* ── Typography ────────────────────────────── */
-  --font-sans: 'Montserrat', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-
-  /* font sizes */
-  --font-size-xs:   11px;   /* label/xs  — Divider OR */
-  --font-size-sm:   13px;   /* label/sm  — helper text */
-  --font-size-label: 13.5px; /* label/md  — Input label */
-  --font-size-md:   14px;   /* body/sm   — Input text, Checkbox */
-  --font-size-base: 16px;   /* title/md  — Button */
-  --font-size-lg:   20px;
-  --font-size-xl:   24px;
-  --font-size-2xl:  28px;
-  --font-size-3xl:  32px;
-
-  /* font weights */
-  --font-weight-regular:  400;
-  --font-weight-medium:   500;
-  --font-weight-semibold: 600;
-  --font-weight-bold:     700;
-
-  /* line heights */
-  --line-height-xs:     1;      /* 100% — label/xs */
-  --line-height-sm:     20px;   /* body/sm */
-  --line-height-md:     24px;   /* title/md */
-  --line-height-tight:  1.2;
-  --line-height-normal: 1.5;
-
-  /* letter spacing */
-  --letter-spacing-none:  0px;
-  --letter-spacing-tight: -0.02em;
-  --letter-spacing-wide:  0.06em;
-
-  /* ── Shadows ───────────────────────────────── */
-  --shadow-button: 0px 8px 8px rgba(0, 0, 0, 0.25);
-  --shadow-focus:  0 0 0 4px rgba(74, 63, 203, 0.20);
-  --shadow-error:  0 0 0 4px rgba(207, 65, 64, 0.20);
-  --shadow-card:   0 40px 80px -30px rgba(20, 40, 80, 0.30),
-                   0 8px 28px -10px rgba(20, 40, 80, 0.18);
-
-  /* ── Spacing ───────────────────────────────── */
+  /* ── Spacing shortcuts ───────────────────────────────────────── */
   --space-1:  4px;
   --space-2:  8px;
   --space-3:  12px;
@@ -116,39 +55,31 @@ svg {
   --space-10: 40px;
   --space-12: 48px;
 
-  /* ── Semantic aliases (used in Worktime components) ── */
-  --surface: rgba(255, 255, 255, 0.62);   /* = surface-field-hover */
-  --border:  rgba(255, 255, 255, 0.70);   /* = border-default */
-  --text-on-accent: #ffffff;
-  --surface-overlay:        rgba(0, 0, 0, 0.06);
-  --surface-overlay-strong: rgba(0, 0, 0, 0.10);
+  /* ── Glassmorphic surfaces (app-specific, not in Figma) ──────── */
+  --surface-field:          rgba(255, 255, 255, 0.35);
+  --surface-field-hover:    rgba(255, 255, 255, 0.62);
+  --surface-field-focus:    rgba(255, 255, 255, 0.85);
+  --surface-faint:          rgba(255, 255, 255, 0.28);
+  --surface:                rgba(255, 255, 255, 0.62);
+  --glass-border:           rgba(255, 255, 255, 0.70);  /* white border on glass cards */
+  --surface-overlay:        rgba(0,   0,   0,   0.06);
+  --surface-overlay-strong: rgba(0,   0,   0,   0.10);
 
-  /* ── Status colours — bridged to tokens.figma.css ───────────────── */
-  --good:       var(--color-success-700,  #1c7246); /* success-700 = 4.5:1 on white */
-  --good-bg:    var(--surface-bg-success-subtle, rgba(34, 144, 87, 0.14));
-  --warn:       var(--color-warning-500,  #d28326);
-  --warn-bg:    var(--surface-bg-warning-subtle, rgba(210, 131, 38, 0.16));
-  --bad:        var(--color-danger-600,   #cf4040);
-  --locked:     var(--color-slate-600,    #4f565d);
-  --locked-bg:  var(--surface-bg-disabled, rgba(79, 86, 94, 0.10));
-  --accent-tint: rgba(74, 63,  203, 0.10);
-  --color-navy: #142846;
+  /* ── Border overrides ────────────────────────────────────────── */
+  /* tokens.figma.css sets --border-subtle: #eaf2f9 (a tint, not a border).
+     Components expect a translucent dark hairline — override locally. */
+  --border-subtle: rgba(20, 40, 70, 0.08);
+  --border-focus:  #4a3fcb;   /* brand accent — slightly darker than Figma's #5d59d8 */
+  --border-danger: #cf4140;   /* error border for inputs */
 
-  /* ── Display typography ───────────────────────── */
-  --font-size-display:   36px;
-  --font-weight-display: 700;
-  --line-height-display: 44px;
-  --letter-spacing-display: 0px;
+  /* ── App-specific shadows ────────────────────────────────────── */
+  --shadow-button: 0px 8px 8px rgba(0, 0, 0, 0.25);
+  --shadow-focus:  0 0 0 4px rgba(74, 63, 203, 0.20);
+  --shadow-error:  0 0 0 4px rgba(207, 65, 64, 0.20);
+  --shadow-card:   0 40px 80px -30px rgba(20, 40, 80, 0.30),
+                   0 8px 28px -10px rgba(20, 40, 80, 0.18);
 
-  /* ── Extra font sizes ────────────────────────── */
-  --font-size-stat-label: 12.5px;
-  --font-size-stat-delta: 12px;
-  --font-size-caption:    12px;
-
-  /* ── Extra line heights ──────────────────────── */
-  --line-height-xs: 16px;
-
-  /* ── Misc ──────────────────────────────────── */
+  /* ── Misc ────────────────────────────────────────────────────── */
+  --color-navy:     #142846;
   --color-bg-default: #e8f0f7;
-  --color-bg-surface: rgba(255,255,255,0.32);
 }

@@ -1,4 +1,4 @@
-/* IconBtn — Figma node 153:59 — 34×34 */
+﻿/* IconBtn — Figma node 153:59 — 34×34 */
 .btn {
   position: relative;
   width: 34px;
@@ -9,14 +9,14 @@
   background: transparent;
   display: grid;
   place-items: center;
-  color: var(--ink-2);
+  color: var(--text-subtle);
   cursor: pointer;
   transition: background 0.12s ease, border-color 0.12s ease;
   padding: 0;
 }
 .btn:hover {
   background: var(--surface);
-  border-color: var(--border);
+  border-color: var(--glass-border);
 }
 .btn:focus-visible {
   outline: 2px solid var(--border-focus);
@@ -31,7 +31,7 @@
   height: 14px;
   padding: 0 3px;
   border-radius: var(--radius-pill);
-  background: var(--bad);
+  background: var(--text-danger);
   color: #fff;
   font-family: var(--font-sans);
   font-size: 9px;

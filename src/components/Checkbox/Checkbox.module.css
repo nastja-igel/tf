@@ -1,4 +1,4 @@
-/* Checkbox — Figma node 109:30 */
+﻿/* Checkbox — Figma node 109:30 */
 .wrapper {
   display: inline-flex;
   align-items: center;
@@ -38,8 +38,8 @@
 
 /* Checked state */
 .input:checked + .box {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--surface-bg-accent);
+  border-color: var(--surface-bg-accent);
 }
 
 .box svg {
@@ -68,11 +68,11 @@
 /* Label — body/sm: 14px Medium */
 .label {
   font-family: var(--font-sans);
-  font-size: var(--font-size-md);         /* 14px */
+  font-size: var(--font-size-sm);         /* 14px */
   font-weight: var(--font-weight-medium); /* 500 */
   line-height: var(--line-height-sm);     /* 20px */
   letter-spacing: var(--letter-spacing-none);
-  color: var(--text-secondary);
+  color: var(--text-subtle);
   white-space: nowrap;
 }
 

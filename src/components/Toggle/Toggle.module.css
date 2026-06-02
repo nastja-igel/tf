@@ -1,11 +1,11 @@
-/* Toggle — Figma node 150:66 — pill container with switch + label */
+﻿/* Toggle — Figma node 150:66 — pill container with switch + label */
 .wrap {
   display: inline-flex;
   align-items: center;
   gap: 9px;
   padding: 8px 14px;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--border, rgba(255,255,255,.70));
+  border: 1px solid var(--glass-border);
   background: rgba(255,255,255,.55);
   cursor: pointer;
   user-select: none;
@@ -49,7 +49,7 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
-.input:checked + .thumb { background: var(--accent); }
+.input:checked + .thumb { background: var(--surface-bg-accent); }
 .input:checked + .thumb::after { transform: translateX(12px); }
 
 .input:focus-visible + .thumb {
@@ -60,10 +60,10 @@
 /* Label — body/sm */
 .label {
   font-family: var(--font-sans);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-sm);
   letter-spacing: var(--letter-spacing-none);
-  color: var(--ink-2);
+  color: var(--text-subtle);
   white-space: nowrap;
 }

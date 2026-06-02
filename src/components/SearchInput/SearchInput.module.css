@@ -1,4 +1,4 @@
-/* SearchInput — pill search field with optional ⌘K badge */
+﻿/* SearchInput — pill search field with optional ⌘K badge */
 .wrap {
   display: inline-flex;
   align-items: center;
@@ -6,9 +6,9 @@
   height: 36px;
   padding: 0 12px;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--border, rgba(20,40,70,.14));
+  border: 1px solid var(--border-subtle);
   background: rgba(255,255,255,.55);
-  color: var(--ink-3);
+  color: var(--text-muted);
   min-width: 200px;
   transition: background .15s, box-shadow .15s, border-color .15s;
 }
@@ -17,7 +17,7 @@
   background: rgba(255,255,255,.88);
   border-color: rgba(74,63,203,.3);
   box-shadow: 0 0 0 3px rgba(74,63,203,.12);
-  color: var(--ink-2);
+  color: var(--text-subtle);
 }
 
 .input {
@@ -28,12 +28,12 @@
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: var(--font-weight-regular);
-  color: var(--ink);
+  color: var(--text-default);
   min-width: 0;
 }
 
 .input::placeholder {
-  color: var(--ink-4);
+  color: var(--icon-muted);
 }
 
 .shortcut {
@@ -41,12 +41,12 @@
   align-items: center;
   padding: 2px 6px;
   border-radius: 5px;
-  border: 1px solid var(--border, rgba(20,40,70,.14));
+  border: 1px solid var(--border-subtle);
   background: rgba(255,255,255,.7);
   font-family: var(--font-sans);
   font-size: 10px;
   font-weight: var(--font-weight-medium);
-  color: var(--ink-3);
+  color: var(--text-muted);
   white-space: nowrap;
   flex-shrink: 0;
 }

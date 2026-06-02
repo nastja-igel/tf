@@ -1,4 +1,4 @@
-/* NavItem — Figma node 148:69 — 260×36 */
+﻿/* NavItem — Figma node 148:69 — 260×36 */
 .item {
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@
   height: 16px;
   display: grid;
   place-items: center;
-  color: var(--ink-2);
+  color: var(--text-subtle);
 }
 
 /* label/md default, label/md SemiBold active */
@@ -33,20 +33,20 @@
   flex: 1 0 0;
   min-width: 1px;
   font-family: var(--font-sans);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-sm);
-  color: var(--ink-2);
+  color: var(--text-subtle);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.active .icon { color: var(--ink); }
+.active .icon { color: var(--text-default); }
 .active .label {
   font-size: var(--font-size-label);
   font-weight: var(--font-weight-semibold);
-  color: var(--ink);
+  color: var(--text-default);
 }
 
 /* count badge */
@@ -54,16 +54,16 @@
   flex-shrink: 0;
   padding: 1px 8px;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border);
   background: var(--surface);
   font-family: var(--font-sans);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-xs);
-  color: var(--accent);
+  color: var(--text-accent);
   white-space: nowrap;
 }
 .badgeActive {
-  background: var(--ink);
+  background: var(--text-default);
   color: #fff;
 }

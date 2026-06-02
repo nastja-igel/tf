@@ -1,4 +1,4 @@
-/* TableHead — Figma — sticky table header row */
+﻿/* TableHead — Figma — sticky table header row */
 
 /* Visually hidden but readable by screen readers */
 .srOnly {
@@ -30,7 +30,7 @@
   font-size: 11px;
   font-weight: var(--font-weight-bold);
   letter-spacing: 0.08em;
-  color: var(--ink-3);
+  color: var(--text-muted);
   text-transform: uppercase;
   white-space: nowrap;
   overflow: hidden;
@@ -42,6 +42,6 @@
   user-select: none;
 }
 
-.sortable:hover { color: var(--ink); }
+.sortable:hover { color: var(--text-default); }
 .right  { justify-content: flex-end; }
 .center { justify-content: center; }

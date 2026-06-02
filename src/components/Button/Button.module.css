@@ -1,4 +1,4 @@
-/* Button — Figma node 100:21 */
+﻿/* Button — Figma node 100:21 */
 .button {
   display: inline-flex;
   align-items: center;
@@ -9,12 +9,12 @@
   border: none;
   border-radius: var(--radius-pill);
   font-family: var(--font-sans);
-  font-size: var(--font-size-base);   /* 16px */
+  font-size: var(--font-size-md);   /* 16px */
   font-weight: var(--font-weight-semibold); /* 600 */
   line-height: var(--line-height-md);       /* 24px */
   letter-spacing: var(--letter-spacing-none);
   color: var(--text-inverse);
-  background: var(--ink);
+  background: var(--text-default);
   filter: drop-shadow(var(--shadow-button));
   cursor: pointer;
   transition: background 0.12s ease, opacity 0.12s ease, transform 0.1s ease;
@@ -28,16 +28,16 @@
 }
 
 .button:hover:not(:disabled) {
-  background: var(--ink-2);
+  background: var(--text-subtle);
 }
 
 .button:active:not(:disabled) {
-  background: var(--ink-3);
+  background: var(--text-muted);
   transform: translateY(1px);
 }
 
 .button:disabled {
-  background: var(--ink);
+  background: var(--text-default);
   opacity: 0.40;
   cursor: not-allowed;
   filter: none;
@@ -51,7 +51,7 @@
 /* secondary — glassmorphic surface */
 .secondary {
   background: var(--surface-field);
-  color: var(--text-primary);
+  color: var(--text-default);
   border: 1px solid var(--border-default);
   filter: none;
 }
@@ -70,7 +70,7 @@
 /* ghost — transparent, text only */
 .ghost {
   background: transparent;
-  color: var(--text-primary);
+  color: var(--text-default);
   border: none;
   filter: none;
 }
@@ -89,7 +89,7 @@
 /* ── Sizes ─────────────────────────────────────────────────── */
 
 /* sizes */
-.sm { height: 36px; padding: 0 var(--space-4); font-size: var(--font-size-md); }
+.sm { height: 36px; padding: 0 var(--space-4); font-size: var(--font-size-sm); }
 .md { height: 46px; padding: 0 var(--space-5); }
 .lg { height: 54px; padding: 0 var(--space-6); }
 

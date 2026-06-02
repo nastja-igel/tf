@@ -1,4 +1,4 @@
-/* ── Stage ──────────────────────────────────────── */
+﻿/* ── Stage ──────────────────────────────────────── */
 .stage {
   position: relative;
   width: 100%;
@@ -74,7 +74,7 @@
   transform: translateX(-50%);
   width: 60px;
   height: 60px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-pill);
   background: #ffffff;
   border: 1px solid rgba(255,255,255,0.9);
   display: grid;
@@ -100,14 +100,14 @@
   font-weight: var(--font-weight-bold);
   letter-spacing: -0.02em;
   margin: 0 0 6px;
-  color: var(--text-primary);
+  color: var(--text-default);
   line-height: 1.2;
 }
 
 .subtitle {
   font-family: var(--font-sans);
   font-size: 14px;
-  color: var(--text-tertiary);
+  color: var(--text-muted);
   margin: 0;
   font-weight: var(--font-weight-regular);
 }
@@ -140,14 +140,14 @@
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: var(--font-weight-medium);
-  color: var(--text-secondary);
+  color: var(--text-subtle);
   text-decoration: underline;
   text-underline-offset: 3px;
   cursor: pointer;
 }
 
 .forgot:hover {
-  color: var(--text-primary);
+  color: var(--text-default);
 }
 
 /* ── Footer ────────────────────────────────────── */
@@ -156,11 +156,11 @@
   margin-top: 16px;
   font-family: var(--font-sans);
   font-size: 13px;
-  color: var(--text-tertiary);
+  color: var(--text-muted);
 }
 
 .footLink {
-  color: var(--text-primary);
+  color: var(--text-default);
   font-weight: var(--font-weight-bold);
   text-decoration: none;
   margin-left: 6px;
@@ -179,7 +179,7 @@
   transform: translateX(-50%);
   font-family: var(--font-sans);
   font-size: 11px;
-  color: var(--text-tertiary);
+  color: var(--text-muted);
   letter-spacing: 0.06em;
   display: flex;
   align-items: center;
@@ -192,8 +192,8 @@
 .dot {
   width: 5px;
   height: 5px;
-  border-radius: var(--radius-full);
-  background: var(--accent);
+  border-radius: var(--radius-pill);
+  background: var(--surface-bg-accent);
   flex-shrink: 0;
 }
 

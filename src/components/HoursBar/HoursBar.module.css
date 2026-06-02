@@ -1,4 +1,4 @@
-/* HoursBar — Figma node 152:133 */
+﻿/* HoursBar — Figma node 152:133 */
 .wrap {
   display: flex;
   align-items: center;
@@ -24,15 +24,15 @@
   border-radius: var(--radius-pill);
 }
 
-.normal { background: var(--accent); }
-.warn   { background: var(--warn); }
-.good   { background: var(--good); }
+.normal { background: var(--surface-bg-accent); }
+.warn   { background: var(--text-warning); }
+.good   { background: var(--text-success); }
 .empty  { background: transparent; }
 
 /* label — body/sm: 14px Medium */
 .label {
   font-family: var(--font-sans);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-sm);
   letter-spacing: var(--letter-spacing-none);
