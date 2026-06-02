@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 // â”€â”€ live token reader â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -48,7 +48,7 @@ function Specimen({
         <div style={{ fontSize: 11, fontFamily: 'JetBrains Mono, monospace', color: '#4a3fcb', fontWeight: 600, marginBottom: 4 }}>
           {variant}
         </div>
-        <div style={{ fontSize: 11, fontFamily: 'JetBrains Mono, monospace', color: '#80878f', lineHeight: 1.6 }}>
+        <div style={{ fontSize: 11, fontFamily: 'JetBrains Mono, monospace', color: '#575e66', lineHeight: 1.6 }}>
           {size} / {lh}<br />
           w{weight}<br />
           {mono ? 'mono' : family.split(',')[0]}

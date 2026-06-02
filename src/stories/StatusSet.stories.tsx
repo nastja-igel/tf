@@ -1,4 +1,4 @@
-﻿import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { StatusChip } from '../components/StatusChip/StatusChip'
 import type { StatusChipKind } from '../components/StatusChip/StatusChip'
 
@@ -75,7 +75,7 @@ function StatusSetPage() {
         marginBottom: 4,
       }}>
         {['Icon', 'Text', 'Description', 'When to show'].map(h => (
-          <div key={h} style={{ fontSize: 11, fontWeight: 600, color: '#80878f', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+          <div key={h} style={{ fontSize: 11, fontWeight: 600, color: '#575e66', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
             {h}
           </div>
         ))}
@@ -102,7 +102,7 @@ function StatusSetPage() {
               ['border', border],
             ].map(([role, token]) => (
               <div key={role} style={{ fontSize: 11, color: '#575e66', fontFamily: 'JetBrains Mono, monospace', marginBottom: 4 }}>
-                <span style={{ color: '#9da6ae' }}>{role}: </span>{token}
+                <span style={{ color: '#575e66' }}>{role}: </span>{token}
               </div>
             ))}
           </div>

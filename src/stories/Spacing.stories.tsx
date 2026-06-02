@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 function useToken(name: string) {
@@ -18,7 +18,7 @@ function SpacingRow({ token, description }: { token: string; label: string; desc
     <div style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '10px 0', borderBottom: '1px solid rgba(20,40,70,0.06)' }}>
       <div style={{ width: 140, flexShrink: 0 }}>
         <div style={{ fontSize: 11, fontFamily: 'JetBrains Mono, monospace', color: '#4a3fcb', fontWeight: 600 }}>{token}</div>
-        <div style={{ fontSize: 11, fontFamily: 'JetBrains Mono, monospace', color: '#80878f', marginTop: 2 }}>{value}</div>
+        <div style={{ fontSize: 11, fontFamily: 'JetBrains Mono, monospace', color: '#575e66', marginTop: 2 }}>{value}</div>
       </div>
       <div style={{
         width: Math.max(px, 2),
@@ -43,7 +43,7 @@ function RadiusRow({ token, label, description }: { token: string; label: string
     <div style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '10px 0', borderBottom: '1px solid rgba(20,40,70,0.06)' }}>
       <div style={{ width: 140, flexShrink: 0 }}>
         <div style={{ fontSize: 11, fontFamily: 'JetBrains Mono, monospace', color: '#4a3fcb', fontWeight: 600 }}>{token}</div>
-        <div style={{ fontSize: 11, fontFamily: 'JetBrains Mono, monospace', color: '#80878f', marginTop: 2 }}>{value}</div>
+        <div style={{ fontSize: 11, fontFamily: 'JetBrains Mono, monospace', color: '#575e66', marginTop: 2 }}>{value}</div>
       </div>
       <div style={{
         width: 56,

@@ -22,12 +22,12 @@ function ShadowCard({ token, label, description }: { token: string; label: strin
         alignItems: 'center',
         justifyContent: 'center',
       }}>
-        <span style={{ fontSize: 12, fontFamily: 'JetBrains Mono, monospace', color: '#80878f' }}>{token}</span>
+        <span style={{ fontSize: 12, fontFamily: 'JetBrains Mono, monospace', color: '#575e66' }}>{token}</span>
       </div>
       <div>
         <div style={{ fontSize: 13, fontWeight: 600, color: '#161616', marginBottom: 4 }}>{label}</div>
         <div style={{ fontSize: 12, color: '#575e66', lineHeight: 1.5, marginBottom: 6 }}>{description}</div>
-        <div style={{ fontSize: 10, fontFamily: 'JetBrains Mono, monospace', color: '#9da6ae', lineHeight: 1.4, wordBreak: 'break-all' }}>
+        <div style={{ fontSize: 11, fontFamily: 'JetBrains Mono, monospace', color: '#575e66', lineHeight: 1.4, wordBreak: 'break-all' }}>
           {value}
         </div>
       </div>
