@@ -1,23 +1,17 @@
 name: Accessibility Tests
 
 # ── Triggers ──────────────────────────────────────────────────────────────
-# Automatic: after every successful token export
+# Automatic: on every push to main (catches component + token changes)
 # Manual:    GitHub Actions UI  |  AI command "Проверь доступность"
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: ['Export Figma Tokens']
-    types: [completed]
+  push:
     branches: [main]
 
 jobs:
   a11y:
     name: Run a11y tests on all stories
     runs-on: ubuntu-latest
-    # If triggered by workflow_run, only run when the upstream job succeeded
-    if: >
-      github.event_name == 'workflow_dispatch' ||
-      github.event.workflow_run.conclusion == 'success'
 
     steps:
       - name: Checkout
