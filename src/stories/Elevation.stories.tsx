@@ -24,7 +24,7 @@ function ShadowCard({ token, label, description }: { token: string; label: strin
       }}>
         <span style={{ fontSize: 12, fontFamily: 'JetBrains Mono, monospace', color: '#575e66' }}>{token}</span>
       </div>
-      <div>
+      <div style={{ background: '#ffffff', borderRadius: 8, padding: '10px 12px' }}>
         <div style={{ fontSize: 13, fontWeight: 600, color: '#161616', marginBottom: 4 }}>{label}</div>
         <div style={{ fontSize: 12, color: '#575e66', lineHeight: 1.5, marginBottom: 6 }}>{description}</div>
         <div style={{ fontSize: 11, fontFamily: 'JetBrains Mono, monospace', color: '#575e66', lineHeight: 1.4, wordBreak: 'break-all' }}>

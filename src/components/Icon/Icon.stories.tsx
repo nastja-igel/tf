@@ -216,7 +216,7 @@ export const Colors: Story = {
       { label: 'ink-3',  color: 'var(--ink-3,  #575e66)' },
       { label: 'ink-4',  color: 'var(--ink-4,  #80878f)' },
       { label: 'accent', color: 'var(--accent, #4a3fcb)' },
-      { label: 'good',   color: 'var(--good,   #1a8a5a)' },
+      { label: 'good',   color: 'var(--text-success)' },
       { label: 'warn',   color: 'oklch(55% .15 60)'     },
       { label: 'bad',    color: 'var(--bad,    #c93535)' },
     ]
@@ -273,7 +273,7 @@ export const InContext: Story = {
       {/* Status icons */}
       <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
         {([
-          { name: 'Check',  color: 'var(--good, #1a8a5a)',  label: 'Approved' },
+          { name: 'Check',  color: 'var(--text-success)',  label: 'Approved' },
           { name: 'Alert',  color: 'oklch(55% .15 60)',      label: 'Warning'  },
           { name: 'X',      color: 'var(--bad, #c93535)',    label: 'Error'    },
           { name: 'Lock',   color: 'var(--ink-3, #575e66)', label: 'Locked'   },
