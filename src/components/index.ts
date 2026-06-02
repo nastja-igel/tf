@@ -1,3 +1,8 @@
+// ── Primitives ────────────────────────────────
+export { Icon } from './Icon/Icon'
+export type { IconProps, IconName, IconSize } from './Icon/Icon'
+export { ICON_SIZES, ALL_ICON_NAMES } from './Icon/Icon'
+
 // ── Login components ──────────────────────────
 export { Button } from './Button/Button'
 export type { ButtonProps, ButtonVariant, ButtonSize } from './Button/Button'

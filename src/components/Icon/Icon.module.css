@@ -1,0 +1,4 @@
+/* Icon — display:block is already applied globally via tokens.css reset */
+.icon {
+  flex-shrink: 0;
+}

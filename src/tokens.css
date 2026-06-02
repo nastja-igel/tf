@@ -17,6 +17,10 @@ html, body {
   min-height: 100%;
 }
 
+svg {
+  display: block; /* prevent inline baseline gap and sub-pixel shift */
+}
+
 :root {
 
   /* ── Brand ink ─────────────────────────────── */
