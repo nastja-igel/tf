@@ -6,10 +6,26 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:lib": "vite build --config vite.lib.config.ts",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "tokens": "node scripts/figma-tokens.mjs",
+    "test:a11y": "vitest run --project=storybook",
+    "test:visual": "playwright test --config playwright.visual.config.ts",
+    "test:visual:update": "playwright test --config playwright.visual.config.ts --update-snapshots"
   },
+  "main": "./lib/index.cjs",
+  "module": "./lib/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.cjs"
+    },
+    "./style.css": "./lib/style.css",
+    "./tokens.css": "./src/tokens.css"
+  },
+  "files": ["lib", "src/tokens.css", "src/tokens.figma.css"],
   "dependencies": {
     "jspdf": "^4.2.1",
     "react": "^18.3.1",

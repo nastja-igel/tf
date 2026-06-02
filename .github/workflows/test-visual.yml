@@ -1,0 +1,81 @@
+name: Visual Regression Tests
+
+# ── Triggers ──────────────────────────────────────────────────────────────
+# Manual:  GitHub Actions UI  |  AI command "Проверь визуал"
+# Auto:    PRs targeting main (optional — uncomment to enable)
+on:
+  workflow_dispatch:
+    inputs:
+      update_snapshots:
+        description: 'Update baseline snapshots?'
+        type: boolean
+        default: false
+  # pull_request:
+  #   branches: [main]
+
+jobs:
+  visual:
+    name: Screenshot & diff all stories
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright + system deps
+        run: npx playwright install chromium --with-deps
+
+      - name: Install serve (static server)
+        run: npm install -g serve
+
+      - name: Build Storybook
+        run: npx storybook build --output-dir storybook-static
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+
+      - name: Run visual tests (update mode)
+        if: inputs.update_snapshots == true
+        run: npx playwright test --config playwright.visual.config.ts --update-snapshots
+        env:
+          CI: 'true'
+
+      - name: Run visual tests (comparison mode)
+        if: inputs.update_snapshots != true
+        run: npx playwright test --config playwright.visual.config.ts
+        env:
+          CI: 'true'
+
+      - name: Upload snapshots (when updating baseline)
+        if: inputs.update_snapshots == true
+        uses: actions/upload-artifact@v4
+        with:
+          name: snapshots-updated-${{ github.run_number }}
+          path: tests/__snapshots__/
+          retention-days: 30
+
+      - name: Upload diff report (on failure)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-diff-${{ github.run_number }}
+          path: playwright-report/
+          retention-days: 14
+
+      # ── Commit updated snapshots back to the branch ─────────────────────
+      - name: Commit updated snapshots
+        if: inputs.update_snapshots == true
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tests/__snapshots__/
+          git diff --staged --quiet || git commit -m "test(visual): update baseline snapshots [skip ci]"
+          git push

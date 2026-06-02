@@ -1,0 +1,82 @@
+name: Publish npm Package
+
+# ── Triggers ──────────────────────────────────────────────────────────────
+# Manual:  GitHub Actions UI  |  AI command "Опубликуй версию 1.2.0"
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (e.g. 1.2.0)'
+        required: true
+      tag:
+        description: 'npm dist-tag'
+        type: choice
+        options: [latest, beta, next]
+        default: latest
+      dry_run:
+        description: 'Dry run (build & pack only, do not publish)'
+        type: boolean
+        default: false
+
+jobs:
+  publish:
+    name: Build library & publish to npm
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node (with npm registry auth)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type-check
+        run: npx tsc -p tsconfig.app.json --noEmit
+
+      - name: Set version
+        run: |
+          npm version ${{ inputs.version }} --no-git-tag-version --allow-same-version
+          echo "Publishing version $(node -p "require('./package.json').version")"
+
+      - name: Build library
+        run: npm run build:lib
+
+      - name: Pack & inspect (dry run)
+        run: npm pack --dry-run
+
+      - name: Publish to npm
+        if: inputs.dry_run != true
+        run: npm publish --access public --tag ${{ inputs.tag }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Tag & push git release
+        if: inputs.dry_run != true
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add package.json
+          git commit -m "chore(release): v${{ inputs.version }}" || true
+          git tag "v${{ inputs.version }}"
+          git push --follow-tags
+
+      - name: Summary
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            echo "## 🧪 Dry run complete" >> $GITHUB_STEP_SUMMARY
+            echo "Package built and inspected. Nothing was published." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "## ✅ Published mt-ds@${{ inputs.version }}" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**npm:** https://www.npmjs.com/package/mt-ds/v/${{ inputs.version }}" >> $GITHUB_STEP_SUMMARY
+            echo "**tag:** \`${{ inputs.tag }}\`" >> $GITHUB_STEP_SUMMARY
+          fi

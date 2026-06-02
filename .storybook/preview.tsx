@@ -11,10 +11,10 @@ const preview: Preview = {
     },
 
     a11y: {
-      // 'todo' - show a11y violations in the test UI only
-      // 'error' - fail CI on a11y violations
-      // 'off' - skip a11y checks entirely
-      test: 'todo'
+      // 'todo'  — show violations in the test UI only (default, local dev)
+      // 'error' — fail CI on violations (set VITE_A11Y_STRICT=true in CI)
+      // 'off'   — skip a11y checks entirely
+      test: import.meta.env.VITE_A11Y_STRICT === 'true' ? 'error' : 'todo',
     },
 
     options: {
