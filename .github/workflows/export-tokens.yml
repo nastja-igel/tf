@@ -2,60 +2,53 @@ name: Export Figma Tokens
 
 # ── How this works ────────────────────────────────────────────────────────
 #
-# Figma's Variables REST API requires an Enterprise plan.
-# Token export is done locally by Claude via the Figma Desktop Plugin API
-# (MCP connection) which works on any plan.
+# Calls Figma's Variables REST API (requires Figma Professional plan or higher),
+# generates src/tokens.figma.css, and commits + pushes if anything changed.
+# Pushing tokens.figma.css triggers deploy.yml → GitHub Pages + Storybook rebuild.
 #
-# Flow:
-#   1. "Обнови токены" →
-#   2. Claude calls get_variable_defs via Figma MCP →
-#   3. Claude writes src/tokens.figma.css, commits & pushes to main →
-#   4. deploy.yml triggers automatically (push to main) →
-#   5. This workflow triggers to run a11y tests on the updated tokens
+# Prerequisites (one-time setup):
+#   1. Go to https://www.figma.com/developers/api#access-tokens
+#      → create a Personal Access Token with "File content" read scope
+#   2. Add it as a GitHub secret:
+#      Repo → Settings → Secrets and variables → Actions → New secret
+#      Name: FIGMA_TOKEN
 #
 # ── Triggers ──────────────────────────────────────────────────────────────
 on:
-  workflow_dispatch:
-
-  # Also fire automatically whenever tokens.figma.css changes on main
-  push:
-    branches: [main]
-    paths:
-      - 'src/tokens.figma.css'
-      - 'src/tokens.css'
+  workflow_dispatch:   # manual trigger from GitHub Actions UI
 
 permissions:
-  contents: read
-  actions:  write   # to dispatch test-a11y
+  contents: write      # needed to commit + push tokens.figma.css
 
 jobs:
-  post-export:
-    name: Validate tokens & trigger a11y
+  export:
+    name: Fetch tokens from Figma and commit
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Validate tokens.figma.css
-        run: |
-          FILE="src/tokens.figma.css"
-          if [ ! -f "$FILE" ]; then
-            echo "❌ $FILE not found — push the file before triggering this workflow"
-            exit 1
-          fi
-          VARS=$(grep -c '^\s*--' "$FILE" || true)
-          echo "✅ $FILE exists — $VARS custom properties"
-          head -6 "$FILE"
-
-      - name: Trigger a11y tests
-        uses: actions/github-script@v7
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner:       context.repo.owner,
-              repo:        context.repo.repo,
-              workflow_id: 'test-a11y.yml',
-              ref:         'main',
-            })
-            console.log('✅ Triggered test-a11y.yml')
+          node-version: 20
+
+      - name: Export tokens from Figma
+        env:
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+          FIGMA_FILE: sVpDRrA1nRbENMMIcS3HqN
+        run: node .github/scripts/export-tokens.js
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet src/tokens.figma.css; then
+            echo "No token changes — nothing to commit."
+          else
+            git add src/tokens.figma.css
+            git commit -m "chore(tokens): sync Figma variables $(date -u +%Y-%m-%dT%H:%M) UTC"
+            git push
+            echo "Pushed updated tokens. Deploy workflow will trigger automatically."
+          fi
