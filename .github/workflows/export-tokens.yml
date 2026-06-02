@@ -35,7 +35,7 @@ jobs:
 
       - name: Run token export script
         env:
-          FIGMA_TOKEN:    ${{ secrets.FIGMA_TOKEN }}
+          FIGMA_TOKEN:    ${{ secrets.FIGMA }}
           FIGMA_FILE_KEY: ${{ inputs.file_key || 'QR1l96ckjmA9QeZyCVzTi2' }}
         run: node scripts/figma-tokens.mjs
 

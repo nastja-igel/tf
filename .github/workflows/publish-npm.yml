@@ -57,7 +57,7 @@ jobs:
         if: inputs.dry_run != true
         run: npm publish --access public --tag ${{ inputs.tag }}
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM }}
 
       - name: Tag & push git release
         if: inputs.dry_run != true
