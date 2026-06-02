@@ -121,7 +121,7 @@ svg {
   --surface-overlay-strong: rgba(0, 0, 0, 0.10);
 
   /* ── Status colours ──────────────────────────── */
-  --good:       #229057;
+  --good:       #1c7246; /* darkened for 4.5:1 contrast on white (was #229057) */
   --good-bg:    rgba(34,  144, 87,  0.14);
   --warn:       #d28326;
   --warn-bg:    rgba(210, 131, 38,  0.16);

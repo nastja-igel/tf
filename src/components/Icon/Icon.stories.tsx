@@ -359,20 +359,21 @@ export const Accessibility: Story = {
         </button>
       </div>
 
-      {/* Wrong — no label anywhere */}
+      {/* Wrong — no label anywhere (aria-hidden so axe skips the live demo) */}
       <div>
         <p style={{ margin: '0 0 6px', fontSize: 11, fontWeight: 600, color: 'var(--bad, #c93535)', textTransform: 'uppercase', letterSpacing: '.06em' }}>
           ❌ Wrong — icon-only button with no accessible label
         </p>
-        <button style={{
-          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-          width: 32, height: 32, borderRadius: '50%',
-          border: '1px solid rgba(20,40,70,.14)', background: 'rgba(255,255,255,.7)',
-          color: 'var(--ink-3)', cursor: 'pointer', opacity: .5,
-        }}>
-          {/* Missing aria-label on button, aria-hidden on icon — invisible to screen readers */}
-          <Icon name="X" size="sm" />
-        </button>
+        <div aria-hidden="true">
+          <button style={{
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            width: 32, height: 32, borderRadius: '50%',
+            border: '1px solid rgba(20,40,70,.14)', background: 'rgba(255,255,255,.7)',
+            color: 'var(--ink-3)', cursor: 'pointer', opacity: .5,
+          }}>
+            <Icon name="X" size="sm" />
+          </button>
+        </div>
       </div>
     </div>
   ),

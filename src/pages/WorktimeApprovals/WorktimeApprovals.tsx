@@ -682,7 +682,7 @@ export function WorktimeApprovals() {
                   <b style={{ color: 'var(--ink-2)' }}>{MONTHS[month]} 2026</b>
                 </p>
               </div>
-              <div className={styles.pillTabs}>
+              <div className={styles.pillTabs} role="tablist" aria-label="Filter timesheets">
                 {TABS.map(tb => (
                   <PillTab
                     key={tb.key}
@@ -765,7 +765,7 @@ export function WorktimeApprovals() {
             </div>
 
             {/* ── Table ── */}
-            <div className={styles.tblWrap}>
+            <div className={styles.tblWrap} role="table" aria-label="Worktime approvals">
               {/* Head */}
               <div className={styles.tblHead}>
                 <div />

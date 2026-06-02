@@ -2,14 +2,14 @@
 import { TableHead } from './TableHead'
 
 const COLS = [
-  { key: 'status',   label: ''         },
+  { key: 'status',   label: '',  srLabel: 'Status'  },
   { key: 'user',     label: 'Employee', sortable: true },
   { key: 'period',   label: 'Period'   },
   { key: 'vacations',label: 'Vac',     align: 'right' as const },
   { key: 'holidays', label: 'Hol',     align: 'right' as const },
   { key: 'sick',     label: 'Sick',    align: 'right' as const },
   { key: 'hours',    label: 'Hours',   sortable: true },
-  { key: 'actions',  label: ''         },
+  { key: 'actions',  label: '',  srLabel: 'Actions' },
 ]
 
 const meta: Meta<typeof TableHead> = {

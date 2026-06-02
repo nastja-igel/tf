@@ -3,6 +3,8 @@ import styles from './TableHead.module.css'
 export interface TableHeadColumn {
   key: string
   label: string
+  /** Screen-reader-only label for icon-only columns (e.g. 'Status', 'Actions') */
+  srLabel?: string
   sortable?: boolean
   align?: 'left' | 'center' | 'right'
 }
@@ -48,6 +50,9 @@ export function TableHead({ columns, sortKey, sortDir = 'asc', onSort, className
           onClick={col.sortable ? () => onSort?.(col.key) : undefined}
         >
           {col.label}
+          {!col.label && col.srLabel && (
+            <span className={styles.srOnly}>{col.srLabel}</span>
+          )}
           {col.sortable && (
             <SortIcon active={sortKey === col.key} dir={sortKey === col.key ? sortDir : 'asc'} />
           )}

@@ -32,8 +32,11 @@ Use together with **\`TableHead\`** and **\`TableFoot\`** to build the full work
   },
   decorators: [
     (Story) => (
-      <div style={{ background: 'var(--color-bg-default,#e8f0f7)', padding: 0 }}>
-        <Story />
+      <div role="table" aria-label="Worktime approvals"
+        style={{ background: 'var(--color-bg-default,#e8f0f7)', padding: 0 }}>
+        <div role="rowgroup">
+          <Story />
+        </div>
       </div>
     ),
   ],

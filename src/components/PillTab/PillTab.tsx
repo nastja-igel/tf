@@ -37,6 +37,7 @@ export function PillTab({
   return (
     <button
       type="button"
+      role="tab"
       aria-selected={active}
       className={[styles.tab, active ? styles.active : '', className ?? ''].join(' ').trim()}
       {...props}
