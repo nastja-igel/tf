@@ -42,6 +42,6 @@
   background: transparent;
 }
 .label.normal { color: var(--ink-2); }
-.label.warn   { color: var(--warn); }
+.label.warn   { color: #8d5617; } /* darkened: #d28326 is 2.6:1, #8d5617 ≈ 5.4:1 */
 .label.good   { color: var(--good); }
 .label.empty  { color: var(--ink-3); }

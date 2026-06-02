@@ -30,5 +30,5 @@
 /* Status variants */
 .open     { background: var(--accent-tint);  border-color: rgba(74,63,203,.22);   color: var(--accent); }
 .locked   { background: var(--locked-bg);    border-color: var(--border-subtle);  color: var(--locked); }
-.alert    { background: var(--warn-bg);      border-color: var(--warn);           color: var(--warn); }
+.alert    { background: var(--warn-bg);      border-color: var(--warn);           color: #8d5617; } /* darkened: #d28326 is 2.6:1 on warm bg */
 .approved { background: var(--good-bg);      border-color: var(--good);           color: var(--good); }

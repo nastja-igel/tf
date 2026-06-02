@@ -113,7 +113,7 @@
 }
 
 .zero { color: var(--ink-4); }
-.warn { color: var(--warn); }
+.warn { color: #8d5617; } /* darkened: #d28326 is 2.6:1 on page bg, #8d5617 ≈ 5.4:1 */
 
 .colHours {
   padding: 0 4px;

@@ -489,12 +489,12 @@ function TblRow({ row, month, selected, onSelect, onAction }: {
       onClick={() => onSelect(row.id)}
     >
       {/* Status */}
-      <div className={styles.rowStatus}>
+      <div role="cell" className={styles.rowStatus}>
         <StatusChip status={row.status} />
       </div>
 
       {/* User */}
-      <div className={styles.rowUser}>
+      <div role="cell" className={styles.rowUser}>
         <div className={styles.rowAv} style={{ background: row.avatarBg }}>{row.name.initials}</div>
         <div className={styles.rowNm}>
           <b>{row.name.full}</b>
@@ -503,32 +503,32 @@ function TblRow({ row, month, selected, onSelect, onAction }: {
       </div>
 
       {/* Period */}
-      <div className={[styles.rowMonth, styles.colPeriod].join(' ')}>
+      <div role="cell" className={[styles.rowMonth, styles.colPeriod].join(' ')}>
         {MONTHS[month]} <span className={styles.yr}>2026</span>
       </div>
 
       {/* Vacation */}
-      <div className={[styles.numCell, styles.colVac, row.vacations === 0 ? styles.numZero : ''].join(' ')}>
+      <div role="cell" className={[styles.numCell, styles.colVac, row.vacations === 0 ? styles.numZero : ''].join(' ')}>
         {row.vacations}
       </div>
 
       {/* Holiday */}
-      <div className={[styles.numCell, styles.colHol, row.holidays === 0 ? styles.numZero : ''].join(' ')}>
+      <div role="cell" className={[styles.numCell, styles.colHol, row.holidays === 0 ? styles.numZero : ''].join(' ')}>
         {row.holidays}
       </div>
 
       {/* Sick days */}
-      <div className={[styles.numCell, styles.colSick, row.sickDays === 0 ? styles.numZero : row.sickDays > 10 ? styles.numWarn : ''].join(' ')}>
+      <div role="cell" className={[styles.numCell, styles.colSick, row.sickDays === 0 ? styles.numZero : row.sickDays > 10 ? styles.numWarn : ''].join(' ')}>
         {row.sickDays}
       </div>
 
       {/* Hours */}
-      <div className={styles.hoursCell}>
+      <div role="cell" className={styles.hoursCell}>
         <HoursBar state={state} hours={fmtHours(row.hours)} fill={pct} />
       </div>
 
       {/* Actions */}
-      <div className={styles.rowActions} onClick={e => e.stopPropagation()}>
+      <div role="cell" className={styles.rowActions} onClick={e => e.stopPropagation()}>
         {row.status === 'Open' && <>
           <button className={styles.act} title="Lock" onClick={e => onAction(row.id, 'lock', e)}>
             <Ic d={IC.Lock} size={14} />

@@ -36,13 +36,12 @@
 
 .label { flex-shrink: 0; }
 
-/* count caption — 12px Medium, 60% opacity */
+/* count caption — 12px Medium, muted but WCAG-compliant */
 .count {
   font-size: var(--font-size-caption);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-xs);
-  color: var(--ink-3);
-  opacity: 0.60;
+  color: var(--ink-3); /* no opacity — ink-3 at 60% opacity blends to #9a9ea3 (2.69:1, fails WCAG) */
   flex-shrink: 0;
 }
 .active .count { color: #fff; }
