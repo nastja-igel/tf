@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 // ─────────────────────────────────────────────────────────────────
@@ -290,7 +290,7 @@ function useTokenValue(token: string) {
   return value
 }
 
-function Swatch({ token, label, description, bg = 'white' }: TokenEntry) {
+function Swatch({ token, description, bg = 'white' }: TokenEntry) {
   const value = useTokenValue(token)
 
   const swatchBg =
