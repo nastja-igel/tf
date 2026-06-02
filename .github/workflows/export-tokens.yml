@@ -34,6 +34,16 @@ jobs:
         with:
           node-version: 20
 
+      - name: Check plan requirement
+        run: |
+          echo "ℹ️  This workflow requires Figma Professional plan or higher."
+          echo "   Free plan users: use 'Обнови токены' via Claude + Figma MCP instead."
+          echo "   See .github/workflows/export-tokens.yml for details."
+          if [ -z "${{ secrets.FIGMA_TOKEN }}" ]; then
+            echo "❌  FIGMA_TOKEN secret is not set. Add it in Settings → Secrets → Actions."
+            exit 1
+          fi
+
       - name: Export tokens from Figma
         env:
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
