@@ -47,13 +47,14 @@ export function StatusChip({ status, variant = 'icon', className }: StatusChipPr
   const isText = variant === 'text'
   return (
     <div
+      role="img"
+      aria-label={`Status: ${status}`}
       className={[
         styles.chip,
         styles[status.toLowerCase()],
         isText ? styles.text : '',
         className ?? '',
       ].join(' ').trim()}
-      aria-label={`Status: ${status}`}
     >
       {icons[status]}
       {isText && <span className={styles.label}>{LABELS[status]}</span>}

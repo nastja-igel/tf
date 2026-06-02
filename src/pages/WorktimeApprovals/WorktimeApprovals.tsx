@@ -217,7 +217,7 @@ function Sidebar({ counts, collapsed, onCollapse }: {
 
       {/* Workspace nav */}
       <div className={styles.navSection}>WORKSPACE</div>
-      <nav className={styles.nav}>
+      <nav className={styles.nav} aria-label="Workspace">
         {navItems.map(it => (
           <NavItem
             key={it.key}
@@ -231,7 +231,7 @@ function Sidebar({ counts, collapsed, onCollapse }: {
 
       {/* Reports nav */}
       <div className={styles.navSection}>REPORTS</div>
-      <nav className={styles.nav}>
+      <nav className={styles.nav} aria-label="Reports">
         {reportItems.map(it => (
           <NavItem
             key={it.key}
@@ -810,7 +810,7 @@ export function WorktimeApprovals() {
               <div className={styles.tblFoot}>
                 <span>Showing <b style={{ color: 'var(--ink)' }}>{filtered.length}</b> of {rows.length} timesheets</span>
                 <div className={styles.pager}>
-                  <button className={styles.pg} onClick={() => setPage(p => Math.max(1, p - 1))}>
+                  <button className={styles.pg} onClick={() => setPage(p => Math.max(1, p - 1))} aria-label="Previous page">
                     <Ic d={IC.ChevLeft} size={11} />
                   </button>
                   {[1, 2, 3].map(p => (
@@ -820,7 +820,7 @@ export function WorktimeApprovals() {
                       onClick={() => setPage(p)}
                     >{p}</button>
                   ))}
-                  <button className={styles.pg} onClick={() => setPage(p => Math.min(3, p + 1))}>
+                  <button className={styles.pg} onClick={() => setPage(p => Math.min(3, p + 1))} aria-label="Next page">
                     <Ic d={IC.ChevRight} size={11} />
                   </button>
                 </div>
