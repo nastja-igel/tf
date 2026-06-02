@@ -6,7 +6,7 @@ name: Accessibility Tests
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [main, develop]
 
 jobs:
   a11y:
