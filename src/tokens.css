@@ -26,19 +26,21 @@ svg {
 
 :root {
 
-  /* ── Brand ink ─────────────────────────────── */
-  --ink:   #161616;
-  --ink-2: #373b40;
-  --ink-3: #575e66;
-  --ink-4: #80878f;
-  --accent: #4a3fcb;
+  /* ── Brand ink — bridged to tokens.figma.css (Figma semantic layer) ── */
+  /* When "Обнови токены" runs, tokens.figma.css updates and these         */
+  /* automatically reflect the new Figma values.                           */
+  --ink:   var(--text-default,   #161616);
+  --ink-2: var(--text-subtle,    #373b40);
+  --ink-3: var(--text-muted,     #575e66);
+  --ink-4: var(--color-slate-400,#80878f);
+  --accent: var(--surface-bg-accent, #4a3fcb);
 
-  /* ── Text ──────────────────────────────────── */
-  --text-primary:   #161616;
-  --text-secondary: #373b40;
-  --text-tertiary:  #575e66;
-  --text-disabled:  #6e757e;
-  --text-inverse:   #ffffff;
+  /* ── Text — same bridge ──────────────────────────────────────────────── */
+  --text-primary:   var(--text-default,  #161616);
+  --text-secondary: var(--text-subtle,   #373b40);
+  --text-tertiary:  var(--text-muted,    #575e66);
+  --text-disabled:  var(--text-disabled, #80878f);
+  --text-inverse:   var(--text-inverse,  #ffffff);
 
   /* ── Surfaces (glassmorphic) ───────────────── */
   --surface-field:       rgba(255, 255, 255, 0.35);
@@ -120,14 +122,14 @@ svg {
   --surface-overlay:        rgba(0, 0, 0, 0.06);
   --surface-overlay-strong: rgba(0, 0, 0, 0.10);
 
-  /* ── Status colours ──────────────────────────── */
-  --good:       #1c7246; /* darkened for 4.5:1 contrast on white (was #229057) */
-  --good-bg:    rgba(34,  144, 87,  0.14);
-  --warn:       #d28326;
-  --warn-bg:    rgba(210, 131, 38,  0.16);
-  --bad:        #cf4140;
-  --locked:     #4f565e;
-  --locked-bg:  rgba(79,  86,  94,  0.10);
+  /* ── Status colours — bridged to tokens.figma.css ───────────────── */
+  --good:       var(--color-success-700,  #1c7246); /* success-700 = 4.5:1 on white */
+  --good-bg:    var(--surface-bg-success-subtle, rgba(34, 144, 87, 0.14));
+  --warn:       var(--color-warning-500,  #d28326);
+  --warn-bg:    var(--surface-bg-warning-subtle, rgba(210, 131, 38, 0.16));
+  --bad:        var(--color-danger-600,   #cf4040);
+  --locked:     var(--color-slate-600,    #4f565d);
+  --locked-bg:  var(--surface-bg-disabled, rgba(79, 86, 94, 0.10));
   --accent-tint: rgba(74, 63,  203, 0.10);
   --color-navy: #142846;
 
