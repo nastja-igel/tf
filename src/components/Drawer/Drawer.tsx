@@ -101,7 +101,10 @@ export function Drawer({ row, onClose, onAction, static: isStatic = false, class
           <b className={styles.name}>{row.name.full}</b>
           <span className={styles.sub}>{row.subtitle ?? row.id}</span>
         </div>
-        <div className={[styles.chip, statusMeta[row.status].chipCls].join(' ')}>
+        <div
+          className={[styles.chip, statusMeta[row.status].chipCls].join(' ')}
+          aria-disabled={row.status === 'Locked' ? 'true' : undefined}
+        >
           {row.status === 'Open'     && <Ico d={IC.Unlock} size={12} />}
           {row.status === 'Alert'    && <Ico d={IC.Alert}  size={12} />}
           {row.status === 'Approved' && <Ico d={IC.Check}  size={12} />}

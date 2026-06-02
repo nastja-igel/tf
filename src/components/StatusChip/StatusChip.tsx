@@ -49,6 +49,7 @@ export function StatusChip({ status, variant = 'icon', className }: StatusChipPr
     <div
       role="img"
       aria-label={`Status: ${status}`}
+      aria-disabled={status === 'Locked' ? 'true' : undefined}
       className={[
         styles.chip,
         styles[status.toLowerCase()],

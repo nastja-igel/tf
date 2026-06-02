@@ -358,7 +358,7 @@ function Swatch({ token, description, bg = 'white' }: TokenEntry) {
           style={{
             fontSize: 11,
             fontFamily: '"JetBrains Mono", monospace',
-            color: '#80878f',
+            color: '#575e66',
             marginBottom: 6,
           }}
         >

@@ -74,9 +74,11 @@ svg                    { display: block; }
   /* ── Status color overrides — preserve current visual values ─────────
      jS_mt_ds uses brighter status shades; current app uses accessible
      dark shades from mt_ds. Override until jS_mt_ds is aligned.         */
-  --text-success: #1c7246;    /* jS_mt_ds: #229057 */
-  --text-warning: #a8671d;    /* jS_mt_ds: #d28326 */
-  --text-error:   #a83333;    /* jS_mt_ds: #cf4140 */
+  --text-success:  #1c7246;   /* jS_mt_ds: #229057 */
+  --text-warning:  #a8671d;   /* jS_mt_ds: #d28326 */
+  --text-error:    #a83333;   /* jS_mt_ds: #cf4140 */
+  --icon-success:  #1c7246;   /* jS_mt_ds: #229057 — 4.04:1 fails WCAG AA at small sizes */
+  --icon-warning:  #a8671d;   /* jS_mt_ds: #d28326 — 2.99:1 fails WCAG AA */
 
   /* Status bg: jS_mt_ds uses rgba tints; current app uses solid hex.    */
   --accent-2:   #eeedfb;      /* jS_mt_ds: rgba(74,63,203,0.1) */
