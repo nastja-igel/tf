@@ -13,7 +13,7 @@
   border-radius: var(--radius-pill);
   border: 1px solid var(--border-subtle);
   background: rgba(255,255,255,.55);
-  color: var(--text-subtle);
+  color: var(--text-secondary);
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: var(--font-weight-medium);
@@ -32,13 +32,13 @@
 }
 
 .label {
-  color: var(--text-muted);
+  color: var(--text-tertiary);
   font-weight: var(--font-weight-regular);
   font-size: 12px;
 }
 
 .value {
-  color: var(--text-default);
+  color: var(--text-primary);
   font-weight: var(--font-weight-semibold);
 }
 
@@ -64,7 +64,7 @@
   border-radius: var(--radius-pill);
   border: 1px solid transparent;
   background: transparent;
-  color: var(--text-subtle);
+  color: var(--text-secondary);
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: var(--font-weight-medium);
@@ -75,11 +75,11 @@
 
 .opt:hover:not(.optActive) {
   background: rgba(255,255,255,.9);
-  color: var(--text-default);
+  color: var(--text-primary);
 }
 
 .optActive {
-  background: var(--surface-bg-accent);
+  background: var(--accent);
   color: #fff;
   border-color: transparent;
 }

@@ -22,7 +22,7 @@
 
 .message {
   flex: 1;
-  color: var(--text-default);
+  color: var(--text-primary);
 }
 
 .dismiss {

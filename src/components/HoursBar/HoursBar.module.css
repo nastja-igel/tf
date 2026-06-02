@@ -24,7 +24,7 @@
   border-radius: var(--radius-pill);
 }
 
-.normal { background: var(--surface-bg-accent); }
+.normal { background: var(--accent); }
 .warn   { background: var(--text-warning); }
 .good   { background: var(--text-success); }
 .empty  { background: transparent; }
@@ -41,7 +41,7 @@
      bleeding their background colour onto this text element */
   background: transparent;
 }
-.label.normal { color: var(--text-default, #161616); }
-.label.warn   { color: var(--text-default, #161616); }
-.label.good   { color: var(--text-default, #161616); }
-.label.empty  { color: var(--text-muted,   #575e66); }
+.label.normal { color: var(--text-primary); }
+.label.warn   { color: var(--text-primary); }
+.label.good   { color: var(--text-primary); }
+.label.empty  { color: var(--text-tertiary); }

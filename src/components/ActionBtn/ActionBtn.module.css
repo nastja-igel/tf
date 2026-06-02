@@ -6,9 +6,9 @@
   height: 32px;
   flex-shrink: 0;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--border);
   background: rgba(255,255,255,.7);
-  color: var(--text-muted);
+  color: var(--text-tertiary);
   display: grid;
   place-items: center;
   cursor: pointer;
@@ -20,11 +20,11 @@
 
 .default:hover:not(:disabled) {
   background: rgba(255,255,255,.95);
-  color: var(--text-default);
+  color: var(--text-primary);
 }
 
 .primary:hover:not(:disabled) {
-  background: var(--surface-bg-accent);
-  border-color: var(--surface-bg-accent);
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
 }

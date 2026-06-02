@@ -25,7 +25,7 @@
   height: 16px;
   display: grid;
   place-items: center;
-  color: var(--text-subtle);
+  color: var(--text-secondary);
 }
 
 /* label/md default, label/md SemiBold active */
@@ -36,17 +36,17 @@
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-sm);
-  color: var(--text-subtle);
+  color: var(--text-secondary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.active .icon { color: var(--text-default); }
+.active .icon { color: var(--text-primary); }
 .active .label {
   font-size: var(--font-size-label);
   font-weight: var(--font-weight-semibold);
-  color: var(--text-default);
+  color: var(--text-primary);
 }
 
 /* count badge */
@@ -54,7 +54,7 @@
   flex-shrink: 0;
   padding: 1px 8px;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--border);
   background: var(--surface);
   font-family: var(--font-sans);
   font-size: var(--font-size-xs);
@@ -64,6 +64,6 @@
   white-space: nowrap;
 }
 .badgeActive {
-  background: var(--text-default);
+  background: var(--text-primary);
   color: #fff;
 }

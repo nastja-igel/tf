@@ -38,8 +38,8 @@
 
 /* Checked state */
 .input:checked + .box {
-  background: var(--surface-bg-accent);
-  border-color: var(--surface-bg-accent);
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .box svg {
@@ -72,7 +72,7 @@
   font-weight: var(--font-weight-medium); /* 500 */
   line-height: var(--line-height-sm);     /* 20px */
   letter-spacing: var(--letter-spacing-none);
-  color: var(--text-subtle);
+  color: var(--text-secondary);
   white-space: nowrap;
 }
 

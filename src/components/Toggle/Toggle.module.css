@@ -5,7 +5,7 @@
   gap: 9px;
   padding: 8px 14px;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--border);
   background: rgba(255,255,255,.55);
   cursor: pointer;
   user-select: none;
@@ -49,7 +49,7 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
-.input:checked + .thumb { background: var(--surface-bg-accent); }
+.input:checked + .thumb { background: var(--accent); }
 .input:checked + .thumb::after { transform: translateX(12px); }
 
 .input:focus-visible + .thumb {
@@ -64,6 +64,6 @@
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-sm);
   letter-spacing: var(--letter-spacing-none);
-  color: var(--text-subtle);
+  color: var(--text-secondary);
   white-space: nowrap;
 }

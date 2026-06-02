@@ -48,7 +48,7 @@
 }
 
 /* Colors */
-.color-primary  { color: var(--text-default); }
-.color-secondary { color: var(--text-subtle); }
+.color-primary  { color: var(--text-primary); }
+.color-secondary { color: var(--text-secondary); }
 .color-disabled  { color: var(--text-disabled); }
 .color-accent    { color: var(--text-accent); }

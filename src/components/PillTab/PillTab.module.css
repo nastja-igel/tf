@@ -12,7 +12,7 @@
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-sm);
   letter-spacing: var(--letter-spacing-none);
-  color: var(--text-subtle);
+  color: var(--text-secondary);
   cursor: pointer;
   transition: background 0.12s ease, color 0.12s ease;
   white-space: nowrap;
@@ -20,7 +20,7 @@
 .tab:hover:not(.active) { background: rgba(0,0,0,0.04); }
 
 .active {
-  background: var(--text-default);
+  background: var(--text-primary);
   color: #fff;
 }
 
@@ -29,7 +29,7 @@
   width: 6px;
   height: 6px;
   border-radius: var(--radius-pill);
-  background: var(--surface-bg-accent);
+  background: var(--accent);
   flex-shrink: 0;
 }
 .active .dot { background: #fff; }
@@ -41,7 +41,7 @@
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-xs);
-  color: var(--text-muted); /* no opacity — ink-3 at 60% opacity blends to #9a9ea3 (2.69:1, fails WCAG) */
+  color: var(--text-tertiary); /* no opacity — ink-3 at 60% opacity blends to #9a9ea3 (2.69:1, fails WCAG) */
   flex-shrink: 0;
 }
 .active .count { color: #fff; }

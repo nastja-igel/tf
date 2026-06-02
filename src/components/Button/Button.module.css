@@ -14,7 +14,7 @@
   line-height: var(--line-height-md);       /* 24px */
   letter-spacing: var(--letter-spacing-none);
   color: var(--text-inverse);
-  background: var(--text-default);
+  background: var(--text-primary);
   filter: drop-shadow(var(--shadow-button));
   cursor: pointer;
   transition: background 0.12s ease, opacity 0.12s ease, transform 0.1s ease;
@@ -28,16 +28,16 @@
 }
 
 .button:hover:not(:disabled) {
-  background: var(--text-subtle);
+  background: var(--text-secondary);
 }
 
 .button:active:not(:disabled) {
-  background: var(--text-muted);
+  background: var(--text-tertiary);
   transform: translateY(1px);
 }
 
 .button:disabled {
-  background: var(--text-default);
+  background: var(--text-primary);
   opacity: 0.40;
   cursor: not-allowed;
   filter: none;
@@ -51,7 +51,7 @@
 /* secondary — glassmorphic surface */
 .secondary {
   background: var(--surface-field);
-  color: var(--text-default);
+  color: var(--text-primary);
   border: 1px solid var(--border-default);
   filter: none;
 }
@@ -70,7 +70,7 @@
 /* ghost — transparent, text only */
 .ghost {
   background: transparent;
-  color: var(--text-default);
+  color: var(--text-primary);
   border: none;
   filter: none;
 }

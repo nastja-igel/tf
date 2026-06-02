@@ -16,7 +16,7 @@
   font-weight: var(--font-weight-bold);
   letter-spacing: .07em;
   text-transform: uppercase;
-  color: var(--text-muted); /* ink-4 #80878f fails 4.5:1 at 10px — use ink-3 */
+  color: var(--text-tertiary); /* ink-4 #80878f fails 4.5:1 at 10px — use ink-3 */
   text-align: center;
   padding: 4px 0;
 }

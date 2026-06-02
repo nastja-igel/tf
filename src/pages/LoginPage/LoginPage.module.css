@@ -100,14 +100,14 @@
   font-weight: var(--font-weight-bold);
   letter-spacing: -0.02em;
   margin: 0 0 6px;
-  color: var(--text-default);
+  color: var(--text-primary);
   line-height: 1.2;
 }
 
 .subtitle {
   font-family: var(--font-sans);
   font-size: 14px;
-  color: var(--text-muted);
+  color: var(--text-tertiary);
   margin: 0;
   font-weight: var(--font-weight-regular);
 }
@@ -140,14 +140,14 @@
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: var(--font-weight-medium);
-  color: var(--text-subtle);
+  color: var(--text-secondary);
   text-decoration: underline;
   text-underline-offset: 3px;
   cursor: pointer;
 }
 
 .forgot:hover {
-  color: var(--text-default);
+  color: var(--text-primary);
 }
 
 /* ── Footer ────────────────────────────────────── */
@@ -156,11 +156,11 @@
   margin-top: 16px;
   font-family: var(--font-sans);
   font-size: 13px;
-  color: var(--text-muted);
+  color: var(--text-tertiary);
 }
 
 .footLink {
-  color: var(--text-default);
+  color: var(--text-primary);
   font-weight: var(--font-weight-bold);
   text-decoration: none;
   margin-left: 6px;
@@ -179,7 +179,7 @@
   transform: translateX(-50%);
   font-family: var(--font-sans);
   font-size: 11px;
-  color: var(--text-muted);
+  color: var(--text-tertiary);
   letter-spacing: 0.06em;
   display: flex;
   align-items: center;
@@ -193,7 +193,7 @@
   width: 5px;
   height: 5px;
   border-radius: var(--radius-pill);
-  background: var(--surface-bg-accent);
+  background: var(--accent);
   flex-shrink: 0;
 }
 

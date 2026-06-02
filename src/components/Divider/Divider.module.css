@@ -22,7 +22,7 @@
   font-weight: var(--font-weight-semibold); /* 600 */
   line-height: var(--line-height-xs);     /* 100% */
   letter-spacing: var(--letter-spacing-none);
-  color: var(--text-muted);
+  color: var(--text-tertiary);
   white-space: nowrap;
   flex-shrink: 0;
 }
