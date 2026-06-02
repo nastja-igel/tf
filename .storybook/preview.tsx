@@ -17,6 +17,12 @@ const preview: Preview = {
       test: 'todo'
     },
 
+    options: {
+      storySort: {
+        order: ['Foundations', '*'],
+      },
+    },
+
     backgrounds: {
       default: 'light',
       values: [
