@@ -1,4 +1,5 @@
-﻿import type { Meta, StoryObj } from '@storybook/react'
+﻿import { createElement } from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { TableHead } from './TableHead'
 
 const COLS = [
@@ -16,6 +17,10 @@ const meta: Meta<typeof TableHead> = {
   title: 'Table/TableHead',
   component: TableHead,
   tags: ['autodocs'],
+  decorators: [
+    // role="row" requires a table ancestor — provide one for isolated stories
+    (Story) => createElement('div', { role: 'table', 'aria-label': 'Worktime approvals' }, createElement(Story)),
+  ],
   parameters: {
     layout: 'fullscreen',
     docs: {

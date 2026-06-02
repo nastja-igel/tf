@@ -40,7 +40,7 @@
 
 .weekend {
   background: transparent;
-  color: var(--ink-4);
+  color: var(--ink-3); /* darkened from ink-4 for 4.5:1 contrast */
 }
 
 .work {

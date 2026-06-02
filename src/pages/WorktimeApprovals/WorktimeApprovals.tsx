@@ -769,7 +769,7 @@ export function WorktimeApprovals() {
               {/* Head */}
               <div role="rowgroup">
                 <div className={styles.tblHead} role="row">
-                  <div role="columnheader" aria-label="Status" />
+                  <div role="columnheader"><span style={{position:'absolute',width:1,height:1,overflow:'hidden',clip:'rect(0,0,0,0)',whiteSpace:'nowrap'}}>Status</span></div>
                   <div
                     role="columnheader"
                     className={styles.sortable}
@@ -790,16 +790,17 @@ export function WorktimeApprovals() {
                     {sort.key === 'hours' && <Ic d={sort.dir === 'asc' ? IC.ArrowUp : IC.ArrowDn} size={11} style={{ color: 'var(--accent)' }} />}
                     <span>Hours</span>
                   </div>
-                  <div role="columnheader" aria-label="Actions" />
+                  <div role="columnheader"><span style={{position:'absolute',width:1,height:1,overflow:'hidden',clip:'rect(0,0,0,0)',whiteSpace:'nowrap'}}>Actions</span></div>
                 </div>
               </div>
 
               {/* Rows */}
+              <div role="rowgroup">
               {filtered.length === 0 ? (
-                <div className={styles.empty}>No timesheets match the current filter.</div>
-              ) : (
-                <div role="rowgroup">
-                {filtered.map(r => (
+                <div role="row">
+                  <div role="cell" className={styles.empty}>No timesheets match the current filter.</div>
+                </div>
+              ) : filtered.map(r => (
                   <TblRow
                     key={r.id + '-' + r.status}
                     row={r}
@@ -808,9 +809,8 @@ export function WorktimeApprovals() {
                     onSelect={id => setSelectedId(prev => prev === id ? null : id)}
                     onAction={onRowAction}
                   />
-                ))}
-                </div>
-              )}
+              ))}
+              </div>
 
               {/* Footer */}
               <div className={styles.tblFoot}>
