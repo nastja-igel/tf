@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { StatusChip } from '../components/StatusChip/StatusChip'
 import type { StatusChipKind } from '../components/StatusChip/StatusChip'
 
-// â”€â”€ data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── data ───────────────────────────────────────────────────────────
 const STATUSES: { kind: StatusChipKind; label: string; description: string; when: string }[] = [
   {
     kind: 'Open',
@@ -13,7 +13,7 @@ const STATUSES: { kind: StatusChipKind; label: string; description: string; when
   {
     kind: 'Alert',
     label: 'Alert',
-    description: 'Hours outside expected range â€” needs attention.',
+    description: 'Hours outside expected range — needs attention.',
     when: 'Worked hours differ significantly from target (under or over).',
   },
   {
@@ -25,12 +25,12 @@ const STATUSES: { kind: StatusChipKind; label: string; description: string; when
   {
     kind: 'Locked',
     label: 'Locked',
-    description: 'Record is locked â€” no further edits allowed.',
+    description: 'Record is locked — no further edits allowed.',
     when: 'Period closed or record exported. Read-only.',
   },
 ]
 
-// â”€â”€ row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── row ────────────────────────────────────────────────────────────
 function StatusRow({ kind, description, when }: typeof STATUSES[0]) {
   return (
     <div style={{
@@ -112,7 +112,7 @@ function StatusSetPage() {
   )
 }
 
-// â”€â”€ meta â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── meta ───────────────────────────────────────────────────────────
 const meta: Meta = {
   title: 'Patterns/Status',
   parameters: {
@@ -123,12 +123,12 @@ const meta: Meta = {
         component: `
 The four status values used across the worktime approvals system.
 
-\`Open â†’ Alert â†’ Approved | Locked\`
+\`Open → Alert → Approved | Locked\`
 
 ### Rules
 - Use **icon variant** in table rows (compact, always 32Ã—32).
 - Use **text variant** in drawers, detail panels, and anywhere a label adds clarity.
-- Never invent custom status values â€” all business states map to one of these four.
+- Never invent custom status values — all business states map to one of these four.
 - Status pairs: always use matching foreground/background tokens (never mix across statuses).
         `,
       },
