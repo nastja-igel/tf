@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
-// â”€â”€ live token reader â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── live token reader ──────────────────────────────────────────────
 function useToken(name: string) {
   const [v, setV] = useState('')
   useEffect(() => {
@@ -10,7 +10,7 @@ function useToken(name: string) {
   return v
 }
 
-// â”€â”€ single type specimen â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── single type specimen ───────────────────────────────────────────
 interface SpecimenProps {
   variant: string
   label?: string
@@ -69,7 +69,7 @@ function Specimen({
   )
 }
 
-// â”€â”€ palette â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── palette ────────────────────────────────────────────────────────
 function TypographyScale() {
   const SPECS: SpecimenProps[] = [
     {
@@ -167,7 +167,7 @@ function TypographyScale() {
       lineHeightVar: '--typography-body-sm-line-height',
       fontFamilyVar: '--typography-body-sm-font-family',
       tag: 'p',
-      sample: 'Last updated 2 hours ago Â· Engineering Â· Period: Mar 1â€“31',
+      sample: 'Last updated 2 hours ago · Engineering · Period: Mar 1—31',
     },
     {
       variant: 'caption',
@@ -177,7 +177,7 @@ function TypographyScale() {
       lineHeightVar: '--typography-caption-line-height',
       fontFamilyVar: '--typography-caption-font-family',
       tag: 'span',
-      sample: 'Employee ID Â· AS02007 Â· Department Â· Engineering',
+      sample: 'Employee ID · AS02007 · Department · Engineering',
     },
     {
       variant: 'code / md',
@@ -198,7 +198,7 @@ function TypographyScale() {
       lineHeightVar: '--typography-code-sm-line-height',
       fontFamilyVar: '--typography-code-sm-font-family',
       tag: 'code',
-      sample: 'idÂ·AS02007  statusÂ·approved  hrsÂ·176',
+      sample: 'id·AS02007  status·approved  hrs·176',
       mono: true,
     },
   ]
@@ -208,7 +208,7 @@ function TypographyScale() {
       <h1 style={{ fontSize: 28, fontWeight: 700, color: '#161616', marginBottom: 6 }}>Typography Scale</h1>
       <p style={{ fontSize: 14, color: '#575e66', marginBottom: 40, lineHeight: 1.6 }}>
         Values are live CSS variables from <code style={{ fontSize: 12, background: '#f1f4f7', padding: '1px 5px', borderRadius: 4 }}>tokens.figma.css</code>.
-        Use the <code style={{ fontSize: 12, background: '#f1f4f7', padding: '1px 5px', borderRadius: 4 }}>Text</code> component in React â€” never set font properties manually.
+        Use the <code style={{ fontSize: 12, background: '#f1f4f7', padding: '1px 5px', borderRadius: 4 }}>Text</code> component in React — never set font properties manually.
       </p>
       <div>
         {SPECS.map(s => <Specimen key={s.variant} {...s} />)}
@@ -217,7 +217,7 @@ function TypographyScale() {
   )
 }
 
-// â”€â”€ story â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── story ──────────────────────────────────────────────────────────
 const meta: Meta = {
   title: 'Foundations/Typography',
   parameters: {
@@ -229,12 +229,12 @@ const meta: Meta = {
 Full type scale for mt_ds. All styles come from the \`--typography-*\` semantic tokens.
 
 ### Rules
-- Use the **\`Text\`** component â€” it maps variant names to the right semantic token bundle.
-- Never set \`font-size\`, \`font-weight\`, or \`line-height\` inline â€” always reference a token.
-- Headings (\`h1\`â€“\`h4\`): page titles, section headers, card titles.
+- Use the **\`Text\`** component — it maps variant names to the right semantic token bundle.
+- Never set \`font-size\`, \`font-weight\`, or \`line-height\` inline — always reference a token.
+- Headings (\`h1\`—\`h4\`): page titles, section headers, card titles.
 - Body: primary paragraph text (\`md\`) and supporting copy (\`sm\`).
 - Caption: metadata, timestamps, helper labels under 12px.
-- Code: IDs, employee numbers, numeric codes â€” use \`JetBrains Mono\`.
+- Code: IDs, employee numbers, numeric codes — use \`JetBrains Mono\`.
         `,
       },
     },
