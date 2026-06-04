@@ -35,6 +35,12 @@ Thumbs.db
 
 # Claude Code local settings
 .claude/settings.local.json
+.claude/memory/
+.claude/projects/
+
+# CI logs
+ci-logs/
+ci-logs.zip
 
 # Design asset archives and Figma export bundles
 *.tar
