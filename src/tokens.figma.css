@@ -1,7 +1,7 @@
 /* ================================================================
    AUTO-GENERATED -- do not edit by hand.
    Source : Figma file sVpDRrA1nRbENMMIcS3HqN (jS_mt_ds)
-   Updated: 2026-06-18T04:00 UTC
+   Updated: 2026-06-18T05:00 UTC
    ================================================================ */
 
 :root {
@@ -178,6 +178,9 @@
   --border-error: #cf4140;
   --border-success: #229057;
   --border-warning: #d28326;
+
+  /* -- semantic: radius ----------------------------------------- */
+  --radius-full: 8px;
 
   /* -- semantic: ink / text / icon ------------------------------ */
   --ink: #4c2249;
