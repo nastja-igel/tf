@@ -125,6 +125,9 @@ svg                    { display: block; }
   --shadow-card:   0 40px 80px -30px rgba(20, 40, 80, 0.30),
                    0 8px 28px -10px rgba(20, 40, 80, 0.18);
 
+  /* ── App-specific surface tokens (not in Figma) ──────────────────── */
+  --surface-field-hover: rgba(255,255,255,0.62); /* removed from jS_mt_ds; kept for components */
+
   /* ── Misc ─────────────────────────────────────────────────────────── */
   --color-bg-default: #e8f0f7;
   --surface-overlay-strong: rgba(0, 0, 0, 0.10);
