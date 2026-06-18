@@ -7,7 +7,7 @@
   height: 54px;
   padding: 0 var(--space-6);
   border: none;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-full);
   font-family: var(--font-sans);
   font-size: var(--font-size-md);   /* 16px */
   font-weight: var(--font-weight-semibold); /* 600 */
