@@ -1,14 +1,14 @@
 /* ================================================================
    AUTO-GENERATED -- do not edit by hand.
    Source : Figma file sVpDRrA1nRbENMMIcS3HqN (jS_mt_ds)
-   Updated: 2026-06-19T00:00 UTC
+   Updated: 2026-06-19T01:00 UTC
    ================================================================ */
 
 :root {
 
   /* -- primitives.color ----------------------------------------- */
   --color-white: #ffffff;
-  --color-ink-900: #2d165d;
+  --color-ink-900: #161616;
   --color-ink-800: #373b40;
   --color-ink-600: #575e66;
   --color-ink-500: #80878f;
@@ -183,11 +183,11 @@
   --radius-full: 999px;
 
   /* -- semantic: ink / text / icon ------------------------------ */
-  --ink: #2d165d;
+  --ink: #161616;
   --ink-2: #373b40;
   --ink-3: #575e66;
   --ink-4: #80878f;
-  --text-primary: #2d165d;
+  --text-primary: #161616;
   --text-secondary: #373b40;
   --text-tertiary: #575e66;
   --text-disabled: #80878f;
@@ -197,7 +197,7 @@
   --text-success: #229057;
   --text-warning: #d28326;
   --text-error: #cf4140;
-  --icon-primary: #2d165d;
+  --icon-primary: #161616;
   --icon-secondary: #373b40;
   --icon-tertiary: #575e66;
   --icon-disabled: #80878f;
