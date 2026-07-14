@@ -26,16 +26,79 @@ Branch naming:
 
 ## Token sync (Обнови токены / "update tokens" / "update and merge")
 
+The token collection structure is: **Primitives** (single "Value" mode) and **Semantic**
+(modes "Light"/"Dark" — only "Light" is exported to CSS; there is no dark-mode CSS block).
+
 When the user says **"Обнови токены"**, **"update tokens"**, or **"update tokens and merge"**:
-1. Fetch all variables from Figma file `sVpDRrA1nRbENMMIcS3HqN` via `mcp__claude_ai_Figma__use_figma` (Plugin API)
-2. Diff against current `src/tokens.figma.css` and apply changes
-3. If on a feature branch — commit to that branch
-4. If on `main` — create `chore/tokens-YYYY-MM-DD` branch, commit, push, open PR
+
+1. **Start from a clean base — never reuse an old local chore branch:**
+   ```bash
+   git fetch origin main
+   ```
+   Check for other open PRs touching `src/tokens.figma.css` first (`GET /repos/nastja-igel/tf/pulls?state=open`,
+   then check each PR's changed files) — if one exists, that's a parallel sync in flight; coordinate
+   instead of branching blind. Otherwise branch fresh: `git checkout -b chore/tokens-YYYY-MM-DD refs/remotes/origin/main`.
+
+2. **Fetch + resolve all tokens in a single `use_figma` call** (avoids the multi-round-trip
+   JSON-eyeballing and manual RGB→hex math that slowed this down previously). Formats colors/numbers
+   inline so the result is ready to diff directly against the CSS file:
+   ```js
+   const collections = await figma.variables.getLocalVariableCollectionsAsync();
+   const primitivesCol = collections.find(c => c.name === 'Primitives');
+   const semanticCol = collections.find(c => c.name === 'Semantic');
+   const valueModeId = primitivesCol.modes[0].modeId;
+   const lightModeId = semanticCol.modes.find(m => m.name === 'Light').modeId;
+
+   function fmtColor(c) {
+     const hex = n => Math.round(n * 255).toString(16).padStart(2, '0');
+     const a = c.a === undefined ? 1 : c.a;
+     if (a >= 1) return '#' + hex(c.r) + hex(c.g) + hex(c.b);
+     const rgb = n => Math.round(n * 255);
+     return `rgba(${rgb(c.r)},${rgb(c.g)},${rgb(c.b)},${Math.round(a * 1000) / 1000})`;
+   }
+   const fmtNum = n => Math.round(n * 1000) / 1000;
+
+   async function resolve(id, modeId, depth = 0) {
+     if (depth > 12) return null;
+     const v = await figma.variables.getVariableByIdAsync(id);
+     let val = v.valuesByMode[modeId];
+     if (val === undefined) val = Object.values(v.valuesByMode)[0];
+     if (val && typeof val === 'object' && val.type === 'VARIABLE_ALIAS') {
+       return resolve(val.id, modeId, depth + 1);
+     }
+     return { value: val, type: v.resolvedType };
+   }
+
+   const primVars = await Promise.all(primitivesCol.variableIds.map(id => figma.variables.getVariableByIdAsync(id)));
+   const primitives = {};
+   for (const v of primVars) {
+     // primitives can alias other primitives (e.g. radius/sm -> dimension/size/8) — must resolve, not read raw
+     const r = await resolve(v.id, valueModeId);
+     primitives[v.name] = r.type === 'COLOR' ? fmtColor(r.value) : r.type === 'FLOAT' ? fmtNum(r.value) : r.value;
+   }
+
+   const semVars = await Promise.all(semanticCol.variableIds.map(id => figma.variables.getVariableByIdAsync(id)));
+   const semantic = {};
+   for (const v of semVars) {
+     const r = await resolve(v.id, lightModeId);
+     semantic[v.name] = r.type === 'COLOR' ? fmtColor(r.value) : r.type === 'FLOAT' ? fmtNum(r.value) : r.value;
+   }
+
+   return { primitives, semantic };
+   ```
+3. Diff the returned values against `src/tokens.figma.css` (name mapping is `color/x/y` → `--color-x-y`,
+   `dimension/size/N` → `--dimension-size-N`, etc.) and edit only the lines that actually changed —
+   most syncs touch 1–4 lines, not the whole file. Bump the `Updated:` header timestamp.
+4. Commit to the fresh branch, push, open a PR targeting `main`.
 
 When the user says **"update and merge"** or **"update tokens and merge"**, do the full cycle:
 1. Steps 1–4 above
 2. **Merge the PR** via GitHub API (`PATCH /repos/nastja-igel/tf/pulls/:number/merge`, `merge_method: squash`)
 3. Storybook and GitHub Pages rebuild automatically on merge to `main` via CI
+
+**Note:** this repo has stray local refs (a local branch literally named `origin/main`, alongside the
+real `refs/remotes/origin/main`) that make `origin/main` an ambiguous ref in some git commands. Always
+disambiguate with the explicit `refs/remotes/origin/main` form when scripting against main's tip.
 
 ## Key files
 
