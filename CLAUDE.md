@@ -43,6 +43,7 @@ When the user says **"Обнови токены"**, **"update tokens"**, or **"u
    JSON-eyeballing and manual RGB→hex math that slowed this down previously). Formats colors/numbers
    inline so the result is ready to diff directly against the CSS file:
    ```js
+   const _ts = Date.now(); void _ts; // cache-buster — keeps every call unique so MCP never returns a stale cached result
    const collections = await figma.variables.getLocalVariableCollectionsAsync();
    const primitivesCol = collections.find(c => c.name === 'Primitives');
    const semanticCol = collections.find(c => c.name === 'Semantic');
